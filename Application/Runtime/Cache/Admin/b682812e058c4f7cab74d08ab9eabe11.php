@@ -61,7 +61,7 @@
 				<ul class="cl">
 					<li>超级管理员</li>
 					<li class="dropDown dropDown_hover">
-						<a href="#" class="dropDown_A">admin <i class="Hui-iconfont">&#xe6d5;</i></a>
+						<a href="#" class="dropDown_A"><?php echo ($administrator); ?><i class="Hui-iconfont">&#xe6d5;</i></a>
 						<ul class="dropDown-menu menu radius box-shadow">
 							<li><a href="javascript:;" onClick="myselfinfo()">个人信息</a></li>
 							<li><a href="<?php echo U('/Admin/Login/index');?>">切换账户</a></li>
@@ -102,7 +102,7 @@
 			<dt><i class="Hui-iconfont">&#xe613;</i> 图片管理<i class="Hui-iconfont menu_dropdown-arrow">&#xe6d5;</i></dt>
 			<dd>
 				<ul>
-					<li><a data-href="<?php echo U('Admin/welcome');?>" data-title="图片管理" href="javascript:void(0)">图片管理</a></li>
+					<li><a data-href="<?php echo U('Admin/admin_password_edit');?>" data-title="图片管理" href="javascript:void(0)">图片管理</a></li>
 				</ul>
 			</dd>
 		</dl>

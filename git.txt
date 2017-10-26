@@ -1,0 +1,28 @@
+﻿git设置用户名密码
+
+设置git用户名／邮箱
+
+git config --global user.name 'ybring'
+git config --global user.email '664621217@qq.com'
+
+
+git init
+
+
+
+git add -A
+git commit -am '添加新功能了'
+git push git@github.com:ybring/take-out master
+
+
+生成公钥
+ssh-keygen
+
+
+
+// 获取最新
+git clone git@github.com:ybring/take-out master
+
+// 更新代码
+git pull git@github.com:ybring/take-out master
+
