@@ -66,7 +66,7 @@ class LoginController extends Controller {
                 if(password_verify($password, $user_info['password']))
                 {
                         //此处说明用户名和密码都正确
-                        session("user_info",$user_info);//将用户信息放入session
+                        session("user_info",$user_info['username']);//将用户信息放入session
                         $this->success("登录成功！",U('/Admin/Admin/index'));exit;     
                 }
                     //告知用户名 密码错误
