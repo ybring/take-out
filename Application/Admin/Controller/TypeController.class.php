@@ -3,6 +3,7 @@ namespace Admin\Controller;
 use Think\Controller;
 class AdminController extends BaseController {
 
+
 	 function _initialize()
     {
         parent::_initialize();//先走父类构造方法 判断是否已经登录
@@ -10,6 +11,8 @@ class AdminController extends BaseController {
         $administrator = session('user_info');
         $this -> administrator =$administrator;
     }
+
+
 	public function index(){
 			$this->display();
 		}
