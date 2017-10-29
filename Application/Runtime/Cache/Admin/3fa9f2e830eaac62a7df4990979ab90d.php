@@ -36,8 +36,8 @@
 <body>
 <div class="page-container">
 	<p class="f-20 text-success">欢迎使用H-ui.admin <span class="f-14">v3.1</span>后台模版！</p>
-	<p>登录次数：18 </p>
-	<p>上次登录IP：222.35.131.79.1  上次登录时间：2014-6-14 11:19:55</p>
+	<p>登录次数：<?php echo ($adminInfo["login_count"]); ?> </p>
+	<p>上次登录IP：<?php echo ($adminInfo["ip"]); ?> 	&nbsp;&nbsp;&nbsp;&nbsp;	上次登录时间：<?php echo ($adminInfo["lasttime"]); ?></p>
 	<table class="table table-border table-bordered table-bg">
 		<thead>
 			<tr>

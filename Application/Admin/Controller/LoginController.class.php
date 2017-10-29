@@ -49,14 +49,13 @@ class LoginController extends Controller {
             //  $this->success("验证成功!");
                 //验证用户名和密码
                 $map['username']=$username;//根据用户名称作为条件
-             //   dump($username);
+             //   dump($username); id 5
                 $user_info=$this->admin_user->where($map)->find();//查询用户的数据
-               // dump($user_info,$password);
                 if(!$user_info)
                 {
                    // $this->error("用户名不存在！");
                     session("user_info",null);
-                    $this->error("账号密码错误！请重新输入！",U('index'));
+                    $this->error("账号密码错误！请重新输入！",U('index'),1);
                     exit();
                 }
                     //说明用户名已经有了
@@ -66,15 +65,24 @@ class LoginController extends Controller {
                 if(password_verify($password, $user_info['password']))
                 {
                         //此处说明用户名和密码都正确
-                        session("user_info",$user_info['username']);//将用户信息放入session
+                        session("user_info",$user_info['username']);
+                        session("admin_id",$user_info['id']);
+
+                        //将用户信息放入session
+                        $newtime=date('Y-m-d H:i:s',time());
+                        $data['lasttime'] =$user_info['newtime'];
+                        $data['newtime']=$newtime;
+                        $data['ip'] = get_client_ip();
+                        $data['login_count'] = ['exp','login_count+1'];// 用户的积分加
+                        $this->admin_user->where(array('id'=>$user_info['id']))->save($data);
+                    
+
                         $this->success("登录成功！",U('/Admin/Admin/index'));exit;     
                 }
                     //告知用户名 密码错误
                     // $this->error("密码错误！");
                     session("user_info",null);
-                    $this->error("账号密码错误！请重新输入！",U('index'));exit;
-                    
-
+                    $this->error("账号密码错误！请重新输入！",U('index'),1);exit;
             }
             else
             {
@@ -82,7 +90,7 @@ class LoginController extends Controller {
                session('oldusername',$username);
                session('oldpassword',$password);
               //  $this->redirect('index', 5, '验证码错误！请重新输入！');
-                $this->error("验证码错误！请重新输入！",U('index'));exit;
+                $this->error("验证码错误！请重新输入！",U('index'),1);exit;
             }
             
         

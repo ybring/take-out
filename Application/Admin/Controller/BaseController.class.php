@@ -16,7 +16,7 @@ class BaseController extends Controller {
         $user_info=session("user_info");//从session取出用户信息
         if(empty($user_info))
         {
-            $this->error("您还没有登录，请先登录后操作！",U("/Admin/Login/index"));//跳转到登录页面
+            $this->error("您还没有登录，请先登录后操作！",U("/Admin/Login/index"),2);//跳转到登录页面
         }
     }
 
