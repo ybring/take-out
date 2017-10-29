@@ -8,8 +8,6 @@ class TypeController extends BaseController {
     {
         parent::_initialize();//先走父类构造方法 判断是否已经登录
         //$this->config_model=D('Config');//实例化模型
-        $administrator = session('user_info');
-        $this -> administrator =$administrator;
         $this ->type=D('type');
     }
      /*
@@ -69,6 +67,16 @@ class TypeController extends BaseController {
             echo json_encode(['msg' => '修改失败']);
         }
         
+    }
+    public function type_del(){
+        $type_id=I('post.type_id');
+        $data =['msg'=>'删除失败', 'code'=>1];
+        $res=$this->type->delete($type_id);
+        if($res){
+            $data['msg'] ='删除成功';
+            $data['code'] =0;
+        }
+        $this->ajaxReturn($data);
     }
     
         

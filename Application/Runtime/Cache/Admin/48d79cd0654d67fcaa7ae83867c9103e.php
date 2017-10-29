@@ -32,10 +32,10 @@
 			<input type="text" class="input-text" value="" placeholder="" id="type_name" name="type_name">
 		</div>
 	</div>
-
-	<div class="row cl">
-		<div class="col-xs-8 col-sm-9 col-xs-offset-4 col-sm-offset-3">
-			<input name="btn" id="btn" class="btn btn-primary radius" value="&nbsp;&nbsp;提交&nbsp;&nbsp;">
+<div class="row cl"></div>
+	<div  class="row cl">
+		<div style="padding: 20px;"  class="col-xs-8 col-sm-9 col-xs-offset-4 col-sm-offset-3">
+			<input  name="btn" id="btn" type="submit" class="btn btn-primary radius" value="&nbsp;&nbsp;提交&nbsp;&nbsp;">
 		</div>
 	</div>
 
@@ -56,6 +56,15 @@
 $('#btn').click(function(){
 	var type_name = $('input[name=type_name]').val();
 	var data ={'type_name':type_name};
+	if(!type_name){
+		layer.msg("内容为空，已取消！");
+			setTimeout(function(){
+			var index = parent.layer.getFrameIndex(window.name);
+			parent.$('.btn-refresh').click();
+			parent.layer.close(index);
+		}, 1000);
+		parent.location.reload();
+	}
 
 	$.post('type_add_cp_in',data,function(data){
 		layer.msg(data.msg);

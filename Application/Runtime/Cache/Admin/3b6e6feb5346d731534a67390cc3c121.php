@@ -26,7 +26,7 @@
 <body>
 <div class="page-container">
 	
-	<div class="cl pd-5 bg-1 bk-gray mt-20"> <span class="l"> <a href="javascript:;" onclick="type_add_cp('添加买卖分类','type_add_cp','800','500')" class="btn btn-primary radius"><i class="Hui-iconfont">&#xe600;</i> 添加外卖分类</a></span></div>
+	<div class="cl pd-5 bg-1 bk-gray mt-20"> <span class="l"> <a href="javascript:;" onclick="type_add_cp('添加买卖分类','type_add_cp','1','800','500')" class="btn btn-primary radius"><i class="Hui-iconfont">&#xe600;</i> 添加外卖分类</a></span></div>
 	<table class="table table-border table-bordered table-bg">
 		<thead>
 			<tr class="text-c">
@@ -45,7 +45,7 @@
 					<a title="编辑" href="javascript:;" onclick="type_edit('分类编辑','type_edit?type_id=<?php echo ($vo["type_id"]); ?>','1','800','500')" class="ml-5" style="text-decoration:none">
 							<i class="Hui-iconfont">&#xe6df;</i>
 						</a> 
-					<a title="删除" href="javascript:;" onclick="admin_del(this,'1')" class="ml-5" style="text-decoration:none">
+					<a title="删除" href="javascript:;" onclick="type_del(this,<?php echo ($vo["type_id"]); ?>)" class="ml-5" style="text-decoration:none">
 						<i class="Hui-iconfont">&#xe6e2;</i>
 					</a>
 					</td>
@@ -81,15 +81,20 @@ function type_add_cp(title,url,w,h){
 
 
 /*管理员-删除*/
-function admin_del(obj,id){
+function type_del(obj,id){
 	layer.confirm('确认要删除吗？',function(index){
 		$.ajax({
 			type: 'POST',
-			url: '',
+			url: 'type_del',
+			data:{'type_id':id},
 			dataType: 'json',
 			success: function(data){
-				$(obj).parents("tr").remove();
-				layer.msg('已删除!',{icon:1,time:1000});
+				
+				if (data.code == 0) {
+					$(obj).parents("tr").remove();
+				}
+				layer.msg(data.msg,{icon:1,time:1000});
+
 			},
 			error:function(data) {
 				console.log(data.msg);

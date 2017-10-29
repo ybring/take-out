@@ -54,7 +54,7 @@ class LoginController extends Controller {
                 if(!$user_info)
                 {
                    // $this->error("用户名不存在！");
-                    session("user_info",null);
+                    session("admin_id",null);
                     $this->error("账号密码错误！请重新输入！",U('index'),1);
                     exit();
                 }
@@ -65,7 +65,7 @@ class LoginController extends Controller {
                 if(password_verify($password, $user_info['password']))
                 {
                         //此处说明用户名和密码都正确
-                        session("user_info",$user_info['username']);
+                        
                         session("admin_id",$user_info['id']);
 
                         //将用户信息放入session
@@ -81,7 +81,7 @@ class LoginController extends Controller {
                 }
                     //告知用户名 密码错误
                     // $this->error("密码错误！");
-                    session("user_info",null);
+                    session("admin_id",null);
                     $this->error("账号密码错误！请重新输入！",U('index'),1);exit;
             }
             else
@@ -100,7 +100,7 @@ class LoginController extends Controller {
      * **/
     public function login_out()
     {
-        session("user_info",null);//session清空
+        session("admin_id",null);//session清空
         session_destroy();
         $this->success("退出成功！",U('/Admin/Login/index'));//退出到登录页面
     }
@@ -116,7 +116,7 @@ class LoginController extends Controller {
      **/
     public function change_password_in()
     {
-        $username =session('user_info'); //接收保存的对象
+        $admin_id =session('admin_id'); //接收保存的对象
         $oldpassword=I('post.oldpassword');//接收密码
         $newpassword=I('post.newpassword');
         $new_password=I('post.new_password');
@@ -131,8 +131,8 @@ class LoginController extends Controller {
         $res = $verify->check($code, $id); 
         if($res)
         {
-            $map['username']=$username['username'];//根据用户名称作为条件
-            $user_info=$this->admin_user->where($map)->find();//查询用户的数据
+            
+            $user_info=$this->admin_user->find($admin_id);//查询用户的数据
             if(!$user_info)
             {
                 $this->error("账号密码为空！请重新输入！",U('index'));
@@ -146,7 +146,7 @@ class LoginController extends Controller {
                     //此处说明原密码和数据库密码一样
                     $data['password'] =password_hash($newpassword, PASSWORD_DEFAULT );
                    // dump($data);
-                    $this->admin_user->where($map)->save($data);
+                    $this->admin_user->where($)->save($data);
                     $this->success("修改密码成功！，请重新登录！",U('index')); 
             }else{
                  $this->error("密码错误！请重新输入！",U('change_password'));exit;   
