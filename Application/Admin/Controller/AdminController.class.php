@@ -7,7 +7,8 @@ class AdminController extends BaseController {
     {
         parent::_initialize();//先走父类构造方法 判断是否已经登录
         //$this->config_model=D('Config');//实例化模型
-        $this->administrator = session('user_info');
+        $this->administrator = session('admin_name');
+       
         $this->admin=D('admin');
     }
 	public function index(){
@@ -24,4 +25,5 @@ class AdminController extends BaseController {
 	public function memberlist(){
 		$this->display();
 	}
+	
 }

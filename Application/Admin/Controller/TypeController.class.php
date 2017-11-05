@@ -15,6 +15,7 @@ class TypeController extends BaseController {
      */
 	public function index(){
             $list=$this->type ->order('type_id')->select();
+            
             $this->assign('list',$list);
 			$this-> display();
 	}
@@ -49,7 +50,7 @@ class TypeController extends BaseController {
             $this->ajaxReturn($data);
     }
     public function type_edit(){
-        $type_id =I('get.type_id');
+        $type_id =I('type_id');
         $list=$this->type ->find($type_id);
         //dump($list);exit;
         $this->assign('list',$list);
@@ -58,7 +59,7 @@ class TypeController extends BaseController {
 
 
     public function type_edit_in(){
-        $type_id =I('get.type_id');
+        $type_id =I('type_id');
         $this->type->create();
         
         if ($this->type->save()) {
@@ -78,6 +79,7 @@ class TypeController extends BaseController {
         }
         $this->ajaxReturn($data);
     }
+    
     
         
 }

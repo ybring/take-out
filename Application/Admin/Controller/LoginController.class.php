@@ -49,7 +49,7 @@ class LoginController extends Controller {
             //  $this->success("验证成功!");
                 //验证用户名和密码
                 $map['username']=$username;//根据用户名称作为条件
-             //   dump($username); id 5
+           
                 $user_info=$this->admin_user->where($map)->find();//查询用户的数据
                 if(!$user_info)
                 {
@@ -67,7 +67,7 @@ class LoginController extends Controller {
                         //此处说明用户名和密码都正确
                         
                         session("admin_id",$user_info['id']);
-
+                        session("admin_name",$username);
                         //将用户信息放入session
                         $newtime=date('Y-m-d H:i:s',time());
                         $data['lasttime'] =$user_info['newtime'];
@@ -75,7 +75,6 @@ class LoginController extends Controller {
                         $data['ip'] = get_client_ip();
                         $data['login_count'] = ['exp','login_count+1'];// 用户的积分加
                         $this->admin_user->where(array('id'=>$user_info['id']))->save($data);
-                    
 
                         $this->success("登录成功！",U('/Admin/Admin/index'));exit;     
                 }
@@ -146,7 +145,7 @@ class LoginController extends Controller {
                     //此处说明原密码和数据库密码一样
                     $data['password'] =password_hash($newpassword, PASSWORD_DEFAULT );
                    // dump($data);
-                    $this->admin_user->where($)->save($data);
+                    $this->admin_user->where($admin_id)->save($data);
                     $this->success("修改密码成功！，请重新登录！",U('index')); 
             }else{
                  $this->error("密码错误！请重新输入！",U('change_password'));exit;   
