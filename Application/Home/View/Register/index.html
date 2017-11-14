@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<!--/*技术支持，小庄602842076 验证：商城技术支持*/ /*技术支持，小庄602842076 验证：商城技术支持*/ /*技术支持，小庄602842076 验证：商城技术支持*/ /*技术支持，小庄602842076 验证：商城技术支持*/ /*技术支持，小庄602842076 验证：商城技术支持*/ /*https://shop116998991.taobao.com/*/ /*https://shop116998991.taobao.com/*/ /*https://shop116998991.taobao.com/*/-->
+
 <html>
   
   <head>
@@ -11,21 +11,7 @@
     <link rel="stylesheet" type="text/css" href="__PUBLIC__/Home/css/reset.css" />
     <link rel="stylesheet" href="__PUBLIC__/Home/css/common.css" />
     <link rel="stylesheet" href="__PUBLIC__/Home/css/login.css" />
-    <!--[if lt IE 9]>
-      <link rel="stylesheet" type="text/css" href="__PUBLIC__/Home/css/frontPage-ie8-fix.css" />
-    <![endif]-->
-    <!--[if lte IE 10]>
-      <script>document.createElement('footer');
-        document.createElement('header');
-        document.createElement('nav');
-        document.createElement('section');
-        document.createElement('article');</script>
-    <![endif]-->
-    <!--[if lte IE 7]>
-      <script>window.onload = function() {
-          location.href = "/ie6warning/"
-        }</script>
-    <![endif]-->
+    
     <title>注册</title>
     <script type="text/javascript">(function(document, screen) {
         if (screen.width < 760) {
@@ -35,105 +21,165 @@
   </head>
   
   <body>
-    <include file="Common/index_header" />
+        <header id="header" class="">
+        <div class="common-width">
+            
+                <section class="clearfix">
+                    <h1 class="logo" title="沙漏外卖">
+                      
+                    </h1>
+                    <span class="page-name"> | 注册</span>
+                </section>
+                
+            
+        </div>
+    </header>
+    
     <section class="main">
       <div class="common-width" center>
         <div class="log-box" id="registerPageBox">
           <div class="form-group w275">
             <label for="">手机号码</label>
-            <input type="text" id="rPhone" maxlength="11" class="form-text" placeholder="请输入你的手机号码" /></div>
+            <input type="hidden" name='send_code' value="{$send_code}" />
+            <input type="text" name="mobile" id="mobile" maxlength="11" class="form-text" placeholder="请输入你的手机号码" /></div>
           <div class="form-error-message"></div>
-          <div class="captcha-wrap">
-            <div class="captcha-box" id="captchaBox" style="margin-left: -300px">
+           <div class="form-group w275">
+
               <div class="captcha-item">
                 <div class="form-group captcha clearfix">
-                  <input type="text" id="rCaptcha" class="form-text" placeholder="短信验证码" />
-                  <input type="button" id="getCaptcha" class="captcha-btn" value="获取验证码" /></div>
+                  <input type="text" name='mobile_code' id="Captcha" class="form-text" placeholder="短信验证码" />
+                 
+                  <input  class="form-btn" id="zphone" type="button" value=" 获取手机验证码 " onClick="get_mobile_code();">
+                  </div>
                 <div class="form-error-message"></div>
-              </div>
-              <div class="captcha-item">
-                <div class="form-group captcha clearfix">
-                  <input type="text" id="imgCaptcha" disabled="disabled" maxlength="4" class="form-text" placeholder="输入验证码" />
-                  <span>
-                    <img id="captchaImg" _src="/captcha/" src="/captcha/" alt="验证码" />
-                    </span>
-                </div>
-                <div class="form-error-message"></div>
-              </div>
+              
             </div>
-          </div>
+    
           <div class="form-group w275">
-            <label for="">登录密码</label>
-            <input type="password" id="rPass" maxlength="10" class="form-text" onpaste="return false" placeholder="输入登录密码 6-10个字符" /></div>
+            
+            <input type="password" name="password" id="rPass" maxlength="18" class="form-text" onpaste="return false" placeholder="输入登录密码 6-18 个字符" /></div>
           <div class="form-error-message"></div>
           <div class="form-group w275">
-            <input type="password" id="rPass2" maxlength="10" class="form-text" onpaste="return false" placeholder="输入登录密码 6-10个字符" /></div>
+            <input type="password" name="password2" id="rPass2" maxlength="18" class="form-text" onpaste="return false" placeholder="输入登录密码 6-18 个字符" /></div>
           <div class="form-error-message"></div>
-          <div class="checkbox form-group clearfix mb5">
-            <input type="checkbox" checked="checked" id="rAgree" value="true">
-            <label for="rAgree" class="fl fs12">我同意外卖超人</label>
-            <span class="fl fs12">
-              <a class="yo" target="_blank" href="/terms-and-conditions/">"注册条款"</a></span>
-          </div>
+        
           <div class="form-error-message"></div>
           <div>
-            <button class="form-btn" id="registerPageBtn">确认注册</button></div>
+            <button class="form-btn" id="register">确认注册</button></div>
         </div>
       </div>
     </section>
     <include file="Common/index_footer" />
     <script type="text/javascript" src="__PUBLIC__/Home/js/jquery-1.7.2.min.js"></script>
-    <script>// use new sms code url
-      var ajax_customer_user_register_start = '/ajax/customer_user_register_start/';
-      var common_sms_code = '/ajax/common_sms_code/';
-      var common_validate_sms_code = '/ajax/common_validate_sms_code/';
-      var ajax_customer_user_register_register = '/ajax/customer_user_register_register/';</script>
-    <script type="text/javascript" src="__PUBLIC__/Home/js/loginVaildate.js"></script>
-    <!-- Baidu Analytics -->
-    <!-- End Baidu Tracking Code -->
-    <!-- Baidu Remarketing code -->
-    <script type="text/javascript">< !--(function(d) {
-        window.bd_cpro_rtid = "rHDzrHT";
-        var s = d.createElement("script");
-        s.type = "text/javascript";
-        s.async = true;
-        s.src = location.protocol + "//cpro.baidu.com/cpro/ui/rt.js";
-        var s0 = d.getElementsByTagName("script")[0];
-        s0.parentNode.insertBefore(s, s0);
-      })(document);
-      //-->
-      </script>
-    <!-- End Baidu Remarketing code -->
-    <!-- Google Analytics Code -->
-    <script>(function(i, s, o, g, r, a, m) {
-        i['GoogleAnalyticsObject'] = r;
-        i[r] = i[r] ||
-        function() { (i[r].q = i[r].q || []).push(arguments)
-        },
-        i[r].l = 1 * new Date();
-        a = s.createElement(o),
-        m = s.getElementsByTagName(o)[0];
-        a.async = 1;
-        a.src = g;
-        m.parentNode.insertBefore(a, m)
-      })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
+    <script type="text/javascript" src="__PUBLIC__/layui/layui.js"></script>
+     <script type="text/javascript" src="__PUBLIC__/layui/layui.all.js"></script>
+   
+    <!--<script type="text/javascript" src="__PUBLIC__/Home/js/loginVaildate.js"></script>  重要的JS -->
 
-      ga('create', 'UA-33138478-1', 'waimaichaoren.com');
-      ga('send', 'pageview');
-      ga('require', 'ecommerce', 'ecommerce.js');</script>
-    <!-- End Google Analytics Code -->
+    <script type="text/javascript">
+    // 发送验证码 的js
+      function get_mobile_code(){
+        $.post('send_code', {mobile:jQuery.trim($('#mobile').val()),send_code:<?php echo $_SESSION['send_code'];?>}, function(msg) {
+          layer.open({
+              content: jQuery.trim(unescape(msg))
+              ,time: 3000
+              ,shadeClose:true
+              ,icon: 5
+              ,skin : 'ayui-layer-lan'
+            }); 
+           // alert(jQuery.trim(unescape(msg)));
+            //提交成功 提示框
+      if(msg=='提交成功'){
+        RemainTime();
+      }
+        });
+  };
+  var iTime = 59;
+  var Account;
+  function RemainTime(){
+    document.getElementById('zphone').disabled = true;
+    var iSecond,sSecond="",sTime="";
+    if (iTime >= 0){
+      iSecond = parseInt(iTime%60);
+      iMinute = parseInt(iTime/60)
+      if (iSecond >= 0){
+        if(iMinute>0){
+          sSecond = iMinute + "分" + iSecond + "秒";
+        }else{
+          sSecond = iSecond + "秒";
+        }
+      }
+      sTime=sSecond;
+      if(iTime==0){
+        clearTimeout(Account);
+        sTime='获取手机验证码';
+        iTime = 59;
+        document.getElementById('zphone').disabled = false;
+      }else{
+        Account = setTimeout("RemainTime()",1000);
+        iTime=iTime-1;
+      }
+    }else{
+      sTime='没有倒计时';
+    }
+    document.getElementById('zphone').value = sTime;
+  } 
+</script>
+<script>
+// 注册提交信息  单击事件
+$("#register").click(function(){
+    var password= $("input[name='password']").val();
+    var password2= $("input[name='password2']").val();
+    var mobile= $("input[name='mobile']").val();
+    var mobile_code= $("input[name='mobile_code']").val();
+    if(password==""){   
+        $("#demo").remove();
+        $("<span id='demo' style='color:red;'></span>").insertAfter($(this)).html('密码不能为空！').fadeOut(6000, function() { $(this).remove(); })
+            return false;
+    }else if(password.length <6 || password.length >18){
+        $("#demo").remove();
+        $("<span id='demo' style='color:red;'></span>").insertAfter($(this)).html('密码不能少于6位！').fadeOut(6000, function() { $(this).remove(); })
+        return false;
+    }else if(password!=password2){
+        $("#demo").remove();
+        $("<span id='demo' style='color:red;'></span>").insertAfter($(this)).html('两次密码输入不一样！').fadeOut(6000, function() { $(this).remove(); })
+        return false;
+    }
+    $.post('register_in',{'password':password,'mobile':mobile,'mobile_code':mobile_code},function(data){
+          if(data.code==1){
+            layer.open({
+              content: '注册成功！'
+              ,time: 3000
+              ,shadeClose:true
+              ,icon: 6
+              ,skin : 'ayui-layer-lan'
+              ,yes: function(index, layero){
+                //do something
+               location.href = "{:U('Login/index')}";//location.href实现客户端页面的跳转
+              } 
+              });
+             setTimeout(function(){
+              location.href = "{:U('Login/index')}";//location.href实现客户端页面的跳转
+            }, 3000);
+
+            location.href = "{:U('Login/index')}";//location.href实现客户端页面的跳转
+          }else{
+            layer.open({
+              content: '注册失败！'
+              ,time: 3000
+              ,shadeClose:true
+              ,icon: 5
+              ,skin : 'ayui-layer-lan'
+              }); 
+          }
+          
+    });
+});
+</script>
+  
     <script type="text/javascript" src="__PUBLIC__/Home/js/angular.min.js"></script>
     <script src="__PUBLIC__/Home/js/common.js"></script>
     <script src="__PUBLIC__/Home/js/service.js"></script>
-    <script>var feedbackUrl = '/ajax/feedback/';
-      var app = angular.module("app", ["dh.dialog", "dh.form", 'dh.service', 'dh.other']);</script>
-    <!--[if lt IE 9]>
-      <script src="js/fix.js"></script>
-    <![endif]-->
-    <script>var reviewUrl = "/mobile/ajax/order_review/",
-      favoriteUrl = "/ajax/restaurant/0/favorite/";</script>
-    <script src="__PUBLIC__/Home/js/user_center.js"></script>
-    <script>angular.bootstrap(document, ["app"]);</script>
-    <!-- Baidu Analytics --></body>
+
 
 </html>

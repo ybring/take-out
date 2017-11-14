@@ -21,6 +21,10 @@ class IndexController extends CommonController {
 	 * @return [type] [description]
 	 */
     public function index(){
+      if(($_SESSION['user_phone']))
+      {
+        $this->assign('user_phone', $_SESSION['user_phone']);
+      }
     	$this->type=D('type');
    		$info = $this->type->relation(true)->select();
    		//dump($info);exit();
