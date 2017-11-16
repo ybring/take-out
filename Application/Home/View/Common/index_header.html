@@ -32,4 +32,37 @@
                     
                 </div>
             </header>
-            
+            <div id="main-box">
+    
+        <div ng-controller="colorAction">
+          <div class="dayColor_two"></div>
+          <div class="dayColor_one"></div>
+          <div class="dayColor_three" ng-class="{dayColor_threeActive:threeActive}"></div>
+        </div>
+
+        <section class="menupage-main common-width" ng-init="city_name='上海'">
+          <header class="nav clearfix">
+            <div class="fl clearfix nav-des">
+              <img src="__PUBLIC__/Home/images/ic3.gif" class="fl" />
+              <div class="fl nav-des-text">
+                <h2 class="ellipsis" title="[半价菜][送可乐]樱花日本料理">{$user_phone}</h2>
+                <div class="clearfix">
+                  <div class="fl nav-review">
+                    <div style="width:65.00px;"></div>
+                  </div>
+                  <p class="nav-review-x">5星</p></div>
+              </div>
+            </div>
+            <div class="fr clearfix nav-right">
+              <div class="fl nav-right-blast line-right">
+                <p>20
+                  <span style="font-size:12px;color:#999;">元</span></p>
+                <span>起送</span></div>
+              <div class="fl nav-right-blast">
+                <p>30
+                  <span style="font-size:12px;color:#999;">分钟</span></p>
+                <span>送餐时间</span></div>
+              
+            </div>
+          </header>
+         

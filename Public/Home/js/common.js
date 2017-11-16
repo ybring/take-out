@@ -1457,11 +1457,12 @@ var feedbackCtrl = ["$scope", "$http","$rootScope", 'formVaildate',function (sco
      scope.feedbacFocus=function(){
         scope.feedback.feedbackMessageTip = "";
     }
+    //反馈信息
     scope.feedbackSubmit = function(){
         var vaildate = true;
         var mes = fem.vaildate.empty(scope.feedback.userContact);
         if (mes) {
-            scope.feedback.phoneMessage = "联系方式不能为空";
+            scope.feedback.phoneMessage = "联系方式不能为空";[]
             vaildate = false;
         } else {
             scope.feedback.phoneMessage = ''
@@ -1474,9 +1475,13 @@ var feedbackCtrl = ["$scope", "$http","$rootScope", 'formVaildate',function (sco
              scope.feedback.feedbackMessageTip = "";
         }
         if (vaildate) {
-            $http.post(feedbackUrl,{"username":scope.feedback.userContact,'message':scope.feedback.feedbackMessage}).success(function(d){
+            //  {contact:'联系方式',opinion：'内容'}
+            $http.post("../Common/feedback",{"contact":scope.feedback.userContact,'opinion':scope.feedback.feedbackMessage}).success(function(d){
+               
                 childScope.userFeedback = false;
+                 alert(d.msg);
             }).error(function(){
+                alert(d.msg);
                 childScope.userFeedback = false;
             })
         }

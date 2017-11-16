@@ -9,6 +9,8 @@
     <meta name="google-site-verification" content="BstJA3X9z6f9HcvoN9AZTwaKo_9Abj_j7dVBPfy640s" />
     <meta name="baidu-site-verification" content="IYCrtVH0i1" />
     <meta property="wb:webmaster" content="239d3d1dbdde1b2c" />
+    <link rel="shortcut icon" href="/waimai/Public/Home/images/favicon.ico" type="image/x-icon" />
+
     <link rel="icon" type="image/png" href="/waimai/Public/Home/images/favicon.ico" />
     <script type="text/javascript">(function(document, screen) {
         if (screen.width < 760) {
@@ -52,8 +54,7 @@
                     
                 </div>
             </header>
-            
-      <div id="main-box">
+            <div id="main-box">
     
         <div ng-controller="colorAction">
           <div class="dayColor_two"></div>
@@ -64,7 +65,7 @@
         <section class="menupage-main common-width" ng-init="city_name='上海'">
           <header class="nav clearfix">
             <div class="fl clearfix nav-des">
-              <img src="#" class="fl" />
+              <img src="/waimai/Public/Home/images/ic3.gif" class="fl" />
               <div class="fl nav-des-text">
                 <h2 class="ellipsis" title="[半价菜][送可乐]樱花日本料理"><?php echo ($user_phone); ?></h2>
                 <div class="clearfix">
@@ -76,29 +77,28 @@
             </div>
             <div class="fr clearfix nav-right">
               <div class="fl nav-right-blast line-right">
-                <p>150
+                <p>20
                   <span style="font-size:12px;color:#999;">元</span></p>
                 <span>起送</span></div>
               <div class="fl nav-right-blast">
-                <p>37
+                <p>30
                   <span style="font-size:12px;color:#999;">分钟</span></p>
                 <span>送餐时间</span></div>
-              <div class="fl nav-right-collect line-left">
-                <div class="collect not-collect" title="收藏餐厅" data-rid="1592"></div>
-                <div class="collect-success">收藏成功</div>
-                <div id="review-text">未收藏</div></div>
+              
             </div>
           </header>
-          <ul class="clearfix menu-nav-list" scroll-position-static="160">
+         
+       <ul class="clearfix menu-nav-list" scroll-position-static="160">
             <li class="no-line ">
-              <a href="shop_intro.html">餐厅介绍</a></li>
+              <a href="<?php echo U('/Home/Index/index_intro');?>">餐厅介绍</a></li>
             <li class="active">
-              <a href="shop_detail.html">菜单</a></li>
+              <a href="<?php echo U('/Home/Index/index');?>">菜单</a></li>
             <li>
-              <a href="shop_comment.html">评论</a></li>
+              <a href="<?php echo U('/Home/Index/index_intro');?>">评论</a></li>
             <li>
-              <a href="shop_brand.html" id='point-tab'>大家都在点</a></li>
+              <a href="<?php echo U('/Home/Index/index_intro');?>" id='point-tab'>大家都在点</a></li>
           </ul>
+            
     <section class="main-box clearfix" lazy-img-load>
                     <div class="main fl">
                       <div class="inner-main">
@@ -111,8 +111,7 @@
                             <li class="split-line">|</li>
                             <li><a href="javascript:void(0);" class="sort-price">价格<i class="order-icon"></i></a></li>
                             <li class="split-line">|</li>
-                            <li><a href="javascript:void(0);" class="sort-price">价格-销量<i class="order-icon"></i></a></li>
-                            <li class="split-line">|</li>
+                           
                         </ul>
                     </nav>
 
@@ -222,95 +221,58 @@
         </section>
       </div>
     </section>
-    <footer id="footer">
-      <div class="footer-first gray">
+    <!-- 页脚 -->
+   <footer id="footer"><!--    页脚   -->
+    <div class="footer-first gray">
         <div class="company-info clearfix fs14 gray">
-          <a href="about.html" target="_blank" rel="nofollow">关于我们</a>
-          <a href="help.html" target="_blank" rel="nofollow">帮助中心</a>
-          <a href="javascript:;" target="_blank" rel="nofollow">法律声明</a>
-          <a href="jobs.html" target="_blank" rel="nofollow">人才招聘</a>
-          <a href="contact.html" target="_blank" rel="nofollow">联系我们</a>
-          <a href="javascript:;" user-feedback ng-click="userFeedback=true" class="last" rel="nofollow">意见反馈</a>
-          <a href="javascript:;" class="last" target="_blank" style="display:none">上海餐厅导航</a></div>
-      </div>
-      <div class="footer-last">
-        <a target="_blank" class="foot-logo-1 base-logo" href="index.html"></a>
-        <div class="tc fs14 light-gray mb10">©2014 waimaichaoren.com All Rights Reserved - 沪ICP备11019908号</div></div>
-    </footer>
+            <a href="about.html" target="_blank"  rel="nofollow">关于我们</a>
+            <a href="help.html" target="_blank"  rel="nofollow">帮助中心</a>
+            <a href="javascript:;" target="_blank"  rel="nofollow">法律声明</a>
+            <a href="jobs.html" target="_blank"  rel="nofollow">人才招聘</a>
+            <a href="contact.html" target="_blank"  rel="nofollow">联系我们</a>
+            <a href="javascript:;" user-feedback ng-click="userFeedback=true" class="last" rel="nofollow">意见反馈</a>
+            
+        </div>
+    </div>
+    <div class="footer-last">
+        <a target="_blank" class="foot-logo-1 base-logo" href="<?php echo U('/Home/Index/index');?>"></a>
+        <div class="tc fs14 light-gray mb10">
+          ©2017 waimaichaoren.com All Rights Reserved - 沪ICP备11019908号
+        </div>
+    </div>
+</footer>
+    <!-- 意见反馈的 弹窗 -->
     <dh-dialog class="disnone" height="500" feeedbackclass="userFeedback" type="user-feedback" header="意见反馈" show="userFeedback">
-      <div ng-controller="feedbackCtrl">
-        <form novalidate="true" name="feedbackForm" class="inline">
-          <div class="form-group row mb10">
-            <label class="col-3">联系方式：</label>
-            <div class="col-8">
-              <input type="text" maxlength="20" name="userContact" required ng-focus="userContactFocus()" ng-class="{error:feedback.phoneMessage}" placeholder="请输入您的手机号码" ng-model="feedback.userContact" /></div>
-          </div>
-          <div class="row mb10">
-            <div class="clo-8 col-offset-3" ng-if="feedback.phoneMessage">
-              <span class="vaildate-error">联系方式不能为空</span></div>
-          </div>
-          <div class="form-group row">
-            <label class="col-3 vt">反馈信息：</label>
-            <div class="col-8">
-              <textarea name="feedbackMessage" placeholder="可以说说您对外卖超人的意见" ng-focus="feedbacFocus()" required ng-class="{error:feedback.feedbackMessageTip}" ng-model="feedback.feedbackMessage" maxlength="300" cols="25" rows="7"></textarea>
+        <div ng-controller="feedbackCtrl">
+          <form novalidate="true" name="feedbackForm" class="inline">
+            <div class="form-group row mb10">
+              <label class="col-3">联系方式：</label>
+              <div class="col-8">
+                <input type="text" maxlength="20" name="userContact" required ng-focus="userContactFocus()" ng-class="{error:feedback.phoneMessage}" placeholder="请输入您的手机号码" ng-model="feedback.userContact" /></div>
             </div>
-          </div>
-          <div class="row mb10">
-            <div class="clo-8 col-offset-3" ng-if="feedback.feedbackMessageTip">
-              <span class="vaildate-error">反馈信息不能为空</span></div>
-          </div>
-          <div class="tc">
-            <button class="btn normal-btn btn-success" ng-click="feedbackSubmit()">确认</button>
-            <button class="btn normal-btn btn-cancel" ng-click="feedbackCancel()">取消</button></div>
-        </form>
-      </div>
-      <div class="common-dialog-footer">咨询加QQ群：337212031</div></dh-dialog>
-    <dh-dialog class="disnone" height="420" type="search-address" header="" show="searchAddress">
-      <div class="search-address-dialog" ng-controller="searchAddressCtrl">
-        <div class="search-box">
-          <h2>请输入用餐地址，校验是否在配送范围</h2>
-          <autocomplete-box keyword="keyword" city="city_name" callback="selectedResult(text)"></autocomplete-box>
+            <div class="row mb10">
+              <div class="clo-8 col-offset-3" ng-if="feedback.phoneMessage">
+                <span class="vaildate-error">联系方式不能为空</span></div>
+            </div>
+            <div class="form-group row">
+              <label class="col-3 vt">反馈信息：</label>
+              <div class="col-8">
+                <textarea name="feedbackMessage" placeholder="可以说说您对沙漏外卖的意见" ng-focus="feedbacFocus()" required ng-class="{error:feedback.feedbackMessageTip}" ng-model="feedback.feedbackMessage" maxlength="300" cols="25" rows="7"></textarea>
+              </div>
+            </div>
+            <div class="row mb10">
+              <div class="clo-8 col-offset-3" ng-if="feedback.feedbackMessageTip">
+                <span class="vaildate-error">反馈信息不能为空</span></div>
+            </div>
+            <div class="tc">
+              <button class="btn normal-btn btn-success" ng-click="feedbackSubmit()">确认</button>
+              <button class="btn normal-btn btn-cancel" ng-click="feedbackCancel()">取消</button></div>
+          </form>
         </div>
-        <section class="street-error" ng-class="{disblock:isNotFindStreet}">
-          <p>很抱歉，我们很难找到您的地址。</p>
-          <p>请您检查地址拼写/格式是否正确， 或者联系我们客服获得帮助：4001-517-577</p>
-        </section>
-        <div class="search-address-footer">
-          <ul class="clearfix">
-            <li>
-              <i class="search-address-img second"></i>
-              <span>填写地址、搜索餐厅</span></li>
-            <li class="arrow">
-              <i class="icon search-address-arrow-icon"></i>
-            </li>
-            <li>
-              <i class="search-address-img"></i>
-              <span>订购美食</span></li>
-            <li class="arrow">
-              <i class="icon search-address-arrow-icon"></i>
-            </li>
-            <li>
-              <i class="search-address-img third"></i>
-              <span>享受美食</span></li>
-          </ul>
-        </div>
-      </div>
-    </dh-dialog>
-    <dh-dialog class="disnone" height="550" index="1001" type="street" header="请选择最靠近你的地址" show="addressShow">
-      <ul class="select-street">
-        <li ng-repeat="item in shreets" ng-click="resultClick(item)">
-          <i class="icon address-yellow"></i>
-          <div class="shreets-item">
-            <h4 ng-bind="item.name"></h4>
-            <h5 ng-bind="item.address"></h5>
-          </div>
-        </li>
-      </ul>
-      <div class="street-commet">
-        <p>以上列出地址都不正确么？</p>
-        <p>请您检查地址拼写/格式是否正确和
-          <a href="javascript:void(0)" class="link" ng-click="resetStreet()">重新输入您的地址</a>。</p></div>
-    </dh-dialog>
+        <div class="common-dialog-footer">咨询加QQ群：664621217</div>
+      </dh-dialog>
+       <!-- 意见反馈的 弹窗  控制这个的jq common.js -->
+   
     <dh-dialog class="disnone" type='login' height="500" header="登录" show="loginShow">
       <form class="login-form" novalidate name="loginForm" ng-controller="loginCtrl">
         <div class="form-group">
@@ -618,11 +580,23 @@ for(var j=0; j<jsons[i].product.length; j++)
                         'subtotal':subtotal,
                     });
             });
-            $.post('Order/index',data);
-            console.log(data);
+            $.post("<?php echo U('Home/Order/createOrder');?>",data,function(d){
+                 if(d.status == 0){
+                      var o=d.info;
+                     
+                    layer.msg(o, {icon: 5},function(){
+                      location.href = "<?php echo U('Login/index');?>"; 
+                    }
+                    );
+                       
+                 }
+
+            });
+            //console.log(data);
         });
     </script>
-
+     <script src="/waimai/Public/layui/layui.js"></script>
+<script src="/waimai/Public/layui/layui.all.js"></script>
     </body>
 
 </html>
