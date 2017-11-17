@@ -90,6 +90,8 @@
     <script type="text/javascript" src="__PUBLIC__/Home/js/jquery-1.7.2.min.js"></script>
     
 <script type="text/javascript" src="__PUBLIC__/Home/js/loginVaildate.js"></script>
+<script type="text/javascript" src="__PUBLIC__/layer/layer.js"></script>
+
 <script type="text/javascript">
 
 
@@ -135,7 +137,13 @@ $("#denglu").click(function(){
     $.post('login_in', {'code':code,'phone':phone,'password':password} ,function(data){
         if(data.code){
             //正确后跳转
-            location.href="{:U('Index/index')}";
+           layer.msg("登录成功~",
+            {   icon:6
+                ,time : 2000    
+            },function(){
+                location.href="{:U('Index/index')}";
+            });
+            
             return false;
         }
         //错误提示+ 自动换验证码
@@ -146,6 +154,7 @@ $("#denglu").click(function(){
     });
 
 });
+
 </script>
 
 </body>

@@ -66,12 +66,15 @@
           <div class="dayColor_three" ng-class="{dayColor_threeActive:threeActive}"></div>
         </div>
 
+        
+         
         <section class="menupage-main common-width" ng-init="city_name='上海'">
+        
           <header class="nav clearfix">
             <div class="fl clearfix nav-des">
               <img src="/waimai/Public/Home/images/ic3.gif" class="fl" />
               <div class="fl nav-des-text">
-                <h2 class="ellipsis" title="[半价菜][送可乐]樱花日本料理"><?php echo ($user_phone); ?></h2>
+                <h2 class="ellipsis" title="[半价菜][送可乐]樱花日本料理">沙漏小店</h2>
                 <div class="clearfix">
                   <div class="fl nav-review">
                     <div style="width:65.00px;"></div>
@@ -91,7 +94,6 @@
               
             </div>
           </header>
-         
  <ul class="clearfix menu-nav-list" scroll-position-static="160">
             <li class="no-line active">
               <a href="<?php echo U('/Home/Index/index_intro');?>">餐厅介绍</a></li>

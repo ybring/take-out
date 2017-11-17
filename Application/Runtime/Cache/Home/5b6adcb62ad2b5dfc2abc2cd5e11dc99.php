@@ -108,6 +108,8 @@
     <script type="text/javascript" src="/waimai/Public/Home/js/jquery-1.7.2.min.js"></script>
     
 <script type="text/javascript" src="/waimai/Public/Home/js/loginVaildate.js"></script>
+<script type="text/javascript" src="/waimai/Public/layer/layer.js"></script>
+
 <script type="text/javascript">
 
 
@@ -153,7 +155,8 @@ $("#denglu").click(function(){
     $.post('login_in', {'code':code,'phone':phone,'password':password} ,function(data){
         if(data.code){
             //正确后跳转
-            location.href="<?php echo U('Index/index');?>";
+           
+            
             return false;
         }
         //错误提示+ 自动换验证码
@@ -164,6 +167,16 @@ $("#denglu").click(function(){
     });
 
 });
+
+ layer.msg("登录成功~",
+            {
+                icon:6
+                ,time : 2000
+                
+            }
+            ,function(){
+                location.href="<?php echo U('Index/index');?>";
+            });
 </script>
 
 </body>

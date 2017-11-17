@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<?php if (!defined('THINK_PATH')) exit();?><!DOCTYPE html>
 
 <html>
   
@@ -8,9 +8,9 @@
     <meta name="keywords" content="" />
     <meta name="description" content="" />
     <meta property="wb:webmaster" content="239d3d1dbdde1b2c" />
-    <link rel="stylesheet" type="text/css" href="__PUBLIC__/Home/css/reset.css" />
-    <link rel="stylesheet" href="__PUBLIC__/Home/css/common.css" />
-    <link rel="stylesheet" href="__PUBLIC__/Home/css/login.css" />
+    <link rel="stylesheet" type="text/css" href="/waimai/Public/Home/css/reset.css" />
+    <link rel="stylesheet" href="/waimai/Public/Home/css/common.css" />
+    <link rel="stylesheet" href="/waimai/Public/Home/css/login.css" />
     
     <title>注册</title>
     <script type="text/javascript">(function(document, screen) {
@@ -40,7 +40,7 @@
         <div class="log-box" id="registerPageBox">
           <div class="form-group w275">
             <label for="">手机号码</label>
-            <input type="hidden" name='send_code' value="{$send_code}" />
+            <input type="hidden" name='send_code' value="<?php echo ($send_code); ?>" />
             <input type="text" name="mobile" id="mobile" maxlength="11" class="form-text" placeholder="请输入你的手机号码" /></div>
           <div class="form-error-message"></div>
            <div class="form-group w275">
@@ -69,12 +69,30 @@
         </div>
       </div>
     </section>
-    <include file="Common/index_footer" />
-    <script type="text/javascript" src="__PUBLIC__/Home/js/jquery-1.7.2.min.js"></script>
-    <script type="text/javascript" src="__PUBLIC__/layui/layui.js"></script>
-     <script type="text/javascript" src="__PUBLIC__/layui/layui.all.js"></script>
+    <footer id="footer"><!--    页脚   -->
+    <div class="footer-first gray">
+        <div class="company-info clearfix fs14 gray">
+            <a href="about.html" target="_blank"  rel="nofollow">关于我们</a>
+            <a href="help.html" target="_blank"  rel="nofollow">帮助中心</a>
+            <a href="javascript:;" target="_blank"  rel="nofollow">法律声明</a>
+            <a href="jobs.html" target="_blank"  rel="nofollow">人才招聘</a>
+            <a href="contact.html" target="_blank"  rel="nofollow">联系我们</a>
+            <a href="javascript:;" user-feedback ng-click="userFeedback=true" class="last" rel="nofollow">意见反馈</a>
+            
+        </div>
+    </div>
+    <div class="footer-last">
+        <a target="_blank" class="foot-logo-1 base-logo" href="<?php echo U('/Home/Index/index');?>"></a>
+        <div class="tc fs14 light-gray mb10">
+          ©2017 waimaichaoren.com All Rights Reserved - 沪ICP备11019908号
+        </div>
+    </div>
+</footer>
+    <script type="text/javascript" src="/waimai/Public/Home/js/jquery-1.7.2.min.js"></script>
+    <script type="text/javascript" src="/waimai/Public/layui/layui.js"></script>
+     <script type="text/javascript" src="/waimai/Public/layui/layui.all.js"></script>
    
-    <!--<script type="text/javascript" src="__PUBLIC__/Home/js/loginVaildate.js"></script>  重要的JS -->
+    <!--<script type="text/javascript" src="/waimai/Public/Home/js/loginVaildate.js"></script>  重要的JS -->
 
     <script type="text/javascript">
     // 发送验证码 的js
@@ -90,7 +108,7 @@
             //提交成功 提示框
       if(msg=='提交成功'){
         layer.msg('已发送验证~'
-          , {icon: 6,time: 2000 //2秒关闭（如果不配置，默认是3秒）
+          , {icon: 1,time: 2000 //2秒关闭（如果不配置，默认是3秒）
             ,skin : 'ayui-layer-lan',shadeClose:true
             }
 
@@ -156,7 +174,7 @@ $("#register").click(function(){
                   ,time: 2000 //2秒关闭（如果不配置，默认是3秒）
                   ,shadeClose:true
                 }, function(){
-                  location.href = "{:U('Login/index')}";//location.href实现客户端页面的跳转
+                  location.href = "<?php echo U('Login/index');?>";//location.href实现客户端页面的跳转
                 });   
           }else{
             layer.open({
@@ -172,9 +190,9 @@ $("#register").click(function(){
 });
 </script>
   
-    <script type="text/javascript" src="__PUBLIC__/Home/js/angular.min.js"></script>
-    <script src="__PUBLIC__/Home/js/common.js"></script>
-    <script src="__PUBLIC__/Home/js/service.js"></script>
+    <script type="text/javascript" src="/waimai/Public/Home/js/angular.min.js"></script>
+    <script src="/waimai/Public/Home/js/common.js"></script>
+    <script src="/waimai/Public/Home/js/service.js"></script>
 
 
 </html>

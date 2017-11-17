@@ -7,12 +7,19 @@ class OrderController extends CommonController {
    * @return [type] [description]
    */
     public function index(){
-    	$this->type=D('type');
-   		$info = $this->type->relation(true)->select();
+    	$this->add=M('deliveryaddress');
+   		$add = $this->add->select();
    		//dump($info);exit();
    		$this->assign('list', $info);
-    	$this->assign('list2', json_encode($info));
+    	$this->assign('add', json_encode($add));
       $this->display();
+    }
+    /**
+     * [update_address description] 添加地址
+     * @return [type] [description]
+     */
+    public function update_address(){
+        
     }
     public function createOrder()
   {

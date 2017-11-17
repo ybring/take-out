@@ -33,6 +33,18 @@ class IndexController extends CommonController {
       //user_phone = session('user_phone');
       $this->display();
     }
+    /**
+   * [index description]商品详情页 添加商品进购物车并下单
+   * @return [type] [description]
+   */
+    public function index_intro(){
+      if(($_SESSION['user_phone']))
+      {
+        $this->assign('user_phone', $_SESSION['user_phone']);
+      }
+
+      $this->display();
+    }
 
 /////////////////////////
 
