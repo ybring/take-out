@@ -19,7 +19,74 @@
     <link rel="stylesheet" href="__PUBLIC__/Home/css/common.css?v=2015-5-20"/>
     
     <link rel="stylesheet" href="__PUBLIC__/Home/css/checkout.css"/>
+<!-- 引用订单地址CSS 
+<link rel="stylesheet" href="__PUBLIC__/Home/css/shopping-mall-index.css"/>
+-->
+<style>
+/*确认
+.pay-info .pay-dz{ padding-top:30px;}
+.pay-info .pay-dz li{ width:202px; height:89px; padding:9px 23px 8px 12px; margin:0 25px; background:url(__PUBLIC__/Home/images/confirmation-li-tu2.gif) no-repeat; float:left; cursor:pointer; overflow:auto;}
+.pay-info .pay-dz li:hover{background:url(__PUBLIC__/Home/images/confirmation-li-tu1.gif) no-repeat;}
+.pay-info .pay-dz .current{ background:url(__PUBLIC__/Home/images/confirmation-li-tu1.gif) no-repeat;}
+.pay-info .pay-dz li h3{ font-weight:normal; font-size:14px; color:#2B2B2B;}
+.pay-info .pay-dz li p{ font-size:13px; color:#7A7A7A;}
+.pay-info .pay-dz li p .sp2{ margin-left:5px;}
+.pay-info .pay-dz li a{ font-size:14px; color:#AB5100; display:none;}
+.pay-info .pay-dz .current a{ display:block;}
+订单*/
 
+.pay-dz{ padding-top:30px;}
+.pay-dz li{ width:202px; height:89px; padding:9px 23px 8px 12px; margin:0 25px; background:url(__PUBLIC__/Home/images/confirmation-li-tu2.gif) no-repeat; float:left; cursor:pointer; overflow:auto;}
+.pay-dz li:hover{background:url(__PUBLIC__/Home/images/confirmation-li-tu1.gif) no-repeat;}
+.pay-dz .current{ background:url(__PUBLIC__/Home/images/confirmation-li-tu1.gif) no-repeat;}
+.pay-dz li h3{ font-weight:normal; font-size:14px; color:#2B2B2B;}
+.pay-dz li p{ font-size:13px; color:#7A7A7A;}
+.pay-dz li p .sp2{ margin-left:5px;}
+.pay-dz li a{ font-size:14px; color:#AB5100; display:none;}
+.pay-dz .current a{ display:block;}
+.pay-xdz-btn{ font-size:14px; color:#fff; background:#EF9D09; width:106px; height:37px; border:none; cursor:pointer; margin:0 0 20px 25px;}
+
+.info-mid .mid-guige1{width:67px; height:71px;padding:5px 15px; margin-right:60px;position:relative;}
+.info-mid .mid-guige1 p{ font-size:13px; color:#3B3B3B;}
+.info-mid .mid-yunfei{ font-size:13px; color:#E90000; margin:10px 50px 0 0;}
+.info-heji{ height:50px; background:#F7F7F7;}
+.info-heji h3{ font-weight:normal; line-height:50px;s font-size:14px; color:#000; margin-right:10px;}
+.info-heji p{ line-height:50px; font-size:14px; color:#9A9A9A;margin-right:10px;}
+.info-heji p span{ color:#E90000;}
+
+
+        /*确认订单（新增地址）*/
+.confirmation-tanchuang{display:none; width:100%; height:100%; position:relative; position:absolute; top:0; left:0;}
+.confirmation-tanchuang .tanchuang-bg{ width:100%; height:100%; background:#666; top:0; left:0; opacity:0.5;}
+.confirmation-tanchuang .tanchuang-con{ width:670px; background:#fff; position:absolute; top:272px; left:50%; margin-left:-335px;}
+.tanchuang-con .tc-title{ height:42px; background:#F2F2F2;}
+.tanchuang-con .tc-title h3{ float:left; line-height:42px; font-weight:normal; font-size:14px; color:#000; margin-left:18px;}
+.tanchuang-con .tc-title a{ float:right; margin:12px 15px 0 0;}
+.tanchuang-con .tc-con2{}
+.tanchuang-con .tc-con2 .tc-li1{ margin-bottom:12px;}
+.tanchuang-con .tc-con2 .tc-li1 .l-p{float:left;width:100px; text-align:right; font-size:13px; color:#000; margin-right:15px; line-height:31px;}
+.tanchuang-con .tc-con2 .tc-li1 .l-p span{ color:#F34737; margin-left:5px;}
+.tanchuang-con .tc-con2 .tc-li1 .xl-dz{ float:left;}
+.tc-con2 .tc-li1 .xl-dz .dz-left{ margin-right:16px; position:relative;}
+.tc-con2 .tc-li1 .xl-dz .dz-left p{width:87px; height:31px; line-height:31px; font-size:13px; color:#3B3B3B; padding-left:7px;border:1px solid #E9E9E9; background:url(__PUBLIC__/Home/images/erweima-bg.jpg) no-repeat 76px center;}
+.tc-con2 .tc-li1 .xl-dz .dz-left ul{ display:none; width:84px; background:#fff; border:1px solid #E9E9E9; padding:5px; position:absolute; top:34px; left:0;}
+.tc-con2 .tc-li1 .xl-dz .dz-left li{ line-height:25px;}
+.tc-con2 .tc-li1 .xl-dz .dz-left li a{ display:block; font-size:13px; color:#3B3B3B;}
+.tc-con2 .tc-li1 .xl-dz .dz-left .current a{ color:#129FE9;}
+.tc-con2 .tc-li1 .xl-dz .dz-left li:hover a{color:#129FE9;}
+
+.tc-con2 .tc-li1 .xl-dz .dz-right{ position:relative;}
+.tc-con2 .tc-li1 .xl-dz .dz-right p{width:305px; height:31px;line-height:31px; font-size:13px; color:#3B3B3B; padding-left:7px;border:1px solid #E9E9E9; background:url(__PUBLIC__/Home/images/erweima-bg.jpg) no-repeat 295px center;}
+.tc-con2 .tc-li1 .xl-dz .dz-right ul{ display:none; width:312px; background:#fff;border:1px solid #E9E9E9;position:absolute; top:34px; left:0;}
+.tc-con2 .tc-li1 .xl-dz .dz-right li{ float:left; line-height:30px; margin:0 9px;}
+.tc-con2 .tc-li1 .xl-dz .dz-right li a{ font-size:13px; color:#000;}
+.tc-con2 .tc-li1 .xl-dz .dz-right .current a{ color:#129FE9;}
+.tc-con2 .tc-li1 .xl-dz .dz-right li:hover a{color:#129FE9;}
+
+.tanchuang-con .tc-con2 li .textarea1{ width:414px; height:87px; border:1px solid #E9E9E9; font-size:13px; color:#ACACAC; padding:5px;}
+.tanchuang-con .tc-con2 li input{ width:167px; height:31px; font-size:14px; padding:0 10px; border:1px solid #E9E9E9;}
+.tanchuang-con .btn-pst2{ width:106px; height:37px; background:#F34737; color:#fff; font-size:14px; border:none; cursor:pointer; margin:20px 0 30px 115px;}
+</style>
     <title>下订单</title>
 </head>
 <body class="day " ng-controller="bodyCtrl"  day-or-night>
@@ -30,24 +97,30 @@
             
 	<section class="checkout-main common-width">
 		<header class="brtrl">送餐信息 (*为必填项)</header>
-
 		<section class="user-info">
-            <ul class="user-address-list clearfix disnone" ng-class="{disblock: userAddressList.length != 0}">
-                <li ng-repeat="item in userAddressList" ng-class="{active:item.active,userAddressHover:mobileAny}" ng-click="changeActiveAddress($index)" class="user-address-item fl">
-                    <div class="clearfix">
-                        <h3 class="fl" ng-bind="item.customer_name"></h3>
-                        <span class="fr"><a href="javascript:;" ng-click="updateUserAddress($index);$event.stopPropagation();" class="link">修改</a></span>
-                        <span class="fr"><a href="javascript:;" ng-click="deleteUserAddress($index);$event.stopPropagation();" class="link">删除</a></span>
-                    </div>
-                    <p class="user-address" ng-bind="item.delivery_address"></p>
-                    <p class="user-phone" ng-bind="item.customer_phone"></p>
+        <!--收货地址-->
+           <ul class="pay-dz">
+           <volist name="list" id="vo" >
+                   <if condition="$i eq 1 ">
+                        <li class="current" id="li-{$vo.id}">
+                    <else />
+                        <li id="li-{$vo.id}">
+                    </if>
+                    <h3><span class="sp1">{$vo.customer_phone}</span>（<span class="sp3">{$vo.customer_name}</span> 收）</h3>
+                    <br>
+                    <p><span class="sp1">{$vo.delivery_address}</span></p>
+                     <input type="hidden" name="id" value="{$vo.id}" >
+                     <br>
+                    <a href="JavaScript:;" xiugai="">修改</a>
                 </li>
-
-
-                <li ng-if="userAddressList.length > 0 && userAddressList.length < 8" class="user-address-item address-add-box fl">
-                    <div ng-click="addUserAddress()"><i>+</i>使用新地址</div>
-                </li>
+            </volist>
+            
+               
+                <div style="clear:both;"></div>
             </ul>
+            <br>
+            <button class="pay-xdz-btn">使用新地址</button>
+
 			<form novalidate="true" name="orderForm" class="order-form inline">
                 <div ng-show="userAddressList.length == 0">
                     <div class="form-group row mb10">
@@ -63,7 +136,7 @@
                     <div class="form-group row mb10">
                         <label class="require col-2">手机号码：</label>
                         <div  class="col-8">
-                            <input type="text" maxlength="11" ng-blur="orderForm.contact.blur=true" ng-focus="orderForm.contact.blur=false" required mobile
+                            <input type="text" maxlength="11"  ng-blur="orderForm.contact.blur=true" ng-focus="orderForm.contact.blur=false" required mobile
                                    ng-class="{error:(orderForm.submit || orderForm.contact.blur) && orderForm.contact.$invalid}" name="contact" placeholder="您的联系方式" ng-model="phone">
                         </div>
                         <div class="col-8 col-offset-2 disnone" ng-class="{disnone: !((orderForm.submit || orderForm.contact.blur) && orderForm.contact.$error.required)}">
@@ -128,7 +201,6 @@
                         </div>
                         
                     
-                    
                         <div class="order-item order-item-addendum clearfix">
                             <div class="goods-name">点我呀，减6元 ！</div>
                             <div class="goods-count">2</div>
@@ -147,7 +219,7 @@
             <p class="tr fs14">配送费用： <span>￥0.00</span></p>
 			<p class="tr fs17 pink">需要付款： <b>￥<span ng-init="orderTotal=32.00" ng-bind="orderTotal|number:2"></span></b></p>
 			<p class="tr last">
-				<a href="/shanghai/ji-xiang-hun-tun-gao-an-lu-dian/menu/?gid=602341" class="fs15 link"><i class="icon arrows-left"></i> 返回修改订单</a>
+				<a href="" class="fs15 link"><i class="icon arrows-left"></i> 返回修改订单</a>
 				<button ng-disabled="!(name && phone && address&&couponCheck&&commitCheck)" ng-click="commitOrder()" class="btn btn-success fs20">提交订单 <i class="icon arrows-right"></i></button>
 			</p>
 		</section>
@@ -155,303 +227,107 @@
 
         </div>
     </section>
-    
-        <footer id="footer">
-        <div class="footer-first gray">
-            <div class="company-info clearfix fs14 gray">
-                <a href="/about_us/" target="_blank"  rel="nofollow">关于我们</a>
-                <a href="/help/" target="_blank"  rel="nofollow">帮助中心</a>
-                <a href="/terms-and-conditions/" target="_blank"  rel="nofollow">法律声明</a>
-                <a href="/jobs/" target="_blank"  rel="nofollow">人才招聘</a>
-                <a href="/contact/" target="_blank"  rel="nofollow">联系我们</a>
-                <a href="javascript:;" user-feedback ng-click="userFeedback=true" class="last" rel="nofollow">意见反馈</a>
-                <a href="/restaurant/list/shanghai/1/" class="last" target="_blank" style="display:none">上海餐厅导航</a>
-            </div>
-        </div>
-        <div class="footer-last">
-            <a target="_blank" class="foot-logo-1 base-logo" href="index.html"></a>
-            <div class="tc fs14 light-gray mb10">
-              ©2014 waimaichaoren.com All Rights Reserved - 沪ICP备11019908号
-            </div>
-        </div>
-    </footer>
-    
-    
-    <dh-dialog class="disnone" height="500" feeedbackclass="userFeedback" type="user-feedback" header="意见反馈" show="userFeedback">
-        <div ng-controller="feedbackCtrl">
-            <form novalidate="true" name="feedbackForm" class="inline">
-                <div class="form-group row mb10">
-                    <label class="col-3">联系方式：</label>
-                    <div class="col-8">
-                        <input type="text" maxlength="20" name="userContact" required ng-focus="userContactFocus()" ng-class="{error:feedback.phoneMessage}" placeholder="请输入您的手机号码" ng-model="feedback.userContact"/>
-                    </div>
-                </div>
-                <div class="row mb10">
-                    <div class="clo-8 col-offset-3" ng-if="feedback.phoneMessage">
-                        <span class="vaildate-error">联系方式不能为空</span>
-                    </div>
-                </div>
-                <div class="form-group row">
-                    <label class="col-3 vt">反馈信息：</label>
-                    <div class="col-8">
-                        <textarea name="feedbackMessage"  placeholder="可以说说您对外卖超人的意见" ng-focus="feedbacFocus()" required ng-class="{error:feedback.feedbackMessageTip}" ng-model="feedback.feedbackMessage" maxlength="300" cols="25" rows="7"></textarea>
-                    </div>
-                </div>
-                <div class="row mb10">
-                    <div class="clo-8 col-offset-3" ng-if="feedback.feedbackMessageTip">
-                        <span class="vaildate-error">反馈信息不能为空</span>
-                    </div>
-                </div>
-                <div class="tc">
-                    <button class="btn normal-btn btn-success" ng-click="feedbackSubmit()">确认</button>
-                    <button class="btn normal-btn btn-cancel" ng-click="feedbackCancel()">取消</button>
-                </div>
-            </form>
-        </div>
-        <div class="common-dialog-footer">
-            咨询加QQ群：337212031
-        </div>
-    </dh-dialog>
-    
-    
-<dh-dialog class="disnone" type='login' height="500" header="登录" show="loginShow" >
-    <form class="login-form" novalidate name="loginForm" ng-controller="loginCtrl">
-        <div class="form-group">
-            <label for="">手机号码</label>
-            <div>
-                <input type="text" ng-model="user.username" ng-class="{error:user.usernameMessage}" ng-focus="user.usernameMessage=''" maxlength="11" placeholder="请输入你的手机号码" />
-                <span class="vaildate-error" ng-if="user.usernameMessage">
-                    <span ng-bind="user.usernameMessage"></span>
-                </span>
-                <span class="vaildate-error" ng-if="user.isLogined">
-                    该手机号码尚未注册！<a href="javascript:;" ng-click="locationRegister()" class="link">立即注册</a>
-                </span>
-            </div>
-        </div>
-        <div class="form-group mb10">
-            <label for="">登录密码</label>
-            <div>
-                <input type="password" onpaste="return false" ng-model="user.password" ng-focus="user.passwordMessage=''"  ng-class="{error:user.passwordMessage}" maxlength="10" placeholder="请输入登录密码" />
-                <span class="vaildate-error" ng-if="user.passwordMessage">
-                    <span ng-bind="user.passwordMessage"></span>
-                </span>
-            </div>
-        </div>
-        <div ng-init="showCaptcha=0" ng-if="showCaptcha" class="form-group inline clearfix mb10">
-            <div class="fl w50p">
-                <input type="text" ng-model="user.captcha" ng-focus="user.captchaMessage=''"  ng-class="{error:user.captchaMessage}" placeholder="请输入验证码">
-                <span class="vaildate-error" ng-if="user.captchaMessage">
-                    <span ng-bind="user.captchaMessage"></span>
-                </span>
-            </div>
-            <label class="fr">
-                <dh-captcha change="captchaChange" src="/captcha/"></dh-captcha>
-            </label>
-        </div>
-        <div class="clearfix mb10">
-            <dh-checkbox model="user.rememberme" title="记住我" class="fl"></dh-checkbox>
-            <a href="/account/password/reset_via_mobile/" target="_blank" class="fs12 fr link">忘记密码</a>
-        </div>
-        <button class="big-btn btn-green btn mb10" ng-click="loginVaildate()" ng-disabled="loginBtnDisabled" ng-bind="loginBtn"></button>
-        <div class="clearfix">
-            <span class="fr fs12">
-                没有账号?
-                <a href="javascript:void(0)" ng-click="locationRegister()" class="link">立即注册</a>
-            </span>
-        </div>
-    </form>
-</dh-dialog>
-<dh-dialog class="disnone" type='register' height="500" header="注册" show="registerShow" >
-    <form ng-controller="registerCtrl" class="register-form" name="registerForm">
-        <div class="form-group mb10">
-            <label for="">手机号码</label>
-            <div>
-                <input type="text" ng-class="{error:user.usernameMessage}" maxlength="11" placeholder="请输入您的手机号码" ng-model="user.username"/>
-                <span class="vaildate-error" ng-if="user.usernameMessage">
-                    <span ng-bind="user.usernameMessage"></span>
-                </span>
-                <span class="vaildate-error" ng-if="user.isRegistered">
-                    该手机号码已经注册！<a href="javascript:;" ng-click="locationLogin()" class="link">立即登录</a>
-                </span>
-            </div>
-        </div>
+<include file="Common/index_footer" />
 
 
 
-        <div class="form-group captcha-wrap">
-            <div class="clearfix captcha-box">
-                <div class="fl form-group captcha-item">
-                    <div class="fl w50p">
-                        <input type="text" ng-class="{error:user.captchaMessage}" ng-focus="user.captchaMessage=''" placeholder="请输入验证码" ng-model="user.captcha" />
-                        <span class="vaildate-error" ng-if="user.captchaMessage">
-                            <span ng-bind="user.captchaMessage"></span>
-                        </span>
-                    </div>
-                    <button class="fs12 fr w40p btn btn-pink" ng-click="getCaptcha()" ng-disabled="captchaDisabled" ng-bind="captchaVal"></button>
-                </div>
-                <div class="fl form-group captcha-item">
-                    <div class="fl w50p">
-                        <input type="text" ng-model="user.imgCaptcha" maxlength="4" ng-disabled="imgCaptchaIsDisabled" ng-class="{error:user.imgCaptchaMessage}" placeholder="请输入验证码">
-                        <span class="vaildate-error" ng-if="user.imgCaptchaMessage">
-                            <span ng-bind="user.imgCaptchaMessage"></span>
-                        </span>
-                    </div>
-                    <label class="fr">
-                        <dh-captcha style="width:119px;height:34px;" change="captchaImgChange" src="/captcha/"></dh-captcha>
-                    </label>
-                </div>
-            </div>
-        </div>
-        <div class="form-group mb10">
-            <label for="">登录密码</label>
-            <div><input type="password" ng-class="{error:user.passwordMessage}" ng-focus="user.passwordMessage=''"  maxlength="10" onpaste="return false" placeholder="输入登录密码 6-10个字符" ng-model="user.password" />
-                <span class="vaildate-error" ng-if="user.passwordMessage">
-                    <span ng-bind="user.passwordMessage"></span>
-                </span>
-            </div>
-        </div>
-        <div class="form-group mb10">
-            <div><input type="password" ng-class="{error:user.password2Message}" ng-focus="user.password2Message=''" maxlength="10" onpaste="return false" placeholder="输入登录密码 6-10个字符" ng-model="user.password2"/>
-                <span class="vaildate-error" ng-if="user.password2Message">
-                    <span ng-bind="user.password2Message"></span>
-                </span>
-            </div>
-        </div>
-        <div class="clearfix mb10">
-            <dh-checkbox model="user.remember" title="我同意外卖超人" class="fl"></dh-checkbox>
-            <a href="/terms-and-conditions/" target="_blank" class="fs12 fl link"> " 注册条款 "</a>
-        </div>
-        <button ng-disabled="!user.remember || registerBtnDisabled" ng-click="registerVaildate()" class="big-btn btn-green btn mb10" ng-bind="registerBtn"></button>
-    </form>
-</dh-dialog>
 <script>
-    var common_sms_code = '/ajax/common_sms_code/';
-    var ajax_customer_user_register_start = '/ajax/customer_user_register_start/';
-    var common_validate_sms_code = '/ajax/common_validate_sms_code/';
-    var ajax_customer_user_register_register = '/ajax/customer_user_register_register/';
+    var common_sms_code = '11111';
+    var ajax_customer_user_register_start = '2222222';
+    var common_validate_sms_code = '33333333';
+    var ajax_customer_user_register_register = '44444';
 </script>
 
-    <dh-loading show="showFullLoading"></dh-loading>
-    <dh-dialog class="disnone" index="1001" header="超人小提示" show="showError">
-        <div class="alert-box error">
-            <p ng-bind="errorMsg"></p>
-        </div>
-         <div class="errorBtn">
-                <button class="btn btn-success small-btn" ng-click="errorConfirm()">确认</button>
-        </div>
-    </dh-dialog>
-    <dh-dialog class="disnone" header="短信校验" show="msgReg">
-        <div class="form-group row mb20 msgText">
-           验证码已发送到您的手机 <span ng-bind="msgPhone" class="cf90"></span>
-        </div>
-        <div class="form-group row mb20 clearfix">
-            <div class="fl w185">
-                <input type="text" ng-class="{error:msg.captchaMessage}" ng-focus="msg.captchaMessage=''" placeholder="请输入验证码" ng-model="msg.captcha" maxlength="6" />
-                <span class="vaildate-error" ng-if="msg.captchaMessage">
-                    <span ng-bind="msg.captchaMessage"></span>
-                </span>
-            </div>
-            <button class="fs12 fr w40p btn btn-pink" ng-click="getMsgCaptcha()" ng-disabled="msgCaptchaDisabled" ng-bind="msgCaptchaVal"></button>
-        </div>
-        <div class="errorBtn">
-            <button class="btn btn-success normal-btn" ng-click="submitMsg()" ng-disabled="msg.captcha.length != 6">确认</button>
-        </div>
-    </dh-dialog>
-    <dh-dialog class="disnone" index="1001" header="超人小提示" show="confirm">
-        <div class="alert-box warning">
-            <p ng-bind="confirmMsg" class="mb10"></p>
-        </div>
-        <div class="errorBtn">
-                <button class="btn btn-success small-btn" ng-click="submitConfirm()">确认</button>
-                <button class="btn btn-cancel small-btn" ng-click="cancelConfirm()">取消</button>
-            </div>
-    </dh-dialog>
-    <dh-dialog class="disnone" type="alert" index="1001" header="" show="couponConfirm">
-        <div class="coupon-confirm">
-            <p class="mb10 errorTip" ng-bind="couponConfirmMsg"></p>
-            <button class="btn btn-success couponConfirm-btn" ng-click="submitcouponConfirm()">不使用优惠劵直接下单</button>
-        </div>
-    </dh-dialog>
-    <dh-dialog class="disnone" header="使用新地址/修改地址" width="420" show="editUserAddress">
-        <div ng-controller="userAddressCtrl">
-            <form novalidate="true" name="userAddressForm" class="address-from">
-            <div class="form-group row mb20">
-                <label class="require col-3">收单人：</label>
-                <div class="col-8">
-                    <input type="text" required maxlength="10"
-                           ng-class="{error:userAddressForm.submit && userAddressForm.name.$invalid}" name="name"
-                           placeholder="您的称呼" ng-model="userAddress.customer_name">
-                </div>
-                <div class="col-8 col-offset-3" ng-if="userAddressForm.submit && userAddressForm.name.$invalid">
-                    <span class="vaildate-error">称呼不能为空</span>
-                </div>
-            </div>
-            <div class="form-group row mb20">
-                <label class="require col-3">手机号码：</label>
-                <div class="col-8">
-                    <input type="text" maxlength="11" required mobile
-                           ng-class="{error:userAddressForm.submit && userAddressForm.contact.$invalid}" name="contact"
-                           placeholder="您的联系方式" ng-model="userAddress.customer_phone">
-                </div>
-                <div class="col-8 col-offset-3" ng-if="userAddressForm.submit && userAddressForm.contact.$error.required">
-                    <span class="vaildate-error">联系方式不能为空</span>
-                </div>
-                <div class="col-8 col-offset-3" ng-if="userAddressForm.submit && !userAddressForm.contact.$error.required && userAddressForm.contact.$error.mobile">
-                    <span class="vaildate-error">请输入正确的11位手机号码</span>
-                </div>
-            </div>
-            <div class="form-group row mb30">
-                <label class="require col-3">送餐地址：</label>
-                <div class="col-8">
-                    <input type="text" required
-                           ng-class="{error:userAddressForm.submit && userAddressForm.address.$invalid}" name="address"
-                           placeholder="详细地址，如武定西路1189号606室" ng-model="userAddress.delivery_address">
-                </div>
-                <div class="col-8 col-offset-3" ng-if="userAddressForm.submit && userAddressForm.address.$invalid">
-                    <span class="vaildate-error">送餐地址不能为空</span>
-                </div>
-            </div>
-            <div class="form-group tc">
-                <button class="btn btn-success normal-btn" ng-click="submitUserAddress()">确认</button>
-                <button class="btn btn-cancel normal-btn" ng-click="cancelUserAddress()">取消</button>
-            </div>
-        </form>
-        </div>
-    </dh-dialog>
-
-     <ul class="site-fixed">
-        <li class="scroll-top"><img src="__PUBLIC__/Home/images/scroll_top1.png" alt=""/> </li>
-        <li class="scorll-feekback" ng-click="userFeedback=true">
-            <img src="__PUBLIC__/Home/images/scorll_feekback.png" alt=""/>
-            <div>意见反馈</div>
-        </li>
-        <li class="scroll-wx">
-            <img src="__PUBLIC__/Home/images/scroll_wx.png" alt=""/>
-             <div><img src="__PUBLIC__/Home/images/wx.png" alt=""/></div>
-        </li>
-    </ul>
+  
     
+
+     <!--确认订单（新增地址）-->
+    <div class="confirmation-tanchuang" xgdz1="">
+        <div class="tanchuang-bg"></div>
+        <div class="tanchuang-con">
+            <div class="tc-title">
+                <h3>新增地址</h3>
+                <a href="JavaScript:;" dz-guan=""><img src="__PUBLIC__/Home/images/close-select-city.gif" /></a>
+                <div style="clear:both;"></div>
+            </div>
+            <ul class="tc-con2">
+                 <li class="tc-li1">
+                    <p class="l-p">收货人姓名<span>*</span></p>
+                    <input type="text" id="receiver" />
+                    <div style="clear:both;"></div>
+                </li>
+                <li class="tc-li1">
+                    <p class="l-p">联系电话<span>*</span></p>
+                    <input type="text" id="shouji" />
+                    <div style="clear:both;"></div>
+                </li>
+                <li class="tc-li1">
+                    <p class="l-p">详细地址<span>*</span></p>
+                    <textarea class="textarea1" placeholder="请如实填写您的详细信息，如街道名称、门牌号、楼层号和房间号。" id="dizi"></textarea>
+                    <div style="clear:both;"></div>
+                </li>
+            </ul>
+            <button class="btn-pst2" id="btn-pst2">保存</button>
+        </div>
+    </div>
+ <!--修改地址-->
+    <div class="confirmation-tanchuang" xgdz2="">
+        <div class="tanchuang-bg"></div>
+        <div class="tanchuang-con">
+            <div class="tc-title">
+                <h3>修改地址</h3>
+                <a href="JavaScript:;" dz-guan=""><img src="__PUBLIC__/Home/images/close-select-city.gif" /></a>
+                <div style="clear:both;"></div>
+            </div>
+            <ul class="tc-con2">
+                <li class="tc-li1">
+                    <p class="l-p">收货人姓名<span>*</span></p>
+                    <input type="text" class="shxm" id="shxm" />
+                    <div style="clear:both;"></div>
+                </li>
+                <li class="tc-li1">
+                    <p class="l-p">联系电话<span>*</span></p>
+                    <input type="text" class="lxdh" id="lxdh" />
+                    <div style="clear:both;"></div>
+                </li>
+                <li class="tc-li1">
+                    <p class="l-p">详细地址<span>*</span></p>
+                    <textarea id="xxdz" class="textarea1" placeholder="请如实填写您的详细信息，如街道名称、门牌号、楼层号和房间号。"></textarea>
+                    <div style="clear:both;"></div>
+                </li>   
+            </ul>
+            <input type="hidden" id="hiddenid" name="hiddenid" value="">
+            <button class="btn-pst2" id="dz2">保存</button>
+        </div>
+    </div>
+
+<!--  -->
+<input type="hidden" name="address_id" value="">
+
+
+    <script type="text/javascript" src="__PUBLIC__/jquery.min.js"></script>
+
     <script type="text/javascript" src="__PUBLIC__/Home/js/angular.min.js"></script>
     <script src="__PUBLIC__/Home/js/common.js"></script>
-    
+    <script src="__PUBLIC__/layer/layer.js"></script>
      
     <script src="__PUBLIC__/Home/js/service.js"></script>
     
-    <script>var feedbackUrl = '/ajax/feedback/';var app = angular.module("app", ["dh.dialog", "dh.form", 'dh.service', 'dh.other']);</script>
+    <script>var feedbackUrl = '222111';var app = angular.module("app", ["dh.dialog", "dh.form", 'dh.service', 'dh.other']);</script>
     <!--[if lt IE 9]><script src="__PUBLIC__/Home/js/fix.js"></script><![endif]-->
     
     
     <script>
-        var check_coupon_url = "/ajax/check_coupon_code/";
-        var place_order_url = "/mobile/ajax/place_order/";
-        var confirm_url = "/confirm/0/";
-        var online_pay = "/account/order/0/online_pay/";
-        var ajax_add_delivery_address = "/ajax/delivery_address/add/";
-        var ajax_add_all_delivery_addresses = "/ajax/delivery_address/add_all/";
-        //var ajax_update_delivery_address = "update_address";//修改的链接
-        //var ajax_common_sms_code = "/ajax/common_sms_code/";
-        var ajax_is_order_need_sms_validate = "/ajax/is_order_need_sms_validate/";
-        var ajax_common_validate_sms_code = "/ajax/common_validate_sms_code/";
+        var check_coupon_url = "555";
+        var place_order_url = "556";
+        var confirm_url = "557";
+        var online_pay = "558";
+        var ajax_add_delivery_address = "559";
+        var ajax_add_all_delivery_addresses = "560";
+        var ajax_update_delivery_address = "update_address";//修改的链接
+        var ajax_common_sms_code = "561";
+        var ajax_is_order_need_sms_validate = "562";
+        var ajax_common_validate_sms_code = "563";
         var orderId = '3788798';
         var grid_locationId = '602341';
         var restaurantId = '1019';
@@ -465,7 +341,7 @@
         var cart_items_json=[{"name": "\u86cb\u9ec4\u867e\u4ec1\u9984\u9968\u5341\u53ef\u53e3\u53ef\u4e50\u4e00\u74f6", "price": 22.00, "id": 2236070, "additions": [{"total_price": -12.00, "price": -6.00, "quantity": 2, "id": 8168, "name": "\u70b9\u6211\u5440\uff0c\u51cf6\u5143 \uff01"}], "options": [], "quantity": 2}];
         var selectObj = [];
         var userAddress = {$add};//用户地址
-        console.log("商品名："+{$add});
+        //console.log("商品名："+{$add});
         var _isAuthenticated = 'ajax';
         var setLastAddrUrl =  "/ajax/delivery_address/0/last_used/";
         var lastUsedAddressId = '230901';
@@ -512,7 +388,7 @@
     <script>angular.bootstrap(document, ["app"]);</script>
 
     <!-- Baidu Analytics -->
-
-
+<!-- 收货地址的JS -->
+  <script type="text/javascript" src="__PUBLIC__/Home/js/zhonglin.js"></script>
 </body>
 </html>

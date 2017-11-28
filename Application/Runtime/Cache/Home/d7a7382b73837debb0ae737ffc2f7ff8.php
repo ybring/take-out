@@ -30,11 +30,11 @@
         <header id="header">
                 <div class="common-width clearfix">
                     <h1 class="fl">
-                        <a class="logo base-logo" href="index.html">沙漏外卖</a>
+                        <a class="logo base-logo" href="<?php echo U('/Home/Index/index');?>">沙漏外卖</a>
                     </h1>
                     
                         <ul class="member logging" ng-init="loginInfo=true">
-                            <li><a href="<?php echo U('Index/index');?>" class="index">首页</a></li>
+                            <li><a href="<?php echo U('Home/Index/index');?>" class="index">首页</a></li>
                         
         <?php if($user_phone): ?><li class="userName">
                                 <a href="member_index.html" rel="nofollow" draw-user><?php echo ($user_phone); ?><em></em></a>

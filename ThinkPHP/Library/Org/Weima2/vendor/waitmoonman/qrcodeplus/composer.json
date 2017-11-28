@@ -1,0 +1,25 @@
+{
+    "name": "waitmoonman/qrcodeplus",
+    "description": "A more powerful two-dimensional code package",
+    "keywords": ["waitmoonman", "qrcode", "multicolour", "polychrome", "qrcodeplus"],
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "WaitMoonMan",
+            "email": "1033404553@qq.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {
+        "php": ">=5.6",
+        "endroid/QrCode": "2.2.3",
+        "endroid/qrcode": "^2.0@dev"
+    },
+    "autoload": {
+        "psr-4": {
+            "QrCodePlus\\": "src/",
+            "Endroid\\QrCode\\": "src/"
+        }
+    }
+}

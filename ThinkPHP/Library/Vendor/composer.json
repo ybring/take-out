@@ -1,0 +1,5 @@
+{
+    "require": {
+        "waitmoonman/qrcodeplus": "^1.2"
+    }
+}

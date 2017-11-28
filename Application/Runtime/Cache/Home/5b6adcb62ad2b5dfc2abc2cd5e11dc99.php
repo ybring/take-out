@@ -1,11 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit();?><!DOCTYPE html><!--/*技术支持，小庄602842076     验证：商城技术支持*/
-/*技术支持，小庄602842076    验证：商城技术支持*/
-/*技术支持，小庄602842076    验证：商城技术支持*/
-/*技术支持，小庄602842076    验证：商城技术支持*/
-/*技术支持，小庄602842076    验证：商城技术支持*/
-/*https://shop116998991.taobao.com/*/
-/*https://shop116998991.taobao.com/*/
-/*https://shop116998991.taobao.com/*/-->
+<?php if (!defined('THINK_PATH')) exit();?><!DOCTYPE html>
 
 <html>
 <head>
@@ -19,9 +12,6 @@
     
     <link rel="stylesheet" href="/waimai/Public/Home/css/login.css"/>
 
-    <!--[if lt IE 9]><link rel="stylesheet" type="text/css" href="/waimai/Public/Home/css/frontPage-ie8-fix.css" /><![endif]-->
-    <!--[if lte IE 10]><script>document.createElement('footer');document.createElement('header');document.createElement('nav');document.createElement('section');document.createElement('article');</script><![endif]-->
-    <!--[if lte IE 7]><script>window.onload=function(){location.href="/ie6warning/"}</script><![endif]-->
     <title>登录</title>
     <script type="text/javascript">
         
@@ -155,7 +145,12 @@ $("#denglu").click(function(){
     $.post('login_in', {'code':code,'phone':phone,'password':password} ,function(data){
         if(data.code){
             //正确后跳转
-           
+           layer.msg("登录成功~",
+            {   icon:6
+                ,time : 2000    
+            },function(){
+                location.href="<?php echo U('Index/index');?>";
+            });
             
             return false;
         }
@@ -168,15 +163,6 @@ $("#denglu").click(function(){
 
 });
 
- layer.msg("登录成功~",
-            {
-                icon:6
-                ,time : 2000
-                
-            }
-            ,function(){
-                location.href="<?php echo U('Index/index');?>";
-            });
 </script>
 
 </body>
