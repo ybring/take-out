@@ -94,7 +94,7 @@
             <header>
               
               <h5>购物车
-                <i class="icon trash-can-icon fr " ng-click="clearCart()"></i></h5>
+                <i class="icon trash-can-icon fr " id="clearCart" ng-click="clearCart()"></i></h5>
             </header>
             <section>
               <div class="inner-cart empty" ng-class="{empty:isEmpty}">
@@ -319,7 +319,8 @@ for(var j=0; j<jsons[i].product.length; j++)
     <script src="__PUBLIC__/jquery-2.1.3.min.js"></script>
     <script>
         $('#createOrder').click(function(){
-               var data = new Array();
+            var load = layer.load(3, {time: 10*1000}); //又换了种风格，并且设定最长等待10秒
+            var data = new Array();
             $('.cart-data').each(function(){
                 var product_id =$(this).find('.goods-id').text();
                 var name =$(this).find('.goods-name').text();
@@ -328,7 +329,12 @@ for(var j=0; j<jsons[i].product.length; j++)
                  price=$.trim(price);
                  var subtotal =$(this).find('.goods-subtotal').text();
                  subtotal=$.trim(subtotal);
-                //console.log("商品名："+name+"    份数："+nums+"    单价："+price+"    小计："+subtotal);
+
+                var reg=/,/g;
+                nums=nums.replace(reg,'');
+                price=price.replace(reg,'');
+                subtotal=subtotal.replace(reg,'');
+                //console.log("商品名："+name+"    份数："+nums+"    单价："+price+"    小计："+subtotal);return false;
                 data.push(
                  {
                         'product_id' : product_id,
@@ -339,18 +345,27 @@ for(var j=0; j<jsons[i].product.length; j++)
                   } 
                 );
             });
-            console.log(data);
-            var total =$('#heji').text();//合计
-         
 
-            $.post("{:U('Home/Order/add_order_detail')}",{data:data , 'total':total},function(d){
-                 if(d.status == 0){
-                      var o=d.info;   
-                    layer.msg(o, {icon: 5},function(){
-                      location.href = "{:U('Login/index')}"; 
-                    }
+            var total =$('#heji').text();//合计
+            $.post("{:U('Home/Order/add_order_detail')}",{data:data , 'total':total},function(re) {
+                if(re.status == 0){
+                    layer.msg(re.info,{icon: 5},function(){
+                                layer.close(load);
+                                location.href = "{:U('Login/index')}";
+                            }
                     );
-                       
+                }else if(re.code == 1){
+                    $('#clearCart').click();
+                         layer.close(load);
+                         var orid=re.order_id;
+                          window.location.href = "{:U('Order/index')}";
+                 }else if(re.code==0){
+                     layer.msg(re.msg+" 请联系客服！",{icon: 5},function(){
+                                 return false;
+                             }
+                     );
+                 }else {
+                     layer.msg("未知错误！",{icon:5});layer.close(load);
                  }
 
             });

@@ -23,7 +23,7 @@ class CommonController extends Controller
 			exit();
 		} else {
 			// 用户
-			$this->assign('user_phone',session('user_phone'));
+			$this->assign('user_phone',session('user_phone'));$this->assign('user_id',session('user_id'));
 		}
 	}
 	public function feedback(){

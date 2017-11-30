@@ -146,7 +146,7 @@
                     <h3><span class="sp1"><?php echo ($vo["customer_phone"]); ?></span>（<span class="sp3"><?php echo ($vo["customer_name"]); ?></span> 收）</h3>
                     <br>
                     <p><span class="sp1"><?php echo ($vo["delivery_address"]); ?></span></p>
-                     <input type="hidden" name="id" value="<?php echo ($vo["id"]); ?>" >
+                     <input type="hidden" class="<?php echo ($vo["id"]); ?>" name="id" value="<?php echo ($vo["id"]); ?>" >
                      <br>
                     <a href="JavaScript:;" xiugai="">修改</a>
                 </li><?php endforeach; endif; else: echo "" ;endif; ?>
@@ -201,6 +201,10 @@
                     <label class="col-2">支付方式：</label>
                     
                     <dh-radio class="col-2" model="payType" value="0" title="餐到付款"></dh-radio>
+                    <em ng-init="payType=2"></em>
+                    <dh-radio class="col-2" model="payType" value="1" title="餐到付款1"></dh-radio>
+                    <em ng-init="payType=1"></em>
+                    <dh-radio class="col-2" model="payType" value="2" title="餐到付款2"></dh-radio>
                     <em ng-init="payType=0"></em>
                     
                     
@@ -209,7 +213,7 @@
 				<div class="form-group row mb10">
 					<label class="col-2">备注信息：</label>
 					<div class="col-8">
-						<input type="text" maxlength="150" placeholder="如：多米饭，不吃辣等口味需求" ng-model="comment">
+						<input id="beizhu" type="text" maxlength="150" placeholder="如：多米饭，不吃辣等口味需求" ng-model="comment">
 					</div>
 				</div>
 			</form>
@@ -227,36 +231,27 @@
 					
 					<div class="goods-total">小计</div>
 				</div>
-				<div class="order-body">
-                    
-                        <div class="order-item clearfix">
-                            <div class="goods-name">蛋黄虾仁馄饨十可口可乐一瓶</div>
-                            <div class="goods-count">2</div>
-                            <div class="goods-price">￥22.00</div>
-                            <div class="goods-total">￥44.00</div>
-                        </div>
-                        
-                    
-                        <div class="order-item order-item-addendum clearfix">
-                            <div class="goods-name">点我呀，减6元 ！</div>
-                            <div class="goods-count">2</div>
-                            <div class="goods-price">￥-6.00</div>
-                            <div class="goods-total">￥-12.00</div>
-                        </div>
-                    
-				</div>
+                <?php if(is_array($or)): $i = 0; $__LIST__ = $or;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vo): $mod = ($i % 2 );++$i;?><div class="order-body">
+                            <div class="order-item clearfix">
+                                <div class="goods-name"><?php echo ($vo["name"]); ?></div>
+                                <div class="goods-count"><?php echo ($vo["nums"]); ?></div>
+                                <div class="goods-price">￥<?php echo ($vo["price"]); ?></div>
+                                <div class="goods-total">￥<?php echo ($vo["subtotal"]); ?></div>
+                            </div>
+                    </div><?php endforeach; endif; else: echo "" ;endif; ?>
 			</div>
 		</section>
 		<section class="total-sum">
 			
 			
-			<p class="tr fs14">订单金额： <span>￥32.00</span></p>
+			<p class="tr fs14">订单金额： <span>￥<?php echo ($heji["total"]); ?></span></p>
             <p ng-if="isVaildateCouponSuccess" class="tr fs14">优惠券： <span ng-bind="couponMoney|number:2|currency:'￥-'"></span></p>
             <p class="tr fs14">配送费用： <span>￥0.00</span></p>
-			<p class="tr fs17 pink">需要付款： <b>￥<span ng-init="orderTotal=32.00" ng-bind="orderTotal|number:2"></span></b></p>
+			<p class="tr fs17 pink">需要付款： <b>￥<span ng-init="orderTotal=<?php echo ($heji["total"]); ?>" ng-bind="orderTotal|number:2"></span></b></p>
 			<p class="tr last">
-				<a href="" class="fs15 link"><i class="icon arrows-left"></i> 返回修改订单</a>
-				<button ng-disabled="!(name && phone && address&&couponCheck&&commitCheck)" ng-click="commitOrder()" class="btn btn-success fs20">提交订单 <i class="icon arrows-right"></i></button>
+				<a href="" id="xgdd"  class="fs15 link"><i class="icon arrows-left"></i> 返回修改订单</a>
+
+				<button id="tijiaodingdan" class="btn btn-success fs20">提交订单 <i class="icon arrows-right"></i></button>
 			</p>
 		</section>
 	</section>
@@ -392,7 +387,8 @@
             orderId : '3788798',
             delivery_fee : '0.00'
         };
-        var cart_items_json=[{"name": "u86cbu9ec4u867eu4ec1u9984u9968u5341u53efu53e3u53efu4e50u4e00u74f6", "price": 22.00, "id": 2236070, "additions": [{"total_price": -12.00, "price": -6.00, "quantity": 2, "id": 8168, "name": "u70b9u6211u5440uff0cu51cf6u5143 uff01"}], "options": [], "quantity": 2}];
+
+        var cart_items_json=<?php echo ($ors); ?>;
         var selectObj = [];
         var userAddress = <?php echo ($add); ?>;//用户地址
         //console.log("商品名："+<?php echo ($add); ?>);
@@ -407,31 +403,31 @@
         //     id:'230896'});
        
         //  送餐时间
-        selectObj.push({id:'no',text:'即时送出',date:'2015-05-03'});
-        selectObj.push({id:'9:30',text:'9:30',date:'2015-05-03'});
-        selectObj.push({id:'10:00',text:'10:00',date:'2015-05-03'});
-        selectObj.push({id:'10:30',text:'10:30',date:'2015-05-03'});
-        selectObj.push({id:'11:00',text:'11:00',date:'2015-05-03'});
-        selectObj.push({id:'11:30',text:'11:30',date:'2015-05-03'});
-        selectObj.push({id:'12:00',text:'12:00',date:'2015-05-03'});
-        selectObj.push({id:'12:30',text:'12:30',date:'2015-05-03'});
-        selectObj.push({id:'13:00',text:'13:00',date:'2015-05-03'});
-        selectObj.push({id:'13:30',text:'13:30',date:'2015-05-03'});
-        selectObj.push({id:'14:00',text:'14:00',date:'2015-05-03'});
-        selectObj.push({id:'14:30',text:'14:30',date:'2015-05-03'});
-        selectObj.push({id:'15:00',text:'15:00',date:'2015-05-03'});
-        selectObj.push({id:'15:30',text:'15:30',date:'2015-05-03'});
-        selectObj.push({id:'16:00',text:'16:00',date:'2015-05-03'});
-        selectObj.push({id:'16:30',text:'16:30',date:'2015-05-03'});
-        selectObj.push({id:'17:00',text:'17:00',date:'2015-05-03'});
-        selectObj.push({id:'17:30',text:'17:30',date:'2015-05-03'});
-        selectObj.push({id:'18:00',text:'18:00',date:'2015-05-03'});
-        selectObj.push({id:'18:30',text:'18:30',date:'2015-05-03'});
-        selectObj.push({id:'19:00',text:'19:00',date:'2015-05-03'});
-        selectObj.push({id:'19:30',text:'19:30',date:'2015-05-03'});
-        selectObj.push({id:'20:00',text:'20:00',date:'2015-05-03'});
-        selectObj.push({id:'20:30',text:'20:30',date:'2015-05-03'});
-        selectObj.push({id:'21:00',text:'21:00',date:'2015-05-03'});
+        selectObj.push({id:'no',text:'即时送出',date:'2017-11-30'});
+        selectObj.push({id:'9:30',text:'9:30',date:'2017-11-30'});
+        selectObj.push({id:'10:00',text:'10:00',date:'2017-11-30'});
+        selectObj.push({id:'10:30',text:'10:30',date:'2017-11-30'});
+        selectObj.push({id:'11:00',text:'11:00',date:'2017-11-30'});
+        selectObj.push({id:'11:30',text:'11:30',date:'2017-11-30'});
+        selectObj.push({id:'12:00',text:'12:00',date:'2017-11-30'});
+        selectObj.push({id:'12:30',text:'12:30',date:'2017-11-30'});
+        selectObj.push({id:'13:00',text:'13:00',date:'2017-11-30'});
+        selectObj.push({id:'13:30',text:'13:30',date:'2017-11-30'});
+        selectObj.push({id:'14:00',text:'14:00',date:'2017-11-30'});
+        selectObj.push({id:'14:30',text:'14:30',date:'2017-11-30'});
+        selectObj.push({id:'15:00',text:'15:00',date:'2017-11-30'});
+        selectObj.push({id:'15:30',text:'15:30',date:'2017-11-30'});
+        selectObj.push({id:'16:00',text:'16:00',date:'2017-11-30'});
+        selectObj.push({id:'16:30',text:'16:30',date:'2017-11-30'});
+        selectObj.push({id:'17:00',text:'17:00',date:'2017-11-30'});
+        selectObj.push({id:'17:30',text:'17:30',date:'2017-11-30'});
+        selectObj.push({id:'18:00',text:'18:00',date:'2017-11-30'});
+        selectObj.push({id:'18:30',text:'18:30',date:'2017-11-30'});
+        selectObj.push({id:'19:00',text:'19:00',date:'2017-11-30'});
+        selectObj.push({id:'19:30',text:'19:30',date:'2017-11-30'});
+        selectObj.push({id:'20:00',text:'20:00',date:'2017-11-30'});
+        selectObj.push({id:'20:30',text:'20:30',date:'2017-11-30'});
+        selectObj.push({id:'21:00',text:'21:00',date:'2017-11-30'});
     </script>
     <script src="/waimai/Public/Home/js/checkout.js"></script>
     <script>
@@ -444,5 +440,44 @@
     <!-- Baidu Analytics -->
 <!-- 收货地址的JS -->
   <script type="text/javascript" src="/waimai/Public/Home/js/zhonglin.js"></script>
+    <!-- 提交订单 -->
+    <script>
+    $('#tijiaodingdan').click(function(){
+        var load = layer.load(3, {time: 10*1000}); //又换了种风格，并且设定最长等待10秒
+        var add_id =$('.pay-dz .current input[name=id]').val();//地址的id
+        var checkText=$(".dropdown-text").text(); //送餐时间
+        var beizhu =$('#beizhu').val();//备注信息
+        //var fangshi =$('').val();//支付方式
+        $.post('add_order_detail_do',{ 'address_id':add_id ,'remarks':beizhu ,'time_of_delivery':checkText  },function(re){
+            if(re.code==1){
+                layer.msg(re.msg,{icon: 6},function(){
+                    layer.close(load);
+                    location.href = "order_success";
+                });
+            }else {
+                layer.msg("出错了",{icon: 5},function(){
+                    layer.close(load);
+                });
+                return false;
+            }
+        });
+    });
+    $('#xgdd').click(function(){
+        var load = layer.load(3, {time: 10*1000}); //又换了种风格，并且设定最长等待10秒
+        $.get('de_or',function(result){
+            if(!result){
+                layer.msg("出错了",{icon: 5},function(){
+                    layer.close(load);
+                });
+                return false;
+            }
+
+            location.href = "<?php echo U('Index/index');?>"; layer.close(load);
+        });
+    });
+    </script>
+    <script src="/waimai/Public/Home/js/menupage.js"></script>
+    <script src="/waimai/Public/Home/js/favorite.js"></script>
+    <script>angular.bootstrap(document, ["app"]);</script>
 </body>
 </html>

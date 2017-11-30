@@ -24,12 +24,7 @@ class HomeController extends Controller {
                 '#0000AA',
                 '#008B00','#EE0000',
             ];
-
-
-
            // dump(array_unique($param));exit();
-
-
             // If you want to generate, the picture is the background
             // $param = imagecreatefrompng('your.png');
 

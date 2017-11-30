@@ -1,0 +1,415 @@
+[ 2017-11-30T15:43:52+08:00 ] ::1 /waimai/Admin/Index/index.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000013s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000568s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001335s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001518s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.015589s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.015645s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.027194s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.027240s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000235s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000257s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000371s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000394s ]
+
+[ 2017-11-30T15:43:59+08:00 ] ::1 /waimai/Admin/Admin/index.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000007s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000269s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000313s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000346s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000024s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000056s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.011783s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.011842s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000243s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000277s ]
+
+[ 2017-11-30T15:44:02+08:00 ] ::1 /waimai/Admin/Login/index.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000011s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000287s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000421s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000459s ]
+SQL: SHOW COLUMNS FROM `admin` [ RunTime:0.0105s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000036s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000068s ]
+NOTIC: [8] Undefined variable: oldusername E:\phpStudy\WWW\waimai\Application\Runtime\Cache\Admin\32ec6c906c117a7c2bf504769276d87a.php 第 48 行.
+NOTIC: [8] Undefined variable: oldpassword E:\phpStudy\WWW\waimai\Application\Runtime\Cache\Admin\32ec6c906c117a7c2bf504769276d87a.php 第 54 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.096017s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.096078s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000183s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000204s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000331s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000353s ]
+
+[ 2017-11-30T15:44:03+08:00 ] ::1 /waimai/Admin/Login/verify_c.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000010s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000396s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000743s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000813s ]
+SQL: SHOW COLUMNS FROM `admin` [ RunTime:0.0036s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000566s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000628s ]
+
+[ 2017-11-30T15:44:16+08:00 ] ::1 /waimai/Admin/Login/login_in.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000008s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000287s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000360s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000394s ]
+SQL: SHOW COLUMNS FROM `admin` [ RunTime:0.0055s ]
+NOTIC: [8] Undefined variable: id E:\phpStudy\WWW\waimai\Application\Admin\Controller\LoginController.class.php 第 47 行.
+SQL: SELECT * FROM `admin` WHERE `username` = 'admin' LIMIT 1   [ RunTime:0.0004s ]
+SQL: UPDATE `admin` SET `lasttime`='2017-11-19 13:42:32',`newtime`='2017-11-30 15:44:16',`ip`='0.0.0.0',`login_count`=login_count+1 WHERE `id` = 1 [ RunTime:0.0830s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000030s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000076s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.003383s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.003432s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000218s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000244s ]
+
+[ 2017-11-30T15:44:18+08:00 ] ::1 /waimai/Admin/Admin/index.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000011s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000381s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000530s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000580s ]
+SQL: SHOW COLUMNS FROM `admin` [ RunTime:0.0064s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000087s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000148s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.079559s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.079613s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000239s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000272s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000411s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000451s ]
+
+[ 2017-11-30T15:44:19+08:00 ] ::1 /waimai/Admin/Admin/welcome.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000009s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000351s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000466s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000514s ]
+SQL: SHOW COLUMNS FROM `admin` [ RunTime:0.0053s ]
+SQL: SELECT * FROM `admin` LIMIT 1   [ RunTime:0.0003s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000077s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000140s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.063827s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.064027s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000425s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000479s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000801s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000863s ]
+
+[ 2017-11-30T15:44:22+08:00 ] ::1 /waimai/Admin/Admin/product-brand.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000010s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000385s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000468s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000508s ]
+SQL: SHOW COLUMNS FROM `admin` [ RunTime:0.0050s ]
+ERR: 非法操作:product-brand
+
+[ 2017-11-30T15:44:24+08:00 ] ::1 /waimai/Admin/Admin/product-category.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000015s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000559s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000720s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000808s ]
+SQL: SHOW COLUMNS FROM `admin` [ RunTime:0.0100s ]
+ERR: 非法操作:product-category
+
+[ 2017-11-30T15:44:26+08:00 ] ::1 /waimai/Admin/Product/index.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000018s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000418s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000527s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000591s ]
+SQL: SHOW COLUMNS FROM `type` [ RunTime:0.0050s ]
+SQL: SHOW COLUMNS FROM `product` [ RunTime:0.0044s ]
+SQL: SELECT * FROM `product`  [ RunTime:0.0004s ]
+SQL: SHOW COLUMNS FROM `type` [ RunTime:0.0043s ]
+SQL: SELECT * FROM `type` WHERE ( 1=1 AND type_id='13' ) LIMIT 1   [ RunTime:0.0003s ]
+SQL: SELECT * FROM `type` WHERE ( 1=1 AND type_id='13' ) LIMIT 1   [ RunTime:0.0002s ]
+SQL: SELECT * FROM `type` WHERE ( 1=1 AND type_id='13' ) LIMIT 1   [ RunTime:0.0002s ]
+SQL: SELECT * FROM `type` WHERE ( 1=1 AND type_id='13' ) LIMIT 1   [ RunTime:0.0002s ]
+SQL: SELECT * FROM `type` WHERE ( 1=1 AND type_id='13' ) LIMIT 1   [ RunTime:0.0002s ]
+SQL: SELECT * FROM `type` WHERE ( 1=1 AND type_id='13' ) LIMIT 1   [ RunTime:0.0002s ]
+SQL: SELECT * FROM `type` WHERE ( 1=1 AND type_id='59' ) LIMIT 1   [ RunTime:0.0002s ]
+SQL: SELECT * FROM `type` WHERE ( 1=1 AND type_id='13' ) LIMIT 1   [ RunTime:0.0002s ]
+SQL: SELECT * FROM `type` WHERE ( 1=1 AND type_id='13' ) LIMIT 1   [ RunTime:0.0002s ]
+SQL: SELECT * FROM `type` WHERE ( 1=1 AND type_id='13' ) LIMIT 1   [ RunTime:0.0002s ]
+SQL: SELECT * FROM `type` WHERE ( 1=1 AND type_id='13' ) LIMIT 1   [ RunTime:0.0002s ]
+SQL: SELECT * FROM `type` WHERE ( 1=1 AND type_id='13' ) LIMIT 1   [ RunTime:0.0002s ]
+SQL: SELECT * FROM `type` WHERE ( 1=1 AND type_id='59' ) LIMIT 1   [ RunTime:0.0002s ]
+SQL: SELECT * FROM `type` WHERE ( 1=1 AND type_id='13' ) LIMIT 1   [ RunTime:0.0002s ]
+SQL: SELECT * FROM `type` WHERE ( 1=1 AND type_id='13' ) LIMIT 1   [ RunTime:0.0002s ]
+SQL: SELECT * FROM `type` WHERE ( 1=1 AND type_id='13' ) LIMIT 1   [ RunTime:0.0002s ]
+SQL: SELECT * FROM `type` WHERE ( 1=1 AND type_id='13' ) LIMIT 1   [ RunTime:0.0002s ]
+SQL: SELECT * FROM `type` WHERE ( 1=1 AND type_id='59' ) LIMIT 1   [ RunTime:0.0002s ]
+SQL: SELECT * FROM `type` WHERE ( 1=1 AND type_id='13' ) LIMIT 1   [ RunTime:0.0002s ]
+SQL: SELECT * FROM `type` WHERE ( 1=1 AND type_id='13' ) LIMIT 1   [ RunTime:0.0002s ]
+SQL: SELECT * FROM `type` WHERE ( 1=1 AND type_id='13' ) LIMIT 1   [ RunTime:0.0002s ]
+SQL: SELECT * FROM `type` WHERE ( 1=1 AND type_id='13' ) LIMIT 1   [ RunTime:0.0002s ]
+SQL: SELECT * FROM `type` WHERE ( 1=1 AND type_id='13' ) LIMIT 1   [ RunTime:0.0002s ]
+SQL: SELECT * FROM `type` WHERE ( 1=1 AND type_id='59' ) LIMIT 1   [ RunTime:0.0002s ]
+SQL: SELECT * FROM `type` WHERE ( 1=1 AND type_id='13' ) LIMIT 1   [ RunTime:0.0002s ]
+SQL: SELECT * FROM `type` WHERE ( 1=1 AND type_id='13' ) LIMIT 1   [ RunTime:0.0003s ]
+SQL: SELECT * FROM `type` WHERE ( 1=1 AND type_id='13' ) LIMIT 1   [ RunTime:0.0002s ]
+SQL: SELECT * FROM `type` WHERE ( 1=1 AND type_id='13' ) LIMIT 1   [ RunTime:0.0002s ]
+SQL: SELECT * FROM `type` WHERE ( 1=1 AND type_id='13' ) LIMIT 1   [ RunTime:0.0002s ]
+SQL: SELECT * FROM `type` WHERE ( 1=1 AND type_id='13' ) LIMIT 1   [ RunTime:0.0002s ]
+SQL: SELECT * FROM `type` WHERE ( 1=1 AND type_id='59' ) LIMIT 1   [ RunTime:0.0002s ]
+SQL: SELECT * FROM `type` WHERE ( 1=1 AND type_id='13' ) LIMIT 1   [ RunTime:0.0003s ]
+SQL: SELECT * FROM `type` WHERE ( 1=1 AND type_id='13' ) LIMIT 1   [ RunTime:0.0004s ]
+SQL: SELECT * FROM `type` WHERE ( 1=1 AND type_id='13' ) LIMIT 1   [ RunTime:0.0003s ]
+SQL: SELECT * FROM `type` WHERE ( 1=1 AND type_id='13' ) LIMIT 1   [ RunTime:0.0002s ]
+SQL: SELECT * FROM `type` WHERE ( 1=1 AND type_id='13' ) LIMIT 1   [ RunTime:0.0004s ]
+SQL: SELECT * FROM `type` WHERE ( 1=1 AND type_id='59' ) LIMIT 1   [ RunTime:0.0003s ]
+SQL: SELECT * FROM `type` WHERE ( 1=1 AND type_id='13' ) LIMIT 1   [ RunTime:0.0002s ]
+SQL: SELECT * FROM `type` WHERE ( 1=1 AND type_id='13' ) LIMIT 1   [ RunTime:0.0002s ]
+SQL: SELECT * FROM `type` WHERE ( 1=1 AND type_id='13' ) LIMIT 1   [ RunTime:0.0002s ]
+SQL: SELECT * FROM `type` WHERE ( 1=1 AND type_id='13' ) LIMIT 1   [ RunTime:0.0002s ]
+SQL: SELECT * FROM `type` WHERE ( 1=1 AND type_id='59' ) LIMIT 1   [ RunTime:0.0002s ]
+SQL: SELECT * FROM `type` WHERE ( 1=1 AND type_id='13' ) LIMIT 1   [ RunTime:0.0002s ]
+SQL: SELECT * FROM `type` WHERE ( 1=1 AND type_id='13' ) LIMIT 1   [ RunTime:0.0002s ]
+SQL: SELECT * FROM `type` WHERE ( 1=1 AND type_id='13' ) LIMIT 1   [ RunTime:0.0002s ]
+SQL: SELECT * FROM `type` WHERE ( 1=1 AND type_id='13' ) LIMIT 1   [ RunTime:0.0002s ]
+SQL: SELECT * FROM `type` WHERE ( 1=1 AND type_id='13' ) LIMIT 1   [ RunTime:0.0002s ]
+SQL: SELECT * FROM `type` WHERE ( 1=1 AND type_id='59' ) LIMIT 1   [ RunTime:0.0002s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000059s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000118s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.072269s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.072318s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000213s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000239s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000525s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000573s ]
+
+[ 2017-11-30T15:44:36+08:00 ] ::1 /waimai/Admin/Product/index.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000011s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000447s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000512s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000563s ]
+SQL: SHOW COLUMNS FROM `type` [ RunTime:0.0035s ]
+SQL: SHOW COLUMNS FROM `product` [ RunTime:0.0035s ]
+SQL: SELECT * FROM `product`  [ RunTime:0.0004s ]
+SQL: SHOW COLUMNS FROM `type` [ RunTime:0.0034s ]
+SQL: SELECT * FROM `type` WHERE ( 1=1 AND type_id='13' ) LIMIT 1   [ RunTime:0.0002s ]
+SQL: SELECT * FROM `type` WHERE ( 1=1 AND type_id='13' ) LIMIT 1   [ RunTime:0.0001s ]
+SQL: SELECT * FROM `type` WHERE ( 1=1 AND type_id='13' ) LIMIT 1   [ RunTime:0.0001s ]
+SQL: SELECT * FROM `type` WHERE ( 1=1 AND type_id='13' ) LIMIT 1   [ RunTime:0.0001s ]
+SQL: SELECT * FROM `type` WHERE ( 1=1 AND type_id='13' ) LIMIT 1   [ RunTime:0.0001s ]
+SQL: SELECT * FROM `type` WHERE ( 1=1 AND type_id='13' ) LIMIT 1   [ RunTime:0.0001s ]
+SQL: SELECT * FROM `type` WHERE ( 1=1 AND type_id='59' ) LIMIT 1   [ RunTime:0.0001s ]
+SQL: SELECT * FROM `type` WHERE ( 1=1 AND type_id='13' ) LIMIT 1   [ RunTime:0.0001s ]
+SQL: SELECT * FROM `type` WHERE ( 1=1 AND type_id='13' ) LIMIT 1   [ RunTime:0.0001s ]
+SQL: SELECT * FROM `type` WHERE ( 1=1 AND type_id='13' ) LIMIT 1   [ RunTime:0.0001s ]
+SQL: SELECT * FROM `type` WHERE ( 1=1 AND type_id='13' ) LIMIT 1   [ RunTime:0.0001s ]
+SQL: SELECT * FROM `type` WHERE ( 1=1 AND type_id='13' ) LIMIT 1   [ RunTime:0.0001s ]
+SQL: SELECT * FROM `type` WHERE ( 1=1 AND type_id='59' ) LIMIT 1   [ RunTime:0.0001s ]
+SQL: SELECT * FROM `type` WHERE ( 1=1 AND type_id='13' ) LIMIT 1   [ RunTime:0.0001s ]
+SQL: SELECT * FROM `type` WHERE ( 1=1 AND type_id='13' ) LIMIT 1   [ RunTime:0.0001s ]
+SQL: SELECT * FROM `type` WHERE ( 1=1 AND type_id='13' ) LIMIT 1   [ RunTime:0.0001s ]
+SQL: SELECT * FROM `type` WHERE ( 1=1 AND type_id='13' ) LIMIT 1   [ RunTime:0.0001s ]
+SQL: SELECT * FROM `type` WHERE ( 1=1 AND type_id='59' ) LIMIT 1   [ RunTime:0.0001s ]
+SQL: SELECT * FROM `type` WHERE ( 1=1 AND type_id='13' ) LIMIT 1   [ RunTime:0.0002s ]
+SQL: SELECT * FROM `type` WHERE ( 1=1 AND type_id='13' ) LIMIT 1   [ RunTime:0.0001s ]
+SQL: SELECT * FROM `type` WHERE ( 1=1 AND type_id='13' ) LIMIT 1   [ RunTime:0.0001s ]
+SQL: SELECT * FROM `type` WHERE ( 1=1 AND type_id='13' ) LIMIT 1   [ RunTime:0.0002s ]
+SQL: SELECT * FROM `type` WHERE ( 1=1 AND type_id='13' ) LIMIT 1   [ RunTime:0.0002s ]
+SQL: SELECT * FROM `type` WHERE ( 1=1 AND type_id='59' ) LIMIT 1   [ RunTime:0.0001s ]
+SQL: SELECT * FROM `type` WHERE ( 1=1 AND type_id='13' ) LIMIT 1   [ RunTime:0.0001s ]
+SQL: SELECT * FROM `type` WHERE ( 1=1 AND type_id='13' ) LIMIT 1   [ RunTime:0.0001s ]
+SQL: SELECT * FROM `type` WHERE ( 1=1 AND type_id='13' ) LIMIT 1   [ RunTime:0.0001s ]
+SQL: SELECT * FROM `type` WHERE ( 1=1 AND type_id='13' ) LIMIT 1   [ RunTime:0.0001s ]
+SQL: SELECT * FROM `type` WHERE ( 1=1 AND type_id='13' ) LIMIT 1   [ RunTime:0.0001s ]
+SQL: SELECT * FROM `type` WHERE ( 1=1 AND type_id='13' ) LIMIT 1   [ RunTime:0.0001s ]
+SQL: SELECT * FROM `type` WHERE ( 1=1 AND type_id='59' ) LIMIT 1   [ RunTime:0.0001s ]
+SQL: SELECT * FROM `type` WHERE ( 1=1 AND type_id='13' ) LIMIT 1   [ RunTime:0.0001s ]
+SQL: SELECT * FROM `type` WHERE ( 1=1 AND type_id='13' ) LIMIT 1   [ RunTime:0.0001s ]
+SQL: SELECT * FROM `type` WHERE ( 1=1 AND type_id='13' ) LIMIT 1   [ RunTime:0.0002s ]
+SQL: SELECT * FROM `type` WHERE ( 1=1 AND type_id='13' ) LIMIT 1   [ RunTime:0.0002s ]
+SQL: SELECT * FROM `type` WHERE ( 1=1 AND type_id='13' ) LIMIT 1   [ RunTime:0.0002s ]
+SQL: SELECT * FROM `type` WHERE ( 1=1 AND type_id='59' ) LIMIT 1   [ RunTime:0.0002s ]
+SQL: SELECT * FROM `type` WHERE ( 1=1 AND type_id='13' ) LIMIT 1   [ RunTime:0.0002s ]
+SQL: SELECT * FROM `type` WHERE ( 1=1 AND type_id='13' ) LIMIT 1   [ RunTime:0.0002s ]
+SQL: SELECT * FROM `type` WHERE ( 1=1 AND type_id='13' ) LIMIT 1   [ RunTime:0.0002s ]
+SQL: SELECT * FROM `type` WHERE ( 1=1 AND type_id='13' ) LIMIT 1   [ RunTime:0.0002s ]
+SQL: SELECT * FROM `type` WHERE ( 1=1 AND type_id='59' ) LIMIT 1   [ RunTime:0.0002s ]
+SQL: SELECT * FROM `type` WHERE ( 1=1 AND type_id='13' ) LIMIT 1   [ RunTime:0.0002s ]
+SQL: SELECT * FROM `type` WHERE ( 1=1 AND type_id='13' ) LIMIT 1   [ RunTime:0.0002s ]
+SQL: SELECT * FROM `type` WHERE ( 1=1 AND type_id='13' ) LIMIT 1   [ RunTime:0.0002s ]
+SQL: SELECT * FROM `type` WHERE ( 1=1 AND type_id='13' ) LIMIT 1   [ RunTime:0.0002s ]
+SQL: SELECT * FROM `type` WHERE ( 1=1 AND type_id='13' ) LIMIT 1   [ RunTime:0.0002s ]
+SQL: SELECT * FROM `type` WHERE ( 1=1 AND type_id='59' ) LIMIT 1   [ RunTime:0.0002s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000057s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000112s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.004983s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.005014s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000172s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000193s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000462s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000495s ]
+
+[ 2017-11-30T15:44:38+08:00 ] ::1 /waimai/Admin/Product/index.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000007s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000242s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000298s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000325s ]
+SQL: SHOW COLUMNS FROM `type` [ RunTime:0.0032s ]
+SQL: SHOW COLUMNS FROM `product` [ RunTime:0.0034s ]
+SQL: SELECT * FROM `product`  [ RunTime:0.0003s ]
+SQL: SHOW COLUMNS FROM `type` [ RunTime:0.0030s ]
+SQL: SELECT * FROM `type` WHERE ( 1=1 AND type_id='13' ) LIMIT 1   [ RunTime:0.0002s ]
+SQL: SELECT * FROM `type` WHERE ( 1=1 AND type_id='13' ) LIMIT 1   [ RunTime:0.0002s ]
+SQL: SELECT * FROM `type` WHERE ( 1=1 AND type_id='13' ) LIMIT 1   [ RunTime:0.0001s ]
+SQL: SELECT * FROM `type` WHERE ( 1=1 AND type_id='13' ) LIMIT 1   [ RunTime:0.0001s ]
+SQL: SELECT * FROM `type` WHERE ( 1=1 AND type_id='13' ) LIMIT 1   [ RunTime:0.0002s ]
+SQL: SELECT * FROM `type` WHERE ( 1=1 AND type_id='13' ) LIMIT 1   [ RunTime:0.0001s ]
+SQL: SELECT * FROM `type` WHERE ( 1=1 AND type_id='59' ) LIMIT 1   [ RunTime:0.0002s ]
+SQL: SELECT * FROM `type` WHERE ( 1=1 AND type_id='13' ) LIMIT 1   [ RunTime:0.0002s ]
+SQL: SELECT * FROM `type` WHERE ( 1=1 AND type_id='13' ) LIMIT 1   [ RunTime:0.0002s ]
+SQL: SELECT * FROM `type` WHERE ( 1=1 AND type_id='13' ) LIMIT 1   [ RunTime:0.0002s ]
+SQL: SELECT * FROM `type` WHERE ( 1=1 AND type_id='13' ) LIMIT 1   [ RunTime:0.0002s ]
+SQL: SELECT * FROM `type` WHERE ( 1=1 AND type_id='13' ) LIMIT 1   [ RunTime:0.0001s ]
+SQL: SELECT * FROM `type` WHERE ( 1=1 AND type_id='59' ) LIMIT 1   [ RunTime:0.0002s ]
+SQL: SELECT * FROM `type` WHERE ( 1=1 AND type_id='13' ) LIMIT 1   [ RunTime:0.0001s ]
+SQL: SELECT * FROM `type` WHERE ( 1=1 AND type_id='13' ) LIMIT 1   [ RunTime:0.0001s ]
+SQL: SELECT * FROM `type` WHERE ( 1=1 AND type_id='13' ) LIMIT 1   [ RunTime:0.0001s ]
+SQL: SELECT * FROM `type` WHERE ( 1=1 AND type_id='13' ) LIMIT 1   [ RunTime:0.0001s ]
+SQL: SELECT * FROM `type` WHERE ( 1=1 AND type_id='59' ) LIMIT 1   [ RunTime:0.0001s ]
+SQL: SELECT * FROM `type` WHERE ( 1=1 AND type_id='13' ) LIMIT 1   [ RunTime:0.0001s ]
+SQL: SELECT * FROM `type` WHERE ( 1=1 AND type_id='13' ) LIMIT 1   [ RunTime:0.0001s ]
+SQL: SELECT * FROM `type` WHERE ( 1=1 AND type_id='13' ) LIMIT 1   [ RunTime:0.0001s ]
+SQL: SELECT * FROM `type` WHERE ( 1=1 AND type_id='13' ) LIMIT 1   [ RunTime:0.0001s ]
+SQL: SELECT * FROM `type` WHERE ( 1=1 AND type_id='13' ) LIMIT 1   [ RunTime:0.0002s ]
+SQL: SELECT * FROM `type` WHERE ( 1=1 AND type_id='59' ) LIMIT 1   [ RunTime:0.0002s ]
+SQL: SELECT * FROM `type` WHERE ( 1=1 AND type_id='13' ) LIMIT 1   [ RunTime:0.0001s ]
+SQL: SELECT * FROM `type` WHERE ( 1=1 AND type_id='13' ) LIMIT 1   [ RunTime:0.0001s ]
+SQL: SELECT * FROM `type` WHERE ( 1=1 AND type_id='13' ) LIMIT 1   [ RunTime:0.0001s ]
+SQL: SELECT * FROM `type` WHERE ( 1=1 AND type_id='13' ) LIMIT 1   [ RunTime:0.0001s ]
+SQL: SELECT * FROM `type` WHERE ( 1=1 AND type_id='13' ) LIMIT 1   [ RunTime:0.0001s ]
+SQL: SELECT * FROM `type` WHERE ( 1=1 AND type_id='13' ) LIMIT 1   [ RunTime:0.0001s ]
+SQL: SELECT * FROM `type` WHERE ( 1=1 AND type_id='59' ) LIMIT 1   [ RunTime:0.0001s ]
+SQL: SELECT * FROM `type` WHERE ( 1=1 AND type_id='13' ) LIMIT 1   [ RunTime:0.0001s ]
+SQL: SELECT * FROM `type` WHERE ( 1=1 AND type_id='13' ) LIMIT 1   [ RunTime:0.0001s ]
+SQL: SELECT * FROM `type` WHERE ( 1=1 AND type_id='13' ) LIMIT 1   [ RunTime:0.0001s ]
+SQL: SELECT * FROM `type` WHERE ( 1=1 AND type_id='13' ) LIMIT 1   [ RunTime:0.0001s ]
+SQL: SELECT * FROM `type` WHERE ( 1=1 AND type_id='13' ) LIMIT 1   [ RunTime:0.0001s ]
+SQL: SELECT * FROM `type` WHERE ( 1=1 AND type_id='59' ) LIMIT 1   [ RunTime:0.0001s ]
+SQL: SELECT * FROM `type` WHERE ( 1=1 AND type_id='13' ) LIMIT 1   [ RunTime:0.0001s ]
+SQL: SELECT * FROM `type` WHERE ( 1=1 AND type_id='13' ) LIMIT 1   [ RunTime:0.0001s ]
+SQL: SELECT * FROM `type` WHERE ( 1=1 AND type_id='13' ) LIMIT 1   [ RunTime:0.0001s ]
+SQL: SELECT * FROM `type` WHERE ( 1=1 AND type_id='13' ) LIMIT 1   [ RunTime:0.0001s ]
+SQL: SELECT * FROM `type` WHERE ( 1=1 AND type_id='59' ) LIMIT 1   [ RunTime:0.0001s ]
+SQL: SELECT * FROM `type` WHERE ( 1=1 AND type_id='13' ) LIMIT 1   [ RunTime:0.0001s ]
+SQL: SELECT * FROM `type` WHERE ( 1=1 AND type_id='13' ) LIMIT 1   [ RunTime:0.0001s ]
+SQL: SELECT * FROM `type` WHERE ( 1=1 AND type_id='13' ) LIMIT 1   [ RunTime:0.0001s ]
+SQL: SELECT * FROM `type` WHERE ( 1=1 AND type_id='13' ) LIMIT 1   [ RunTime:0.0001s ]
+SQL: SELECT * FROM `type` WHERE ( 1=1 AND type_id='13' ) LIMIT 1   [ RunTime:0.0001s ]
+SQL: SELECT * FROM `type` WHERE ( 1=1 AND type_id='59' ) LIMIT 1   [ RunTime:0.0001s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000056s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000112s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.004992s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.005020s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000198s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000217s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000424s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000456s ]
+
+[ 2017-11-30T15:44:47+08:00 ] ::1 /waimai/Admin/Admin/index
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000014s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000530s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000788s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000856s ]
+SQL: SHOW COLUMNS FROM `admin` [ RunTime:0.0036s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000067s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000099s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.005929s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.005957s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000166s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000186s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000346s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000374s ]
+
+[ 2017-11-30T15:44:49+08:00 ] ::1 /waimai/Admin/Admin/welcome.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000009s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000368s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000486s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000536s ]
+SQL: SHOW COLUMNS FROM `admin` [ RunTime:0.0050s ]
+SQL: SELECT * FROM `admin` LIMIT 1   [ RunTime:0.0003s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000083s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000153s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.007008s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.007058s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000265s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000296s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000485s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000519s ]
+
