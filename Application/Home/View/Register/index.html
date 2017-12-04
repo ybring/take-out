@@ -79,16 +79,12 @@
     <script type="text/javascript">
     // 发送验证码 的js
       function get_mobile_code(){
-        $.post('send_code', {mobile:jQuery.trim($('#mobile').val()),send_code:<?php echo $_SESSION['send_code'];?>}, function(msg) {
-          layer.msg(jQuery.trim(unescape(msg)),{
-              time: 2000
-              ,shadeClose:true
-              ,icon: 5
-             
-            }); 
+        $.post('send_code', {mobile:jQuery.trim($('#mobile').val()),send_code:<?php echo $_SESSION['send_code'];?> }, function(msg) {
+
            // alert(jQuery.trim(unescape(msg)));
             //提交成功 提示框
       if(msg=='提交成功'){
+      RemainTime();
         layer.msg('已发送验证~'
           , {icon: 6,time: 2000 //2秒关闭（如果不配置，默认是3秒）
             ,skin : 'ayui-layer-lan',shadeClose:true

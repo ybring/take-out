@@ -1,0 +1,142 @@
+<?php if (!defined('THINK_PATH')) exit();?><!DOCTYPE html>
+
+<html>
+<head>
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1" />
+    <meta name="keywords" content="" />
+    <meta name="description" content="" />
+    <meta property="wb:webmaster" content="239d3d1dbdde1b2c" />
+    <link rel="stylesheet" type="text/css" href="/waimai/Public/Home/css/reset.css" />
+    <link rel="stylesheet" href="/waimai/Public/Home/css/common.css"/>
+    
+    <link rel="stylesheet" href="/waimai/Public/Home/css/forget_passwd.css"/>
+
+    <!--[if lt IE 9]><link rel="stylesheet" type="text/css" href="/waimai/Public/Home/css/frontPage-ie8-fix.css" /><![endif]-->
+    <!--[if lte IE 10]><script>document.createElement('footer');document.createElement('header');document.createElement('nav');document.createElement('section');document.createElement('article');</script><![endif]-->
+    <!--[if lte IE 7]><script>window.onload=function(){location.href="/ie6warning/"}</script><![endif]-->
+    <title>密码重置</title>
+    <script type="text/javascript">
+        
+        (function(document, screen) {
+            if (screen.width < 760) {
+                document.location.href="/mobile/";
+            }
+        }(document, screen));
+    </script>
+</head>
+<body>
+    
+    <header id="header" class="">
+        <div class="common-width">
+            
+                <section class="clearfix">
+                    <h1 class="logo" title="外卖超人">
+                        <a href="index.html"></a>
+                    </h1>
+                    <span class="page-name"> | 找回密码</span>
+                </section>
+                
+            
+        </div>
+    </header>
+    
+    <section class="main">
+        <div class="common-width">
+            
+    <div class="main-inner">
+        <div class="passwd-nav-box">
+            <ol class="passwd-nav">
+                <li class="first ">
+                    <span><i>1</i><em>身份验证</em></span>
+                </li>
+                <li class="middle done">
+                    <span><i>2</i><em>重设登录密码</em></span>
+                </li>
+                <li class="last ">
+                    <span><i>3</i><em>完成</em></span>
+                </li>
+            </ol>
+        </div>
+    
+
+    <div class="fill-data-box" id="passStep">
+        <div class="fill-data">
+            <div class="title txt-center">您正在为账号<?php echo ($mobile); ?>设置密码</div>
+            <div class="form-group w275">
+                <input type="password" maxlength="18" id="pass" name="pass" class="form-text" placeholder="请输入6-18位的新密码"/>
+            </div>
+            <div class="form-error-message"></div>
+            <div class="form-group w275">
+                <input type="password" maxlength="18" id="pass2" name="pass2"  class="form-text" placeholder="请再次输入新密码"/>
+            </div>
+            <div class="form-error-message"></div>
+            <div>
+                <button class="form-btn" id="btn">确认</button>
+            </div>
+        </div>
+    </div>
+
+
+    </div>
+
+        </div>
+    </section>
+
+    
+    
+    <script type="text/javascript" src="/waimai/Public/Home/js/jquery-1.7.2.min.js"></script>
+    <script type="text/javascript" src="/waimai/Public/layer/layer.js"></script>
+    <script>
+        var mobile_validate_url = '0',
+            email_validate_url = '',
+            finish_send_mail_url = '',
+            password_reset_url = '7',
+            password_timeout_url = '6',
+            reset_password_url = "d",
+            password_reset_done = '5',
+            captcha_url = '001',
+            ajax_password_reset_via_mobile_start = '77',
+            common_sms_code = '456'
+    </script>
+    <script src="/waimai/Public/Home/js/forget_passwd.js"></script>
+
+    <!-- Baidu Analytics -->
+
+<!-- End Baidu Tracking Code -->
+<script>
+    $('#btn').click(function(){
+        var load = layer.load(3, {time: 10*1000}); //又换了种风格，并且设定最长等待10秒
+        var pass =$('#pass').val();var pass2 =$('#pass2').val();
+        if(!pass || pass=="" || pass.length<6 ){
+            layer.msg('请输入6-18位的新密码！',{icon:5});
+            layer.close(load);
+            return false;
+        }
+        if(pass!=pass2){
+            layer.msg('两次输入的密码不一样！',{icon:5});
+            layer.close(load);
+            return false;
+        }
+        $.post('pwd_reset_do',{'pass':pass},function(code){
+            if(code>=1){
+                layer.msg('修改密码成功！',function(){
+                    location.href = "<?php echo U('Login/index');?>";//location.href实现客户端页面的跳转
+                });
+                layer.close(load);
+                return false;
+            }else if(code==0){
+                layer.msg('修改密码失败！',{icon:5});
+                layer.close(load);
+                return false;
+            }else {
+                layer.msg('未知错误！',{icon:5});
+                layer.close(load);
+                return false;
+            }
+        });
+    });
+</script>
+
+</body>
+</html>

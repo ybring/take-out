@@ -1,0 +1,42 @@
+<ul class="site-fixed">
+    <li class="scroll-top">
+        <img src="__PUBLIC__/Home/images/scroll_top1.png" alt="" /></li>
+    <li class="scorll-feekback" ng-click="userFeedback=true">
+        <img src="__PUBLIC__/Home/images/scorll_feekback.png" alt="" />
+        <div>意见反馈</div></li>
+    <li class="scroll-wx">
+        <img src="__PUBLIC__/Home/images/scroll_wx.png" alt=""/>
+        <div><img width="180px" height="180px" src="{:U('Home/index')}" alt=""/></div>
+    </li>
+</ul>
+<!-- 意见反馈的 弹窗 -->
+<dh-dialog class="disnone" height="500" feeedbackclass="userFeedback" type="user-feedback" header="意见反馈" show="userFeedback">
+    <div ng-controller="feedbackCtrl">
+        <form novalidate="true" name="feedbackForm" class="inline">
+            <div class="form-group row mb10">
+                <label class="col-3">联系方式：</label>
+                <div class="col-8">
+                    <input type="text" maxlength="20" name="userContact" required ng-focus="userContactFocus()" ng-class="{error:feedback.phoneMessage}" placeholder="请输入您的手机号码" ng-model="feedback.userContact" /></div>
+            </div>
+            <div class="row mb10">
+                <div class="clo-8 col-offset-3" ng-if="feedback.phoneMessage">
+                    <span class="vaildate-error">联系方式不能为空</span></div>
+            </div>
+            <div class="form-group row">
+                <label class="col-3 vt">反馈信息：</label>
+                <div class="col-8">
+                    <textarea name="feedbackMessage" placeholder="可以说说您对沙漏外卖的意见" ng-focus="feedbacFocus()" required ng-class="{error:feedback.feedbackMessageTip}" ng-model="feedback.feedbackMessage" maxlength="300" cols="25" rows="7"></textarea>
+                </div>
+            </div>
+            <div class="row mb10">
+                <div class="clo-8 col-offset-3" ng-if="feedback.feedbackMessageTip">
+                    <span class="vaildate-error">反馈信息不能为空</span></div>
+            </div>
+            <div class="tc">
+                <button class="btn normal-btn btn-success" ng-click="feedbackSubmit()">确认</button>
+                <button class="btn normal-btn btn-cancel" ng-click="feedbackCancel()">取消</button></div>
+        </form>
+    </div>
+    <div class="common-dialog-footer">咨询加QQ群：664621217</div>
+</dh-dialog>
+<!-- 意见反馈的 弹窗  控制这个的jq common.js -->

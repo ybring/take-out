@@ -38,34 +38,40 @@
         <?php if($user_phone): ?><li class="userName">
                                 <a href="member_index.html" rel="nofollow" draw-user><?php echo ($user_phone); ?><em></em></a>
                                 <div>
-                                    <p><a href="member_index.html"  rel="nofollow">账号管理</a></p>
-                                    <p><a href="member_addr.html"  rel="nofollow">地址管理</a></p>
-                                    <p class="no-bo"><a id="logout" href="<?php echo U('Login/login_out');?>"  rel="nofollow">退出</a></p>
+                                    <p><a href="<?php echo U('Home/User/index');?>"  rel="nofollow">账号管理</a></p>
+                                    <p><a href="<?php echo U('Home/User/user_addr');?>"  rel="nofollow">地址管理</a></p>
+                                    <p class="no-bo"><a id="logout" href="<?php echo U('Home/Login/login_out');?>"  rel="nofollow">退出</a></p>
                                 </div>
                             </li>
         <?php else: ?>  
                         <li class="login-register">
-                            <a href="<?php echo U('Login/index');?>"  class="login"  rel="nofollow">登录</a>
+                            <a href="<?php echo U('Home/Login/index');?>" id="login"  class="login"  rel="nofollow">登录</a>
                                 <span class="cg">/</span>
-                            <a href="<?php echo U('Register/index');?>" rel="nofollow" class="register">注册</a>
-                        </li><?php endif; ?>
-                            <li class=""><a href="member_order.html" class="order-center"  rel="nofollow">我的订单</a></li>
-                            <li class=""><a href="member_collect.html"  rel="nofollow">我的收藏</a></li>
-                            <li class=""><a href="gifts.html"  rel="nofollow">氪星礼品站</a></li>
+                            <a href="<?php echo U('Home/Register/index');?>" rel="nofollow" class="register">注册</a>
+                        </li>
+            <script>
+                document.getElementById('login').href += "?redirect_url=" + window.location.href;
+            </script><?php endif; ?>
+                            <li class=""><a href="<?php echo U('Home/User/user_order');?>" class="order-center"  rel="nofollow">我的订单</a></li>
+                            <li class=""><a href="<?php echo U('Home/User/user_collect');?>"  rel="nofollow">我的收藏</a></li>
                             
                         </ul>
                     
                 </div>
             </header>
             <div id="main-box">
-    
+                <!--二维码-->
+                <div class="qrCode-frame" ng-hide="qrCodeStatus">
+                    <img width="160px" height="160px" src="<?php echo U('Home/index');?>" alt="扫描二维码"/>
+                    <em ng-click="qrCodeStatus=true">X</em>
+                </div>
         <div ng-controller="colorAction">
           <div class="dayColor_two"></div>
           <div class="dayColor_one"></div>
           <div class="dayColor_three" ng-class="{dayColor_threeActive:threeActive}"></div>
         </div>
 
-        
+
          
 
             <section class="confirm-main common-width clearfix">
@@ -75,7 +81,7 @@
                         <p>请保持手机<?php echo ($user_phone); ?>畅通，稍后沙漏客服会与您联系。</p>
                         <p>感谢使用沙漏外卖。</p>
 
-                        <a href="#" class="order">查看订单</a>
+                        <a href="<?php echo U('User/user_addr');?>" class="order">查看订单</a>
 
                     </div>
                 </div>

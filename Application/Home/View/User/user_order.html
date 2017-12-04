@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1" />
+    <meta name="description" content="" />
+    <meta name="viewport" content="user-scalable=no">
+    
+    <meta name="google-site-verification" content="BstJA3X9z6f9HcvoN9AZTwaKo_9Abj_j7dVBPfy640s" />
+    <meta name="baidu-site-verification" content="IYCrtVH0i1" />
+    <meta property="wb:webmaster" content="239d3d1dbdde1b2c" />
+    <link rel="icon" type="image/png" href="__PUBLIC__/Home/images/favicon.ico"/>
+    
+    <script type="text/javascript">
+        
+        (function(document, screen) {if (screen.width < 760) {document.location.href="/mobile/";}}(document, screen));
+    </script>
+    <link rel="stylesheet" href="__PUBLIC__/layui/css/layui.css"/>
+    <link rel="stylesheet" href="__PUBLIC__/Home/css/common.css?v=2015-5-20"/>
+
+    <link rel="stylesheet" href="__PUBLIC__/Home/css/user_center.css"/>
+
+    <!--[if lte IE 7]><script>window.onload=function(){location.href="/ie6warning/"}</script><![endif]-->
+    <!--[if lt IE 9]>
+    <script src="__PUBLIC__/Home/js/respond.js"></script>
+    <script>
+        var e = "abbr, article, aside, audio, canvas, datalist, details, dialog, eventsource, figure, footer, header, hgroup, mark, menu, meter, nav, output, progress, section, time, video, dh-dialog, dh-checkbox".split(', ');
+         var i= e.length;while (i--){document.createElement(e[i])}
+    </script>
+    <![endif]-->
+    <title>个人中心 - 订单管理</title>
+</head>
+<body class="day " ng-controller="bodyCtrl"  day-or-night>
+    <section class="common-back" id="wrapBackground">
+        
+          <include file="Common/index_header"/>
+            
+    <section>
+        <div class="user-center-main-box common-width clearfix">
+            <aside class="fl">
+                <ul>
+                    <li >
+                        <a href="{:U('Home/User/index')}" rel="nofollow">账号管理</a>
+                    </li>
+                    <li class="active">
+                        <a href="{:U('Home/User/user_order')}" rel="nofollow">我的订单</a>
+                    </li>
+                    <li >
+                        <a href="{:U('Home/User/user_collect')}" rel="nofollow">我的收藏</a>
+                    </li>
+                    <li >
+                        <a href="{:U('Home/User/user_addr')}"  rel="nofollow">地址管理</a>
+                    </li>
+                </ul>
+            </aside>
+            <article class="fl user-center-main">
+                <header>历史订单</header>
+
+        <!-- 自己输入的内容 -->
+        <div class="layui-collapse" lay-accordion>
+            <volist name="list" id="vo" >
+                <div class="layui-colla-item">
+                        <table class="layui-colla-title layui-table" lay-even lay-skin="nob" style="margin-top: 0px; margin-bottom: 0px;">
+                            <colgroup>
+                                <col width="200">
+                                <col width="160">
+                                <col width="300">
+                                <col>
+                            </colgroup>
+                            <thead>
+                            <tr>
+                                <th style="padding-left: 40px;">订单号：{$vo.id}</th>
+                                <th>送餐时间：{$vo.time_of_delivery}</th>
+                                <th>下单日期：{$vo.order_date}</th>
+                                <th>操作</th>
+                            </tr>
+                            </thead>
+                            <thead>
+                            <tr>
+                                <th style="padding-left: 40px;">手机：{$vo.address.customer_phone}</th>
+                                <th>姓名：{$vo.address.customer_name}</th>
+                                <th>地址：{$vo.address.delivery_address}</th>
+                                <th><a href="#">删除</a></th>
+                            </tr>
+                            </thead>
+                        </table>
+                        <!-- 隐藏的内容 -->
+                        <table class="layui-colla-content layui-table" lay-size="sm"   style="padding: 0px; margin: 0px;">
+                            <colgroup>
+                                <col width="200">
+                                <col width="200">
+                                <col width="200">
+                                <col width="200">
+                            </colgroup>
+                            <thead>
+                            <tr>
+                                <th>商品名称</th>
+                                <th>单价</th>
+                                <th>数量</th>
+                                <th>小结</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                                <volist name="vo.order_detail" id="vp">
+                                    <tr>
+                                        <td>{$vp.name}</td>
+                                        <td>{$vp.price} 元</td>
+                                        <td>{$vp.nums}</td>
+                                        <td>{$vp.subtotal} 元</td>
+                                    </tr>
+                                </volist>
+                            </tbody>
+                            <tbody>
+                                <tr style="background-color: #e2e2e2">
+                                    <td>备注：{$vo.remarks}</td>
+                                    <td>购买IP：{$vo.ip}</td>
+                                    <td>运费：0 元</td>
+                                    <td>总支付：{$vo.total} 元</td>
+                                </tr>
+                            </tbody>
+                        </table>
+
+                    </div>
+
+            </volist>
+        </div>
+            </article>
+        </div>
+    </section>
+
+        </div>
+    </section>
+    
+       <include file="Common/index_footer"/>
+
+    <include file="Common/site_fixed"/>
+
+    
+    <script type="text/javascript">
+        var token = 'u8wA1RHnkO8OfIWaX5Uxg3u5Og9X718nFVOQTFXg:WsqxKsgpRoNjeOqH4m8Uo80w3TM=:eyJtaW1lTGltaXQiOiJpbWFnZS9qcGVnO2ltYWdlL3BuZyIsInNjb3BlIjoiZGhjLXJlZnVuZCIsImRlYWRsaW5lIjoxNDMwNjIwMDM3LCJmc2l6ZUxpbWl0Ijo1MjQyODgwfQ==';
+        var orderRefund = "/account/order/0/refund/create/";
+        var static = "/static/";
+    </script>
+    <script src="__PUBLIC__/Home/js/jquery-1.8.1.js"></script>
+
+    <script type="text/javascript" src="__PUBLIC__/Home/js/angular.min.js"></script>
+    <script src="__PUBLIC__/Home/js/common.js"></script>
+    
+     
+    <script src="__PUBLIC__/Home/js/service.js"></script>
+    <script>var feedbackUrl = '/ajax/feedback/';var app = angular.module("app", ["dh.dialog", "dh.form", 'dh.service', 'dh.other']);</script>
+    <!--[if lt IE 9]><script src="__PUBLIC__/Home/js/fix.js"></script><![endif]-->
+    <script src="__PUBLIC__/Home/js/user_center.js"></script>
+
+
+    <script>angular.bootstrap(document, ["app"]);</script>
+
+    <!-- Baidu Analytics -->
+    <script type="text/javascript" src="__PUBLIC__/layui/layui.js"></script>
+    <script type="text/javascript" src="__PUBLIC__/layui/layui.all.js"></script>
+<script>
+    layui.use('element', function(){
+        var element = layui.element;
+
+        //一些事件监听
+        element.on('collapse(filter)', function(data){
+            console.log(data.show); //得到当前面板的展开状态，true或者false
+            console.log(data.title); //得到当前点击面板的标题区域DOM对象
+            console.log(data.content); //得到当前点击面板的内容区域DOM对象
+        });
+
+    });
+
+
+</script>
+</body>
+</html>

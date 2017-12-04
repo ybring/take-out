@@ -46,7 +46,7 @@
             <div class="log-box" id="loginPageBox">
                 <div class="form-group w275">
                     <label for="lPhone">手机号码</label>
-                    <span class="fs12 fr">没有注册 ？ <a href="/account/register/" class="yo">立即注册</a></span>
+                    <span class="fs12 fr">没有注册 ？ <a href="<?php echo U('Home/Register/index');?>" class="yo">立即注册</a></span>
                     <input id="lPhone" name="phone" maxlength="11" type="text" class="form-text" placeholder="输入您的手机号码"/>
                 </div>
                 <div class="form-error-message"></div>
@@ -63,7 +63,7 @@
                 </div>
                 <div class="form-error-message"></div>
                 <div class="form-group checkbox clearfix">
-                    <span class="fr fs12"><a class="yo" target="_black" href="/account/password/reset_via_mobile/" >忘记密码</a></span>
+                    <span class="fr fs12"><a class="yo" target="_black" href="<?php echo U('Register/pwd_forget');?>" >忘记密码</a></span>
                 </div>
                 <div>
                     <button  class="form-btn" id="denglu" >登录</button>
@@ -93,12 +93,11 @@
         </div>
     </div>
 </footer>
-    
+
     
     <script type="text/javascript" src="/waimai/Public/Home/js/jquery-1.7.2.min.js"></script>
-    
+    <script type="text/javascript" src="/waimai/Public/layer/layer.js"></script>
 <script type="text/javascript" src="/waimai/Public/Home/js/loginVaildate.js"></script>
-<script type="text/javascript" src="/waimai/Public/layer/layer.js"></script>
 
 <script type="text/javascript">
 
@@ -149,7 +148,12 @@ $("#denglu").click(function(){
             {   icon:6
                 ,time : 2000    
             },function(){
-                location.href="<?php echo U('Index/index');?>";
+                if (! getUrlParam('redirect_url')) {
+                    location.href = "<?php echo U('Index/index');?>";
+                } else {
+                    location.href= getUrlParam('redirect_url');
+                }
+
             });
             
             return false;
@@ -162,7 +166,12 @@ $("#denglu").click(function(){
     });
 
 });
-
+//获取url中的参数
+function getUrlParam(name) {
+    var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)"); //构造一个含有目标参数的正则表达式对象
+    var r = window.location.search.substr(1).match(reg);  //匹配目标参数
+    if (r != null) return unescape(r[2]); return null; //返回参数值
+}
 </script>
 
 </body>

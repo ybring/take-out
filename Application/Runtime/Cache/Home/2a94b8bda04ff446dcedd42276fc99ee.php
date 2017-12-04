@@ -35,34 +35,40 @@
         <?php if($user_phone): ?><li class="userName">
                                 <a href="member_index.html" rel="nofollow" draw-user><?php echo ($user_phone); ?><em></em></a>
                                 <div>
-                                    <p><a href="member_index.html"  rel="nofollow">账号管理</a></p>
-                                    <p><a href="member_addr.html"  rel="nofollow">地址管理</a></p>
-                                    <p class="no-bo"><a id="logout" href="<?php echo U('Login/login_out');?>"  rel="nofollow">退出</a></p>
+                                    <p><a href="<?php echo U('Home/User/index');?>"  rel="nofollow">账号管理</a></p>
+                                    <p><a href="<?php echo U('Home/User/user_addr');?>"  rel="nofollow">地址管理</a></p>
+                                    <p class="no-bo"><a id="logout" href="<?php echo U('Home/Login/login_out');?>"  rel="nofollow">退出</a></p>
                                 </div>
                             </li>
         <?php else: ?>  
                         <li class="login-register">
-                            <a href="<?php echo U('Login/index');?>"  class="login"  rel="nofollow">登录</a>
+                            <a href="<?php echo U('Home/Login/index');?>" id="login"  class="login"  rel="nofollow">登录</a>
                                 <span class="cg">/</span>
-                            <a href="<?php echo U('Register/index');?>" rel="nofollow" class="register">注册</a>
-                        </li><?php endif; ?>
-                            <li class=""><a href="member_order.html" class="order-center"  rel="nofollow">我的订单</a></li>
-                            <li class=""><a href="member_collect.html"  rel="nofollow">我的收藏</a></li>
-                            <li class=""><a href="gifts.html"  rel="nofollow">氪星礼品站</a></li>
+                            <a href="<?php echo U('Home/Register/index');?>" rel="nofollow" class="register">注册</a>
+                        </li>
+            <script>
+                document.getElementById('login').href += "?redirect_url=" + window.location.href;
+            </script><?php endif; ?>
+                            <li class=""><a href="<?php echo U('Home/User/user_order');?>" class="order-center"  rel="nofollow">我的订单</a></li>
+                            <li class=""><a href="<?php echo U('Home/User/user_collect');?>"  rel="nofollow">我的收藏</a></li>
                             
                         </ul>
                     
                 </div>
             </header>
             <div id="main-box">
-    
+                <!--二维码-->
+                <div class="qrCode-frame" ng-hide="qrCodeStatus">
+                    <img width="160px" height="160px" src="<?php echo U('Home/index');?>" alt="扫描二维码"/>
+                    <em ng-click="qrCodeStatus=true">X</em>
+                </div>
         <div ng-controller="colorAction">
           <div class="dayColor_two"></div>
           <div class="dayColor_one"></div>
           <div class="dayColor_three" ng-class="{dayColor_threeActive:threeActive}"></div>
         </div>
 
-        
+
          
 <section class="menupage-main common-width" ng-init="city_name='上海'">
         
@@ -294,12 +300,48 @@
       </div>
     </dh-dialog>
     <ul class="site-fixed">
-      <li class="scroll-top">
+    <li class="scroll-top">
         <img src="/waimai/Public/Home/images/scroll_top1.png" alt="" /></li>
-      <li class="scorll-feekback" ng-click="userFeedback=true">
+    <li class="scorll-feekback" ng-click="userFeedback=true">
         <img src="/waimai/Public/Home/images/scorll_feekback.png" alt="" />
         <div>意见反馈</div></li>
-    </ul>
+    <li class="scroll-wx">
+        <img src="/waimai/Public/Home/images/scroll_wx.png" alt=""/>
+        <div><img width="180px" height="180px" src="<?php echo U('Home/index');?>" alt=""/></div>
+    </li>
+</ul>
+<!-- 意见反馈的 弹窗 -->
+<dh-dialog class="disnone" height="500" feeedbackclass="userFeedback" type="user-feedback" header="意见反馈" show="userFeedback">
+    <div ng-controller="feedbackCtrl">
+        <form novalidate="true" name="feedbackForm" class="inline">
+            <div class="form-group row mb10">
+                <label class="col-3">联系方式：</label>
+                <div class="col-8">
+                    <input type="text" maxlength="20" name="userContact" required ng-focus="userContactFocus()" ng-class="{error:feedback.phoneMessage}" placeholder="请输入您的手机号码" ng-model="feedback.userContact" /></div>
+            </div>
+            <div class="row mb10">
+                <div class="clo-8 col-offset-3" ng-if="feedback.phoneMessage">
+                    <span class="vaildate-error">联系方式不能为空</span></div>
+            </div>
+            <div class="form-group row">
+                <label class="col-3 vt">反馈信息：</label>
+                <div class="col-8">
+                    <textarea name="feedbackMessage" placeholder="可以说说您对沙漏外卖的意见" ng-focus="feedbacFocus()" required ng-class="{error:feedback.feedbackMessageTip}" ng-model="feedback.feedbackMessage" maxlength="300" cols="25" rows="7"></textarea>
+                </div>
+            </div>
+            <div class="row mb10">
+                <div class="clo-8 col-offset-3" ng-if="feedback.feedbackMessageTip">
+                    <span class="vaildate-error">反馈信息不能为空</span></div>
+            </div>
+            <div class="tc">
+                <button class="btn normal-btn btn-success" ng-click="feedbackSubmit()">确认</button>
+                <button class="btn normal-btn btn-cancel" ng-click="feedbackCancel()">取消</button></div>
+        </form>
+    </div>
+    <div class="common-dialog-footer">咨询加QQ群：664621217</div>
+</dh-dialog>
+<!-- 意见反馈的 弹窗  控制这个的jq common.js -->
+
     <script type="text/javascript" src="/waimai/Public/Home/js/angular.min.js"></script>
     <script src="/waimai/Public/Home/js/common.js"></script>
     <script src="/waimai/Public/Home/js/service.js"></script>
@@ -396,6 +438,8 @@ for(var j=0; j<jsons[i].product.length; j++)
     <!-- Baidu Analytics -->
     <script src="/waimai/Public/jquery-2.1.3.min.js"></script>
     <script>
+
+
         $('#createOrder').click(function(){
             var load = layer.load(3, {time: 10*1000}); //又换了种风格，并且设定最长等待10秒
             var data = new Array();
@@ -429,7 +473,8 @@ for(var j=0; j<jsons[i].product.length; j++)
                 if(re.status == 0){
                     layer.msg(re.info,{icon: 5},function(){
                                 layer.close(load);
-                                location.href = "<?php echo U('Login/index');?>";
+
+                                location.href = "<?php echo U('Login/index');?>?redirect_url="+window.location.href;
                             }
                     );
                 }else if(re.code == 1){
@@ -450,8 +495,8 @@ for(var j=0; j<jsons[i].product.length; j++)
             //console.log(data);
         });
     </script>
-     <script src="/waimai/Public/layui/layui.js"></script>
-<script src="/waimai/Public/layui/layui.all.js"></script>
+    <script src="/waimai/Public/layui/layui.js"></script>
+    <script src="/waimai/Public/layui/layui.all.js"></script>
     </body>
 
 </html>

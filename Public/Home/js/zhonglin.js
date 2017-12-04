@@ -97,7 +97,7 @@ $(document).ready(function() {
             }else if(!myreg.test(shouji)){
                 layer.msg('手机号无效~',{icon :5});return false;
             }
-            $.post('add_address' , { 'shouji' : shouji , 'receiver' : receiver, 'dizi' : dizi }, function(r){
+            $.post('../Order/add_address' , { 'shouji' : shouji , 'receiver' : receiver, 'dizi' : dizi }, function(r){
                 layer.msg('添加成功！');
                 $("[xgdz1]").hide();
                 $str = '<li id="li-'+r.id+'"  class><h3><span class="sp1">'+shouji+'</span>（<span class="sp3">'+receiver+'</span> 收）</h3><br><p><span class="sp1">'+dizi+'</span></p><input type="hidden" name="id" value="'+r.id+'" ><br><a href="JavaScript:;" xiugai="">修改</a></li>';
@@ -134,7 +134,7 @@ $(document).ready(function() {
             }else if(!myreg.test(shouji)){
                 layer.msg('手机号无效~',{icon :5});return false;
             }
-            $.post('upda_address' , {'id':id, 'shouji' : shouji , 'receiver' : receiver, 'dizi' : dizi }, function(r){
+            $.post('../Order/upda_address' , {'id':id, 'shouji' : shouji , 'receiver' : receiver, 'dizi' : dizi }, function(r){
                 layer.msg('修改成功！');
                 $("[xgdz2]").hide();
                 $str = '<li class="current" id="li-'+id+'" class><h3><span class="sp1">'+shouji+'</span>（<span class="sp3">'+receiver+'</span> 收）</h3><br><p><span class="sp1">'+dizi+'</span></p><input type="hidden" name="id" value="'+id+'" ><br><a href="JavaScript:;" xiugai="">修改</a></li>';
@@ -191,7 +191,7 @@ $(document).ready(function() {
             }else if(!myreg.test(shouji)){
                 layer.msg('手机号无效~',{icon :5});return false;
             }
-            $.post('upda_address' , {'id':id, 'shouji' : shouji , 'receiver' : receiver, 'dizi' : dizi }, function(r){
+            $.post('../Order/upda_address' , {'id':id, 'shouji' : shouji , 'receiver' : receiver, 'dizi' : dizi }, function(r){
                 layer.msg('修改成功！');
                 $("[xgdz2]").hide();
                 $str = '<li class="current" id="li-'+id+'" class><h3><span class="sp1">'+shouji+'</span>（<span class="sp3">'+receiver+'</span> 收）</h3><br><p><span class="sp1">'+dizi+'</span></p><input type="hidden" name="id" value="'+id+'" ><br><a href="JavaScript:;" xiugai="">修改</a></li>';

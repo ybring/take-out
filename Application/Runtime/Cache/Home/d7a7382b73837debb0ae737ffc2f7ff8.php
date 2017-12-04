@@ -46,10 +46,13 @@
                             </li>
         <?php else: ?>  
                         <li class="login-register">
-                            <a href="<?php echo U('Login/index');?>"  class="login"  rel="nofollow">登录</a>
+                            <a href="<?php echo U('Login/index');?>" id="login"  class="login"  rel="nofollow">登录</a>
                                 <span class="cg">/</span>
                             <a href="<?php echo U('Register/index');?>" rel="nofollow" class="register">注册</a>
-                        </li><?php endif; ?>
+                        </li>
+            <script>
+                document.getElementById('login').href += "?redirect_url=" + window.location.href;
+            </script><?php endif; ?>
                             <li class=""><a href="member_order.html" class="order-center"  rel="nofollow">我的订单</a></li>
                             <li class=""><a href="member_collect.html"  rel="nofollow">我的收藏</a></li>
                             <li class=""><a href="gifts.html"  rel="nofollow">氪星礼品站</a></li>
@@ -59,14 +62,18 @@
                 </div>
             </header>
             <div id="main-box">
-    
+                <!--二维码-->
+                <div class="qrCode-frame" ng-hide="qrCodeStatus">
+                    <img width="160px" height="160px" src="<?php echo U('Home/index');?>" alt="扫描二维码"/>
+                    <em ng-click="qrCodeStatus=true">X</em>
+                </div>
         <div ng-controller="colorAction">
           <div class="dayColor_two"></div>
           <div class="dayColor_one"></div>
           <div class="dayColor_three" ng-class="{dayColor_threeActive:threeActive}"></div>
         </div>
 
-        
+
          
         <section class="menupage-main common-width" ng-init="city_name='上海'">
         

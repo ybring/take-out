@@ -4,16 +4,19 @@ app.config(['$interpolateProvider', function($interpolateProvider) {
 }])
 
 app.controller('bodyCtrl',["$scope","$timeout","$http",function(scope,timeout,http){
+
     scope.showChangePass = false;
     scope.showReview = false;
     scope.reviewObj={};
     scope.reviewIndexObj={};
     scope.order={};
     scope.orderStatus={};
+
     scope.showChangePassword = function(){
         scope.showChangePass = true;
         scope.$broadcast('reset-change-password','')
     }
+    //成功 改密
     scope.$on('change-password-success',function(){
         scope.showChangePass = false;
         scope.requestSuccess = true;
@@ -21,8 +24,13 @@ app.controller('bodyCtrl',["$scope","$timeout","$http",function(scope,timeout,ht
             scope.requestSuccess = false;
         },2000);
     })
+    //失败 改密
     scope.$on('change-password-error',function(){
+        scope.showChangePass = false;
         scope.requestError = true;
+        timeout(function(){
+            scope.requestError = false;
+        },2000);
     })
     scope.$on('change-password-close',function(){
         scope.showChangePass = false;
@@ -104,26 +112,17 @@ app.controller("changePasswordCtrl",["$scope",'formVaildate','$http',function(sc
         if(vaildate){
             scope.isSubmit = true;
             scope.submitText = '修改中';
-            http.post('/ajax/change_password/',{'old_password':scope.user.password,'new_password':scope.user.newPassword})
+            http.post('upda_pwd',{'old_password':scope.user.password,'new_password':scope.user.newPassword})
                 .success(function(d){
                     if(d.status=='ok'){
                         scope.$emit('change-password-success');
                     }else{
-                        switch (d.failed_code){
-                            case '1019':
-                                scope.user.passwordMessage = fem.errorMessage.lPassError;
-                                break;
-                            case '1028':
-                                scope.user.newPasswordMessage = fem.errorMessage.rPassError
-                                break;
-                            default :
-                                scope.user.passwordMessage = fem.errorMessage.otherError;
-                        }
+                        scope.$emit('change-password-error');
                     }
                     scope.isSubmit = false;
                     scope.submitText = '登录';
             }).error(function(){
-                scope.$emit('change-password-error','');
+                scope.$emit('change-password-error');
             })
         }
     }
@@ -434,7 +433,7 @@ app.directive("orderNumber",["commonApi","$http","$timeout",function(commonApi,h
             var ajaxFunc=function(){
                     if(ajaxReg){
                        ajaxReg=false;
-                       http.get("/ajax/order_detail/"+orderId+"/").success(function (d) {
+                       http.get("./order_detail/id/"+orderId).success(function (d) {
                             if (d && d.code == 0) {
                                 scope.order[orderId]=d;
                                 scope.orderStatus[orderId]=true;

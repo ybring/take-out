@@ -17,6 +17,7 @@ class CommonController extends Controller
 	 */
 	protected function Is_Login()
 	{
+		// sold 原则
 		if(empty($_SESSION['user_phone']))
 		{
 			$this->error(L('您还未登录，不能执行此操作！'), U('Login/index'));

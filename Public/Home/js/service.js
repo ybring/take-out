@@ -297,7 +297,7 @@ aService.service("formVaildate",function(){
             captchaOfter : "验证码请求太频繁",
             captchaError : '验证码错误！',
             rPassEmpty : '注册密码不能为空！',
-            rPassError : '密码为6 - 10位字符',
+            rPassError : '密码为6 - 18位字符',
             passAgain : '二次密码输入不一致',
             agree : '请同意外卖超人"注册条款"',
             otherError : '未知错误，请稍后再尝试'
@@ -359,7 +359,7 @@ aService.service("formVaildate",function(){
                     return errorMessage.lPassEmpty;
                 }
                 if(!isOnlyEmpty){
-                    if(val.length < 6 || val.length > 10){
+                    if(val.length < 6 || val.length > 18){
                         return errorMessage.rPassError;
                     }
                 }

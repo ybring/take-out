@@ -23,17 +23,6 @@
 <link rel="stylesheet" href="/waimai/Public/Home/css/shopping-mall-index.css"/>
 -->
 <style>
-/*确认
-.pay-info .pay-dz{ padding-top:30px;}
-.pay-info .pay-dz li{ width:202px; height:89px; padding:9px 23px 8px 12px; margin:0 25px; background:url(/waimai/Public/Home/images/confirmation-li-tu2.gif) no-repeat; float:left; cursor:pointer; overflow:auto;}
-.pay-info .pay-dz li:hover{background:url(/waimai/Public/Home/images/confirmation-li-tu1.gif) no-repeat;}
-.pay-info .pay-dz .current{ background:url(/waimai/Public/Home/images/confirmation-li-tu1.gif) no-repeat;}
-.pay-info .pay-dz li h3{ font-weight:normal; font-size:14px; color:#2B2B2B;}
-.pay-info .pay-dz li p{ font-size:13px; color:#7A7A7A;}
-.pay-info .pay-dz li p .sp2{ margin-left:5px;}
-.pay-info .pay-dz li a{ font-size:14px; color:#AB5100; display:none;}
-.pay-info .pay-dz .current a{ display:block;}
-订单*/
 
 .pay-dz{ padding-top:30px;}
 .pay-dz li{ width:202px; height:89px; padding:9px 23px 8px 12px; margin:0 25px; background:url(/waimai/Public/Home/images/confirmation-li-tu2.gif) no-repeat; float:left; cursor:pointer; overflow:auto;}
@@ -104,34 +93,40 @@
         <?php if($user_phone): ?><li class="userName">
                                 <a href="member_index.html" rel="nofollow" draw-user><?php echo ($user_phone); ?><em></em></a>
                                 <div>
-                                    <p><a href="member_index.html"  rel="nofollow">账号管理</a></p>
-                                    <p><a href="member_addr.html"  rel="nofollow">地址管理</a></p>
-                                    <p class="no-bo"><a id="logout" href="<?php echo U('Login/login_out');?>"  rel="nofollow">退出</a></p>
+                                    <p><a href="<?php echo U('Home/User/index');?>"  rel="nofollow">账号管理</a></p>
+                                    <p><a href="<?php echo U('Home/User/user_addr');?>"  rel="nofollow">地址管理</a></p>
+                                    <p class="no-bo"><a id="logout" href="<?php echo U('Home/Login/login_out');?>"  rel="nofollow">退出</a></p>
                                 </div>
                             </li>
         <?php else: ?>  
                         <li class="login-register">
-                            <a href="<?php echo U('Login/index');?>"  class="login"  rel="nofollow">登录</a>
+                            <a href="<?php echo U('Home/Login/index');?>" id="login"  class="login"  rel="nofollow">登录</a>
                                 <span class="cg">/</span>
-                            <a href="<?php echo U('Register/index');?>" rel="nofollow" class="register">注册</a>
-                        </li><?php endif; ?>
-                            <li class=""><a href="member_order.html" class="order-center"  rel="nofollow">我的订单</a></li>
-                            <li class=""><a href="member_collect.html"  rel="nofollow">我的收藏</a></li>
-                            <li class=""><a href="gifts.html"  rel="nofollow">氪星礼品站</a></li>
+                            <a href="<?php echo U('Home/Register/index');?>" rel="nofollow" class="register">注册</a>
+                        </li>
+            <script>
+                document.getElementById('login').href += "?redirect_url=" + window.location.href;
+            </script><?php endif; ?>
+                            <li class=""><a href="<?php echo U('Home/User/user_order');?>" class="order-center"  rel="nofollow">我的订单</a></li>
+                            <li class=""><a href="<?php echo U('Home/User/user_collect');?>"  rel="nofollow">我的收藏</a></li>
                             
                         </ul>
                     
                 </div>
             </header>
             <div id="main-box">
-    
+                <!--二维码-->
+                <div class="qrCode-frame" ng-hide="qrCodeStatus">
+                    <img width="160px" height="160px" src="<?php echo U('Home/index');?>" alt="扫描二维码"/>
+                    <em ng-click="qrCodeStatus=true">X</em>
+                </div>
         <div ng-controller="colorAction">
           <div class="dayColor_two"></div>
           <div class="dayColor_one"></div>
           <div class="dayColor_three" ng-class="{dayColor_threeActive:threeActive}"></div>
         </div>
 
-        
+
          
         
             
@@ -150,8 +145,8 @@
                      <br>
                     <a href="JavaScript:;" xiugai="">修改</a>
                 </li><?php endforeach; endif; else: echo "" ;endif; ?>
-            
-               
+
+
                 <div style="clear:both;"></div>
             </ul>
             <br>
