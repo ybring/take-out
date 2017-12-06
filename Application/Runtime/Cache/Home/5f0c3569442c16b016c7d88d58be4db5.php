@@ -81,7 +81,7 @@
                         <p>请保持手机<?php echo ($user_phone); ?>畅通，稍后沙漏客服会与您联系。</p>
                         <p>感谢使用沙漏外卖。</p>
 
-                        <a href="<?php echo U('User/user_addr');?>" class="order">查看订单</a>
+                        <a href="<?php echo U('User/user_order');?>" class="order">查看订单</a>
 
                     </div>
                 </div>

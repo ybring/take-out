@@ -67,7 +67,8 @@
 								<?php else: ?>
 								<a style="text-decoration:none" onClick="product_start(this,<?php echo ($vo["id"]); ?>)" href="javascript:;" title="发布"><i class="Hui-iconfont">&#xe603;</i></a><?php endif; ?>
 							
-							<a style="text-decoration:none" class="ml-5" onClick="product_edit('产品编辑','product-add.html','10001')" href="javascript:;" title="编辑"><i class="Hui-iconfont">&#xe6df;</i></a> <a style="text-decoration:none" class="ml-5" onClick="product_del(this,<?php echo ($vo["id"]); ?>)" href="javascript:;" title="删除"><i class="Hui-iconfont">&#xe6e2;</i></a></td>
+			
+							<a style="text-decoration:none" class="ml-5" onClick="product_del(this,<?php echo ($vo["id"]); ?>)" href="javascript:;" title="删除"><i class="Hui-iconfont">&#xe6e2;</i></a></td>
 					</tr><?php endforeach; endif; else: echo "" ;endif; ?>
 				</tbody>
 			</table>
@@ -217,7 +218,7 @@ function product_edit(title,url,id){
 	var index = layer.open({
 		type: 2,
 		title: title,
-		content: url
+		content: url+"/id/"+id,
 	});
 	layer.full(index);
 }

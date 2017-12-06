@@ -24,7 +24,7 @@ class OrderController extends CommonController {
         $users_id=session('user_id');
         //读出 订单详情
         $order_detail=M('order_detail');
-        $or = $order_detail->where(array('order_id'=>$order_id ,'users_id'=>$users_id))->select();
+        $or = $order_detail->where(array('order_id'=>$order_id ,'users_id'=>$users_id))->limit(10)->select();
         $order=M('order');
         $this->heji=$order->find($order_id);
 
@@ -64,6 +64,19 @@ class OrderController extends CommonController {
         $deliveryaddress = array('customer_name' => $customer_name,'customer_phone' =>$customer_phone ,'delivery_address' =>$delivery_address , );
         $address->where(array('id'=>$id))->save($deliveryaddress);
         $r = array('msg'=>"稳");
+        $this->ajaxReturn($r);
+    }
+    /**
+     * 删除地址
+     */
+    public function dele_address(){
+        $r = array('code'=>0);
+        $this->Is_Login();
+        $id=I('post.id');
+        $order = D('order');
+        $res = $order->relation(true)->delete($id);//select($id);
+        if(!$res){ $this->ajaxReturn($r); }
+        $r['code'] =1;
         $this->ajaxReturn($r);
     }
     /**

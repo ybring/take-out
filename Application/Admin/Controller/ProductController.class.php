@@ -64,7 +64,7 @@ class ProductController extends BaseController {
         $this->display();
     }
      /**
-     * 添加商品
+     * 添加商品 输入数据了
      * @return [type] [description]
      */
     public function pictured_add_cp_in()
@@ -128,6 +128,8 @@ class ProductController extends BaseController {
         }
 
     }
+
+
     /*
     *   商品下架
     * 

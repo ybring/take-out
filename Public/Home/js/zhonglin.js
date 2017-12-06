@@ -79,7 +79,6 @@ $(document).ready(function() {
 	/*确认订单（新增地址） js*/
 	$(".pay-xdz-btn").click(function(event) {
 		$("[xgdz1]").show();
-
 	});
 	/*新增地址js  提交信息*/
 	$('#btn-pst2').click(function(){

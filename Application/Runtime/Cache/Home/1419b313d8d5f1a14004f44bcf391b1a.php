@@ -27,9 +27,10 @@
         .pay-dz li h3{ font-weight:normal; font-size:14px; color:#2B2B2B;}
         .pay-dz li p{ font-size:13px; color:#7A7A7A;}
         .pay-dz li p .sp2{ margin-left:5px;}
-        .pay-dz li a{ font-size:14px; color:#AB5100; display:none;}
+        .pay-dz li a{ font-size:14px; color:#AB5100; display:block; float: left; margin-right:20px;}
         .pay-dz .current a{ display:block;}
         .pay-xdz-btn{ font-size:14px; color:#fff; background:#EF9D09; width:106px; height:37px; border:none; cursor:pointer; margin:0 0 20px 25px;}
+        .pay-xdz-btn2{ font-size:14px; color:#fff; background:#EF9D09; width:106px; height:37px; border:none; cursor:pointer; margin:0 0 20px 25px;}
 
         .info-mid .mid-guige1{width:67px; height:71px;padding:5px 15px; margin-right:60px;position:relative;}
         .info-mid .mid-guige1 p{ font-size:13px; color:#3B3B3B;}
@@ -169,7 +170,7 @@
                 <p><span class="sp1"><?php echo ($vo["delivery_address"]); ?></span></p>
                 <input type="hidden" class="<?php echo ($vo["id"]); ?>" name="id" value="<?php echo ($vo["id"]); ?>" >
                 <br>
-                <a href="JavaScript:;" xiugai="">修改</a>
+                <p><a href="JavaScript:;" xiugai="">修改</a><a  href="JavaScript:;" class="shanchu" id="<?php echo ($vo["id"]); ?>" >删除</a></p>
                 </li><?php endforeach; endif; else: echo "" ;endif; ?>
 
 
@@ -320,6 +321,22 @@
 
     <script type="text/javascript" src="/waimai/Public/Home/js/zhonglin.js"></script>
 
+<script >
+    $(".shanchu").click(function(){
+        var id =this.id;
+        layer.confirm('确定删除地址吗?', {icon: 3, title:'提示'}, function(index){
+            $.post("<?php echo U('Order/dele_address');?>",{ 'id' : id },function(r){
+                if(r.code==1){
+                    layer.msg('删除成功！');window.location.reload();
+                }else {
+                    layer.msg('删除失败！请联系客服！');
+                }
+            });
+            layer.close(index);//关闭 弹窗
+        });
+
+    });
+</script>
 
 </body>
 </html>

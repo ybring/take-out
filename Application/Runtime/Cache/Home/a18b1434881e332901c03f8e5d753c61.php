@@ -126,7 +126,7 @@
                                 <th style="padding-left: 40px;">手机：<?php echo ($vo["address"]["customer_phone"]); ?></th>
                                 <th>姓名：<?php echo ($vo["address"]["customer_name"]); ?></th>
                                 <th>地址：<?php echo ($vo["address"]["delivery_address"]); ?></th>
-                                <th><a href="#">删除</a></th>
+                                <th><a href="JavaScript:;" id="<?php echo ($vo["id"]); ?>" class="shanchu">删除</a></th>
                             </tr>
                             </thead>
                         </table>
@@ -263,16 +263,27 @@
 <script>
     layui.use('element', function(){
         var element = layui.element;
-
         //一些事件监听
         element.on('collapse(filter)', function(data){
             console.log(data.show); //得到当前面板的展开状态，true或者false
             console.log(data.title); //得到当前点击面板的标题区域DOM对象
             console.log(data.content); //得到当前点击面板的内容区域DOM对象
         });
-
     });
-
+//删除订单
+    $(".shanchu").click(function(){
+        var id =this.id;
+        layer.confirm('确定要删除订单吗？', {icon: 3, title:'提示'}, function(index){
+            $.post("<?php echo U('Order/dele_address');?>",{'id':id},function(r){
+                if(r.code == 1 ){
+                    layer.msg('删除成功！');window.location.reload();
+                }else {
+                    layer.msg('删除失败！请联系客服！');
+                }
+            });
+            layer.close(index);
+        });
+    });
 
 </script>
 </body>

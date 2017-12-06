@@ -39,23 +39,22 @@
         <?php if($user_phone): ?><li class="userName">
                                 <a href="member_index.html" rel="nofollow" draw-user><?php echo ($user_phone); ?><em></em></a>
                                 <div>
-                                    <p><a href="member_index.html"  rel="nofollow">账号管理</a></p>
-                                    <p><a href="member_addr.html"  rel="nofollow">地址管理</a></p>
-                                    <p class="no-bo"><a id="logout" href="<?php echo U('Login/login_out');?>"  rel="nofollow">退出</a></p>
+                                    <p><a href="<?php echo U('Home/User/index');?>"  rel="nofollow">账号管理</a></p>
+                                    <p><a href="<?php echo U('Home/User/user_addr');?>"  rel="nofollow">地址管理</a></p>
+                                    <p class="no-bo"><a id="logout" href="<?php echo U('Home/Login/login_out');?>"  rel="nofollow">退出</a></p>
                                 </div>
                             </li>
         <?php else: ?>  
                         <li class="login-register">
-                            <a href="<?php echo U('Login/index');?>" id="login"  class="login"  rel="nofollow">登录</a>
+                            <a href="<?php echo U('Home/Login/index');?>" id="login"  class="login"  rel="nofollow">登录</a>
                                 <span class="cg">/</span>
-                            <a href="<?php echo U('Register/index');?>" rel="nofollow" class="register">注册</a>
+                            <a href="<?php echo U('Home/Register/index');?>" rel="nofollow" class="register">注册</a>
                         </li>
             <script>
                 document.getElementById('login').href += "?redirect_url=" + window.location.href;
             </script><?php endif; ?>
-                            <li class=""><a href="member_order.html" class="order-center"  rel="nofollow">我的订单</a></li>
-                            <li class=""><a href="member_collect.html"  rel="nofollow">我的收藏</a></li>
-                            <li class=""><a href="gifts.html"  rel="nofollow">氪星礼品站</a></li>
+                            <li class=""><a href="<?php echo U('Home/User/user_order');?>" class="order-center"  rel="nofollow">我的订单</a></li>
+                            <li class=""><a href="<?php echo U('Home/User/user_collect');?>"  rel="nofollow">我的收藏</a></li>
                             
                         </ul>
                     
