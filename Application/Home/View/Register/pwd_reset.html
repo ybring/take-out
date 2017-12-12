@@ -14,12 +14,12 @@
 
     <!--[if lt IE 9]><link rel="stylesheet" type="text/css" href="__PUBLIC__/Home/css/frontPage-ie8-fix.css" /><![endif]-->
     <!--[if lte IE 10]><script>document.createElement('footer');document.createElement('header');document.createElement('nav');document.createElement('section');document.createElement('article');</script><![endif]-->
-    <!--[if lte IE 7]><script>window.onload=function(){location.href="/ie6warning/"}</script><![endif]-->
+    <!--[if lte IE 7]><script>window.onload=function(){location.href=""}</script><![endif]-->
     <title>密码重置</title>
     <script type="text/javascript">
         
         (function(document, screen) {
-            if (screen.width < 760) {
+            if (screen.width < 0) {
                 document.location.href="/mobile/";
             }
         }(document, screen));
@@ -95,7 +95,7 @@
             password_timeout_url = '6',
             reset_password_url = "d",
             password_reset_done = '5',
-            captcha_url = '001',
+            captcha_url = 'ybr',
             ajax_password_reset_via_mobile_start = '77',
             common_sms_code = '456'
     </script>

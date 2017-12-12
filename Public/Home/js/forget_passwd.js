@@ -146,12 +146,7 @@
         });
     }
 
-    $step1.phoneCaptchaImg.on('click', function() {
-        clearTimeout(imgCaptchaTimeoutId);
-        imgCaptchaTimeoutId = setTimeout(function() {
-            $step1.phoneCaptchaImg.attr('src', $step1.phoneCaptchaImg.attr('_src') + '?r=' + Math.random());
-        }, 200);
-    });
+
     function countDown(that) {
         clearInterval(timeId);
         var i = 59;

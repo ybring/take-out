@@ -26,7 +26,7 @@
     <script type="text/javascript">
         
         (function(document, screen) {
-            if (screen.width < 760) {
+            if (screen.width < 0) {
                 document.location.href="/mobile/";
             }
         }(document, screen));
@@ -97,7 +97,7 @@
                 <button class="form-btn" id="xiayibu">下一步</button>
             </div>
             <ul class="other-way">
-                <li>其他方式</li>
+                <li><a href="<?php echo U('Home/Register/index');?>">立即注册</a></li>
                 <li>联系客服，可以拨打<span>4001 517 577</span></li>
             </ul>
         </div>
@@ -111,21 +111,7 @@
 
     <script type="text/javascript" src="/waimai/Public/Home/js/jquery-1.7.2.min.js"></script>
 
-    <script>
-        var mobile_validate_url = '/ajax/common_validate_sms_code/',
-            email_validate_url = '',
-            finish_send_mail_url = '',
-            password_reset_url = '/account/password/reset_page/',
 
-            password_timeout_url = '/account/password/request_timeout/',
-            reset_password_url = '/ajax/password_reset_via_mobile_reset/',
-            password_reset_done = '/account/password/reset_done/',
-
-            captcha_url = '/captcha/',
-
-            ajax_password_reset_via_mobile_start = '/ajax/password_reset_via_mobile_start/',
-            common_sms_code = '/ajax/common_sms_code/'
-    </script>
     <script src="/waimai/Public/Home/js/forget_passwd.js"></script>
 
     <!-- Baidu Analytics -->
@@ -145,7 +131,13 @@
                     layer.msg('验证码已下发您的手机请查看~', {icon: 6,time: 2000 //2秒关闭（如果不配置，默认是3秒）
                              ,skin : 'ayui-layer-lan',shadeClose:true
                     });
-                    }else {
+                    }else if(msg=="手机号未注册"){
+
+                layer.msg('手机号未注册', {icon: 5,time: 2000 //2秒关闭（如果不配置，默认是3秒）
+                ,skin : 'ayui-layer-lan',shadeClose:true
+            });
+                    return false;
+            }else {
                 layer.msg('出错了请联系客服', {icon: 5,time: 2000 //2秒关闭（如果不配置，默认是3秒）
                     ,skin : 'ayui-layer-lan',shadeClose:true
                 });

@@ -9,12 +9,12 @@
     <meta name="google-site-verification" content="BstJA3X9z6f9HcvoN9AZTwaKo_9Abj_j7dVBPfy640s" />
     <meta name="baidu-site-verification" content="IYCrtVH0i1" />
     <meta property="wb:webmaster" content="239d3d1dbdde1b2c" />
-    <link rel="shortcut icon" href="/waimai/Public/Home/images/favicon.ico" type="image/x-icon" />
+
 
     <link rel="icon" type="image/png" href="/waimai/Public/Home/images/favicon.ico" />
     <script type="text/javascript">(function(document, screen) {
         if (screen.width < 760) {
-          document.location.href = "/mobile/";
+          document.location.href = "555";
         }
       } (document, screen));</script>
     <link rel="stylesheet" href="/waimai/Public/Home/css/common.css?v=2015-5-20" />

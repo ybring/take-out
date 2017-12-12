@@ -14,7 +14,7 @@
     
     <title>注册</title>
     <script type="text/javascript">(function(document, screen) {
-        if (screen.width < 760) {
+        if (screen.width < 0) {
           document.location.href = "/mobile/";
         }
       } (document, screen));</script>
@@ -41,6 +41,7 @@
           <div class="form-group w275">
             <label for="">手机号码</label>
             <input type="hidden" name='send_code' value="{$send_code}" />
+              <span class="fs12 fr">已经有账号？ <a href="{:U('Home/Login/index')}" class="yo">立即登录</a></span>
             <input type="text" name="mobile" id="mobile" maxlength="11" class="form-text" placeholder="请输入你的手机号码" /></div>
           <div class="form-error-message"></div>
            <div class="form-group w275">
@@ -91,6 +92,13 @@
             }
 
         );
+      }else if(msg=="该手机号已经注册！"){
+          layer.msg('该手机号已经注册!~'
+                  , {icon: 6,time: 2000 //2秒关闭（如果不配置，默认是3秒）
+                      ,skin : 'ayui-layer-lan',shadeClose:true
+                  }
+          );
+              return false;
       }
         });
   };

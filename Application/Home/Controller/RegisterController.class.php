@@ -19,6 +19,7 @@ class RegisterController extends Controller {
     	$res=$users->where(array('phone'=>$mobile))->find();
     	if($res){
     		$msg ="该手机号已经注册！";
+			echo $msg;exit();
     		$this->ajaxReturn($msg);exit();
     	}
 
@@ -134,6 +135,14 @@ class RegisterController extends Controller {
 	 * **/
 
 	public function send_code2(){
+		$mobile = $_POST['mobile'];
+		$users = M('users');
+		$res=$users->where(array('phone'=>$mobile))->find();
+		if(!$res){
+			$msg ="手机号未注册";
+			echo $msg;exit();
+			$this->ajaxReturn($msg);exit();
+		}
 		//请求数据到短信接口，检查环境是否 开启 curl init。
 		function Post($curlPost,$url){
 			$curl = curl_init();
