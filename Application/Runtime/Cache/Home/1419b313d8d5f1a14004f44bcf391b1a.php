@@ -5,7 +5,6 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1" />
     <meta name="description" content="" />
     <meta name="viewport" content="user-scalable=no">
-    
     <meta name="google-site-verification" content="BstJA3X9z6f9HcvoN9AZTwaKo_9Abj_j7dVBPfy640s" />
     <meta name="baidu-site-verification" content="IYCrtVH0i1" />
     <meta property="wb:webmaster" content="239d3d1dbdde1b2c" />
@@ -20,6 +19,7 @@
     
     <link rel="stylesheet" href="/waimai/Public/Home/css/user_center.css"/>
     <style>
+
         .pay-dz{ padding-top:30px;}
         .pay-dz li{ width:202px; height:89px; padding:9px 23px 8px 12px; margin:0 25px; background:url(/waimai/Public/Home/images/confirmation-li-tu2.gif) no-repeat; float:left; cursor:pointer; overflow:auto;}
         .pay-dz li:hover{background:url(/waimai/Public/Home/images/confirmation-li-tu1.gif) no-repeat;}
@@ -27,10 +27,9 @@
         .pay-dz li h3{ font-weight:normal; font-size:14px; color:#2B2B2B;}
         .pay-dz li p{ font-size:13px; color:#7A7A7A;}
         .pay-dz li p .sp2{ margin-left:5px;}
-        .pay-dz li a{ font-size:14px; color:#AB5100; display:block; float: left; margin-right:20px;}
+        .pay-dz li a{ font-size:14px; color:#AB5100; display:none; float: left; margin-right: 20px; }
         .pay-dz .current a{ display:block;}
         .pay-xdz-btn{ font-size:14px; color:#fff; background:#EF9D09; width:106px; height:37px; border:none; cursor:pointer; margin:0 0 20px 25px;}
-        .pay-xdz-btn2{ font-size:14px; color:#fff; background:#EF9D09; width:106px; height:37px; border:none; cursor:pointer; margin:0 0 20px 25px;}
 
         .info-mid .mid-guige1{width:67px; height:71px;padding:5px 15px; margin-right:60px;position:relative;}
         .info-mid .mid-guige1 p{ font-size:13px; color:#3B3B3B;}
@@ -170,7 +169,7 @@
                 <p><span class="sp1"><?php echo ($vo["delivery_address"]); ?></span></p>
                 <input type="hidden" class="<?php echo ($vo["id"]); ?>" name="id" value="<?php echo ($vo["id"]); ?>" >
                 <br>
-                <p><a href="JavaScript:;" xiugai="">修改</a><a  href="JavaScript:;" class="shanchu" id="<?php echo ($vo["id"]); ?>" >删除</a></p>
+                <a href="JavaScript:;" xiugai="">修改</a><a  href="JavaScript:;" class="shanchu" id="<?php echo ($vo["id"]); ?>" >删除</a>
                 </li><?php endforeach; endif; else: echo "" ;endif; ?>
 
 
@@ -178,7 +177,6 @@
         </ul>
         <br>
         <button class="pay-xdz-btn">使用新地址</button>
-
 
     </section>
 
@@ -227,7 +225,7 @@
                 </li>
                 <li class="tc-li1">
                     <p class="l-p">联系电话<span>*</span></p>
-                    <input type="text" id="shouji" />
+                    <input type="text" id="shouji" maxlength="11" />
                     <div style="clear:both;"></div>
                 </li>
                 <li class="tc-li1">
@@ -239,6 +237,8 @@
             <button class="btn-pst2" id="btn-pst2">保存</button>
         </div>
     </div>
+
+
     <!--修改地址-->
     <div class="confirmation-tanchuang" xgdz2="">
         <div class="tanchuang-bg"></div>
@@ -256,7 +256,7 @@
                 </li>
                 <li class="tc-li1">
                     <p class="l-p">联系电话<span>*</span></p>
-                    <input type="text" class="lxdh" id="lxdh" />
+                    <input type="text" class="lxdh" id="lxdh" maxlength="11" />
                     <div style="clear:both;"></div>
                 </li>
                 <li class="tc-li1">
@@ -269,7 +269,6 @@
             <button class="btn-pst2" id="dz2">保存</button>
         </div>
     </div>
-
 
 
     <ul class="site-fixed">
@@ -334,9 +333,7 @@
             });
             layer.close(index);//关闭 弹窗
         });
-
     });
 </script>
-
 </body>
 </html>

@@ -302,7 +302,7 @@
                 </li>
                 <li class="tc-li1">
                     <p class="l-p">联系电话<span>*</span></p>
-                    <input type="text" id="shouji" />
+                    <input type="text" id="shouji" maxlength="11" />
                     <div style="clear:both;"></div>
                 </li>
                 <li class="tc-li1">
@@ -331,7 +331,7 @@
                 </li>
                 <li class="tc-li1">
                     <p class="l-p">联系电话<span>*</span></p>
-                    <input type="text" class="lxdh" id="lxdh" />
+                    <input type="text" class="lxdh" id="lxdh" maxlength="11" />
                     <div style="clear:both;"></div>
                 </li>
                 <li class="tc-li1">

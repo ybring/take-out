@@ -31,7 +31,7 @@ class OrderController extends CommonController {
         $this->assign('or', $or);
         //读出地址
         $this->add=M('deliveryaddress');
-   		$add = $this->add->where(array('users_id'=>$id))->select();
+   		$add = $this->add->where(array('users_id'=>$id))->limit(10)->select();
    		$this->assign('list', $add);
     	$this->assign('add', json_encode($add));
         $this->assign('ors', json_encode($or));
@@ -73,8 +73,7 @@ class OrderController extends CommonController {
         $r = array('code'=>0);
         $this->Is_Login();
         $id=I('post.id');
-        $order = D('order');
-        $res = $order->relation(true)->delete($id);//select($id);
+        $res = D('deliveryaddress')->delete($id);//select($id);
         if(!$res){ $this->ajaxReturn($r); }
         $r['code'] =1;
         $this->ajaxReturn($r);
@@ -137,6 +136,9 @@ class OrderController extends CommonController {
     public function de_or(){
         $this->Is_Login();
         $id=session('order_id');
+        if(I('post.id')){
+            $id=I('post.id');
+        }
         $order = D('order');
         $result = $order->relation(true)->delete($id);//select($id);
         $this->ajaxReturn($result);

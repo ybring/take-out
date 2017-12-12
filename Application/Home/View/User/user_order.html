@@ -173,8 +173,8 @@
     $(".shanchu").click(function(){
         var id =this.id;
         layer.confirm('确定要删除订单吗？', {icon: 3, title:'提示'}, function(index){
-            $.post("{:U('Order/dele_address')}",{'id':id},function(r){
-                if(r.code == 1 ){
+            $.post("{:U('Order/de_or')}",{'id':id},function(result){
+                if(result){
                     layer.msg('删除成功！');window.location.reload();
                 }else {
                     layer.msg('删除失败！请联系客服！');
