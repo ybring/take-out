@@ -67,7 +67,7 @@
 								<?php else: ?>
 								<a style="text-decoration:none" onClick="product_start(this,<?php echo ($vo["id"]); ?>)" href="javascript:;" title="发布"><i class="Hui-iconfont">&#xe603;</i></a><?php endif; ?>
 							
-			
+
 							<a style="text-decoration:none" class="ml-5" onClick="product_del(this,<?php echo ($vo["id"]); ?>)" href="javascript:;" title="删除"><i class="Hui-iconfont">&#xe6e2;</i></a></td>
 					</tr><?php endforeach; endif; else: echo "" ;endif; ?>
 				</tbody>
@@ -249,13 +249,10 @@ function datadel(){
 		$('input[name=del]:checked').each(function(){
 			var _id = $(this).val();
 			var that = $(this);
-
 			$.post('product_del_all', {id:_id}, function(data){
 				if(data.code ==1){
 					that.parent().parent().remove();
 					layer.msg(data.msg,{icon:1,time:1000});
-
-				
 				}else{
 					layer.msg(data.msg,{icon:1,time:1000});
 				}

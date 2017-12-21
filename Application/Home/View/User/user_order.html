@@ -65,7 +65,8 @@
                             <colgroup>
                                 <col width="200">
                                 <col width="160">
-                                <col width="300">
+                                <col width="280">
+                                <col>
                                 <col>
                             </colgroup>
                             <thead>
@@ -73,6 +74,7 @@
                                 <th style="padding-left: 40px;">订单号：{$vo.id}</th>
                                 <th>送餐时间：{$vo.time_of_delivery}</th>
                                 <th>下单日期：{$vo.order_date}</th>
+                                <th>订单状态</th>
                                 <th>操作</th>
                             </tr>
                             </thead>
@@ -81,6 +83,12 @@
                                 <th style="padding-left: 40px;">手机：{$vo.address.customer_phone}</th>
                                 <th>姓名：{$vo.address.customer_name}</th>
                                 <th>地址：{$vo.address.delivery_address}</th>
+                                <th>
+                                    <if condition="$vo.or_state eq 0"> 待送餐
+                                        <elseif condition="$vo.or_state eq 1"/><a href="JavaScript:;" id="{$vo.id}" class="qdsh" title="送货中">确定收货</a>
+                                        <elseif condition="$vo.or_state eq 2"/>订单完成
+                                        <else /> 无状态</if>
+                                </th>
                                 <th><a href="JavaScript:;" id="{$vo.id}" class="shanchu">删除</a></th>
                             </tr>
                             </thead>
@@ -173,7 +181,7 @@
     $(".shanchu").click(function(){
         var id =this.id;
         layer.confirm('确定要删除订单吗？', {icon: 3, title:'提示'}, function(index){
-            $.post("{:U('Order/de_or')}",{'id':id},function(result){
+            $.post("{:U('User/de_or')}",{'id':id},function(result){
                 if(result){
                     layer.msg('删除成功！');window.location.reload();
                 }else {
@@ -183,7 +191,24 @@
             layer.close(index);
         });
     });
-
+    //确定收货
+$('.qdsh').click(function(){
+    var id =this.id;
+    layer.confirm("<input class='pwd' type='password' />",{title:'请输入密码'},function(index){
+        var pwd = $('.pwd').val();
+        if(pwd){
+            $.post("{:U('/Home/User/pwd')}",{'pwd':pwd,'id':id},function(r){
+                if(r.code == 1){
+                    layer.msg('已确定收货！');window.location.reload();
+                }else{
+                    layer.msg('操作失败！');
+                    return false;
+                 }
+            });
+        }
+        layer.close(index);
+    });
+});
 </script>
 </body>
 </html>

@@ -13,7 +13,7 @@
 
     <link rel="icon" type="image/png" href="/waimai/Public/Home/images/favicon.ico" />
     <script type="text/javascript">(function(document, screen) {
-        if (screen.width < 760) {
+        if (screen.width < 0) {
           document.location.href = "555";
         }
       } (document, screen));</script>
@@ -130,7 +130,7 @@
                               <span ng-if="sectionCount['<?php echo ($im["type_id"]); ?>']" ng-class="{disinbl:sectionCount['<?php echo ($im["type_id"]); ?>']}" class="badge disnone" ng-bind="sectionCount['<?php echo ($im["type_id"]); ?>']"></span>
                               <i class="icon shrink-icon position"></i>
                             </header>
-                            <section>
+                            <section >
                               <ul class="clearfix menu-group menu-group-img menu-first-load">
             <?php if(is_array($im["product"])): foreach($im["product"] as $key=>$pro): ?><li title="<?php echo ($pro["name"]); ?>" class="menu-item hasImg" accessorykey="<?php echo ($im["type_id"]); ?>-<?php echo ($pro["id"]); ?>" data-sale="<?php echo ($pro["sold"]); ?>" data-price="<?php echo ($pro["price"]); ?>">
                                   <div class="menu-item-img">

@@ -45,9 +45,15 @@ class UserController extends CommonController {
     public function user_order(){
         $this->Is_Login();
         $id =session('user_id');
-        $list=D('order')->relation(true)->where("users_id=".$id)->order('id desc')->select();
+        $list2=M('order')->where(array("address_id"=>0))->order('id desc')->select();
+        foreach($list2 as $val){
+            M('order')->where(array("id"=>$val['id']))->delete();
+             M('order_detail')->where(array("order_id"=>$val['id']))->delete();
+        }
+        $list=D('order')->relation(true)->where(array("users_id"=>$id,"or_de"=>0))->order('id desc')->select();
         //dump($list);exit;
         $this->assign('list',$list);
+        session('order_id',null);
         $this->display();
     }
     /*
@@ -73,5 +79,26 @@ class UserController extends CommonController {
         $this->assign('list', $add);
         $this->display();
 
+    }
+    public function pwd(){
+        $id = session('user_id');
+        $pwd=I('post.pwd');
+        $info = M('users')->find($id);
+        //判断密码是否正确
+        $orid = I('post.id');
+        if(password_verify($pwd,$info['password'])){
+            M('order') ->where(array("id"=>$orid))->save(array('or_state'=>2));
+            $r['code']=1;
+            $this->ajaxReturn($r);
+        }
+        $r['code']=0;
+        $this->ajaxReturn($r);
+    }
+    public function de_or(){
+        $this->Is_Login();
+        $id=I('post.id');
+        $order = D('order');
+        $result = $order->where(array("id"=>$id))->save(array("or_de"=>1));//select($id);
+        $this->ajaxReturn($result);
     }
 }

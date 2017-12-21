@@ -255,13 +255,10 @@ function datadel(){
 		$('input[name=del]:checked').each(function(){
 			var _id = $(this).val();
 			var that = $(this);
-
 			$.post('product_del_all', {id:_id}, function(data){
 				if(data.code ==1){
 					that.parent().parent().remove();
 					layer.msg(data.msg,{icon:1,time:1000});
-
-				
 				}else{
 					layer.msg(data.msg,{icon:1,time:1000});
 				}

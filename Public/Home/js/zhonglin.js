@@ -82,7 +82,6 @@ $(document).ready(function() {
 	});
 	/*新增地址js  提交信息*/
 	$('#btn-pst2').click(function(){
-
 		var shouji = $('#shouji').val();  /*电话*/
 		var receiver = $('#receiver').val();  /*赵珍珍*/
 		var dizi = $('#dizi').val();  /*详细地址*/
@@ -101,11 +100,12 @@ $(document).ready(function() {
                 $("[xgdz1]").hide();
                 $str = '<li id="li-'+r.id+'"  class><h3><span class="sp1">'+shouji+'</span>（<span class="sp3">'+receiver+'</span> 收）</h3><br><p><span class="sp1">'+dizi+'</span></p><input type="hidden" name="id" value="'+r.id+'" ><br><a href="JavaScript:;" xiugai="">修改</a></li>';
                // $($str).appendTo(".current");
-                $(".current").before($str);
+				//$("#li-"+id).replaceWith($str);
+                $(".addaf").before($str);
                 $(".pay-dz li").click(function(event) {
 				$(this).addClass('current').siblings().removeClass("current");	
 				});
-					/*修改地址*/
+/*修改地址*/
 	$("[xiugai]").click(function(event) {
 		$("[xgdz2]").show();
 		var dz1 = $(this).siblings("h3").children('.sp1').text();  /*电话*/

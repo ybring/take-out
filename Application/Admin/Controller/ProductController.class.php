@@ -72,9 +72,9 @@ class ProductController extends BaseController {
         $name=I('name');
         $type_id=I('type_id');
         $price=I('price');
-        if($name=="" || $price ==""){
-             $this->assign('jumpUrl', "javascript:window.parent.location.reload();");
-            $this->error('数据不完善','',1);
+        if($name=="" || $price =="" ){
+             //$this->assign('jumpUrl', "javascript:window.parent.location.reload();");
+            $this->error('数据不完善','product_add_cp',1);
             exit;
         }
         $upload = new \Think\Upload();// 实例化上传类
@@ -122,8 +122,8 @@ class ProductController extends BaseController {
             'thumb'=>$thumb,
             );
            $this->product->add($data);
-           $this->assign('jumpUrl', "javascript:window.parent.location.reload();");
-            $this->success('添加产品成功','',1);
+           //$this->assign('jumpUrl', "javascript:window.parent.location.reload();");
+            $this->success('添加产品成功','product_add_cp',1);
           
         }
 
@@ -175,7 +175,7 @@ class ProductController extends BaseController {
         unlink($thumb_url);
         unlink($img_url);
         $this->product->delete($id);
-        $$data['msg']="删除成功！";
+        $data['msg']="删除成功！";
         $this->ajaxReturn($data);
     }
      /**
@@ -185,7 +185,7 @@ class ProductController extends BaseController {
      */
     public function product_del_all(){
         $id = I('id');
-        $data =['msg'=>'删除失败', 'code'=>1];
+        $data =['msg'=>'删除失败', 'code'=>0];
         $info =  $this->product->select($id);
         //dump($info); 
         $res=$this->product->delete($id);

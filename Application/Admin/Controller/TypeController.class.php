@@ -43,9 +43,9 @@ class TypeController extends BaseController {
      public function type_add_cp_in(){
             $this->type->create();
             //$res = $this->type->add();
-            $data =['msg'=>'修改失败'];
+            $data =['msg'=>'添加失败'];
             if($this->type->add()){
-                $data['msg'] ='修改成功';
+                $data['msg'] ='添加成功';
             } 
             $this->ajaxReturn($data);
     }

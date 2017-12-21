@@ -13,7 +13,7 @@
     
     <script type="text/javascript">
         
-        (function(document, screen) {if (screen.width < 760) {document.location.href="/mobile/";}}(document, screen));
+        (function(document, screen) {if (screen.width < 0) {document.location.href="/mobile/";}}(document, screen));
     </script>
     
     <link rel="stylesheet" href="/waimai/Public/Home/css/common.css?v=2015-5-20"/>
@@ -147,63 +147,28 @@
                 </li><?php endforeach; endif; else: echo "" ;endif; ?>
 
 
-                <div style="clear:both;"></div>
+                <div class="addaf" style="clear:both;"></div>
             </ul>
             <br>
             <button class="pay-xdz-btn">使用新地址</button>
 
 			<form novalidate="true" name="orderForm" class="order-form inline">
-                <div ng-show="userAddressList.length == 0">
-                    <div class="form-group row mb10">
-                        <label class="require col-2">收单人：</label>
-                        <div class="col-8">
-                            <input type="text" required ng-blur="orderForm.name.blur=true" ng-focus="orderForm.name.blur=false" maxlength="10"
-                                   ng-class="{error:(orderForm.submit || orderForm.name.blur) && orderForm.name.$invalid}" name="name" placeholder="您的称呼" ng-model="name">
-                        </div>
-                        <div class="col-8 col-offset-2 disnone" ng-class="{disnone : !((orderForm.submit && orderForm.name.$invalid) || (!orderForm.submit && orderForm.name.blur && orderForm.name.$invalid))}">
-                            <span class="vaildate-error">称呼不能为空</span>
-                        </div>
-                    </div>
-                    <div class="form-group row mb10">
-                        <label class="require col-2">手机号码：</label>
-                        <div  class="col-8">
-                            <input type="text" maxlength="11"  ng-blur="orderForm.contact.blur=true" ng-focus="orderForm.contact.blur=false" required mobile
-                                   ng-class="{error:(orderForm.submit || orderForm.contact.blur) && orderForm.contact.$invalid}" name="contact" placeholder="您的联系方式" ng-model="phone">
-                        </div>
-                        <div class="col-8 col-offset-2 disnone" ng-class="{disnone: !((orderForm.submit || orderForm.contact.blur) && orderForm.contact.$error.required)}">
-                            <span class="vaildate-error">联系方式不能为空</span>
-                        </div>
-                        <div class="col-8 col-offset-2 disnone" ng-class="{disnone: !(orderForm.contact.blur && orderForm.contact.$error.mobile&&!orderForm.contact.$error.required)}">
-                            <span class="vaildate-error">请输入正确的11位手机号码</span>
-                        </div>
-                    </div>
-                    <div class="form-group row mb10">
-                        <label class="require col-2">送餐地址：</label>
-                        <div class="col-8">
-                            <input type="text" required ng-blur="orderForm.address.blur=true" ng-focus="orderForm.address.blur=false"
-                                   ng-class="{error:(orderForm.submit || orderForm.address.blur) && orderForm.address.$invalid}" name="address" placeholder="详细地址，如武定西路1189号606室" ng-model="address">
-                        </div>
-                        <div class="col-8 col-offset-2 disnone" ng-class="{disnone: !((orderForm.submit && orderForm.address.$invalid) || (!orderForm.submit && orderForm.address.blur && orderForm.address.$invalid))}">
-                            <span class="vaildate-error">送餐地址不能为空</span>
-                        </div>
-                    </div>
-                </div>
 				<div class="form-group row mb10">
 					<label class="col-2">送餐时间：</label>
 					<dh-select class="col-8" data="selectObj" selectedindex="datetimeIndex"></dh-select>
 				</div>
                 <div class="form-group row mb10 relative">
                     <label class="col-2">支付方式：</label>
-                    
+
                     <dh-radio class="col-2" model="payType" value="0" title="餐到付款"></dh-radio>
                     <em ng-init="payType=2"></em>
                     <dh-radio class="col-2" model="payType" value="1" title="餐到付款1"></dh-radio>
                     <em ng-init="payType=1"></em>
                     <dh-radio class="col-2" model="payType" value="2" title="餐到付款2"></dh-radio>
                     <em ng-init="payType=0"></em>
-                    
-                    
-                    
+
+
+
                 </div>
 				<div class="form-group row mb10">
 					<label class="col-2">备注信息：</label>
@@ -437,6 +402,7 @@
   <script type="text/javascript" src="/waimai/Public/Home/js/zhonglin.js"></script>
     <!-- 提交订单 -->
     <script>
+        var orid = 0;
     $('#tijiaodingdan').click(function(){
         var load = layer.load(3, {time: 10*1000}); //又换了种风格，并且设定最长等待10秒
         var add_id =$('.pay-dz .current input[name=id]').val();//地址的id
@@ -447,10 +413,11 @@
             if(re.code==1){
                 layer.msg(re.msg,{icon: 6},function(){
                     layer.close(load);
+                    orid = 1;
                     location.href = "order_success";
                 });
             }else {
-                layer.msg("出错了",{icon: 5},function(){
+                layer.msg(re.msg,{icon: 5},function(){
                     layer.close(load);
                 });
                 return false;
@@ -460,6 +427,7 @@
     $('#xgdd').click(function(){
         var load = layer.load(3, {time: 10*1000}); //又换了种风格，并且设定最长等待10秒
         $.get('de_or',function(result){
+            orid = 1;
             if(!result){
                 layer.msg("出错了",{icon: 5},function(){
                     layer.close(load);

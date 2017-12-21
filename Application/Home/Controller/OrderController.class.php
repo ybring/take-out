@@ -122,6 +122,10 @@ class OrderController extends CommonController {
         $id=session('order_id');
         $user_id=session('user_id');
         $address_id=I('address_id');
+        if(!$address_id){
+            $re['code']=0;$re['msg']="没有送餐地址地址不能下单！";
+            $this->ajaxReturn($re);
+        }
         $time_of_delivery=I('time_of_delivery');
         $remarks=I('remarks');
         $data =array('address_id'=>$address_id,'time_of_delivery'=>$time_of_delivery,'remarks'=>$remarks);
@@ -131,6 +135,7 @@ class OrderController extends CommonController {
         $order -> where(array('id'=>$id,'users_id'=>$user_id))->save($data);
         $re['msg']="已提交订单！";
         $re['code']=1;
+        session('order_id',null);
         $this->ajaxReturn($re);
     }
     public function de_or(){
@@ -141,6 +146,7 @@ class OrderController extends CommonController {
         }
         $order = D('order');
         $result = $order->relation(true)->delete($id);//select($id);
+        session('order_id',null);
         $this->ajaxReturn($result);
     }
 }

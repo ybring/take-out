@@ -12,7 +12,7 @@
     
     <script type="text/javascript">
         
-        (function(document, screen) {if (screen.width < 760) {document.location.href="/mobile/";}}(document, screen));
+        (function(document, screen) {if (screen.width < 0) {document.location.href="/mobile/";}}(document, screen));
     </script>
     
     <link rel="stylesheet" href="/waimai/Public/Home/css/common.css?v=2015-5-20"/>
@@ -173,7 +173,7 @@
                 </li><?php endforeach; endif; else: echo "" ;endif; ?>
 
 
-            <div style="clear:both;"></div>
+            <div class="addaf"  style="clear:both;"></div>
         </ul>
         <br>
         <button class="pay-xdz-btn">使用新地址</button>

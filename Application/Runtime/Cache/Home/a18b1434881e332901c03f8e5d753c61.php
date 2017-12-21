@@ -14,7 +14,7 @@
     
     <script type="text/javascript">
         
-        (function(document, screen) {if (screen.width < 760) {document.location.href="/mobile/";}}(document, screen));
+        (function(document, screen) {if (screen.width < 0) {document.location.href="/mobile/";}}(document, screen));
     </script>
     <link rel="stylesheet" href="/waimai/Public/layui/css/layui.css"/>
     <link rel="stylesheet" href="/waimai/Public/Home/css/common.css?v=2015-5-20"/>
@@ -110,7 +110,8 @@
                             <colgroup>
                                 <col width="200">
                                 <col width="160">
-                                <col width="300">
+                                <col width="280">
+                                <col>
                                 <col>
                             </colgroup>
                             <thead>
@@ -118,6 +119,7 @@
                                 <th style="padding-left: 40px;">订单号：<?php echo ($vo["id"]); ?></th>
                                 <th>送餐时间：<?php echo ($vo["time_of_delivery"]); ?></th>
                                 <th>下单日期：<?php echo ($vo["order_date"]); ?></th>
+                                <th>订单状态</th>
                                 <th>操作</th>
                             </tr>
                             </thead>
@@ -126,6 +128,12 @@
                                 <th style="padding-left: 40px;">手机：<?php echo ($vo["address"]["customer_phone"]); ?></th>
                                 <th>姓名：<?php echo ($vo["address"]["customer_name"]); ?></th>
                                 <th>地址：<?php echo ($vo["address"]["delivery_address"]); ?></th>
+                                <th>
+                                    <?php if($vo["or_state"] == 0): ?>待送餐
+                                        <?php elseif($vo["or_state"] == 1): ?><a href="JavaScript:;" id="<?php echo ($vo["id"]); ?>" class="qdsh" title="送货中">确定收货</a>
+                                        <?php elseif($vo["or_state"] == 2): ?>订单完成
+                                        <?php else: ?> 无状态<?php endif; ?>
+                                </th>
                                 <th><a href="JavaScript:;" id="<?php echo ($vo["id"]); ?>" class="shanchu">删除</a></th>
                             </tr>
                             </thead>
@@ -274,7 +282,7 @@
     $(".shanchu").click(function(){
         var id =this.id;
         layer.confirm('确定要删除订单吗？', {icon: 3, title:'提示'}, function(index){
-            $.post("<?php echo U('Order/de_or');?>",{'id':id},function(result){
+            $.post("<?php echo U('User/de_or');?>",{'id':id},function(result){
                 if(result){
                     layer.msg('删除成功！');window.location.reload();
                 }else {
@@ -284,7 +292,24 @@
             layer.close(index);
         });
     });
-
+    //确定收货
+$('.qdsh').click(function(){
+    var id =this.id;
+    layer.confirm("<input class='pwd' type='password' />",{title:'请输入密码'},function(index){
+        var pwd = $('.pwd').val();
+        if(pwd){
+            $.post("<?php echo U('/Home/User/pwd');?>",{'pwd':pwd,'id':id},function(r){
+                if(r.code == 1){
+                    layer.msg('已确定收货！');window.location.reload();
+                }else{
+                    layer.msg('操作失败！');
+                    return false;
+                 }
+            });
+        }
+        layer.close(index);
+    });
+});
 </script>
 </body>
 </html>
