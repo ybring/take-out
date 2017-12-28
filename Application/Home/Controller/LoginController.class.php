@@ -24,6 +24,7 @@ class LoginController extends Controller {
     public function login_in(){  
     	$data =array('msg'=>'验证码错误','code'=>false);
        	$code =I('code');
+
        	$phone =I('post.phone');
     	$password =I('post.password'); 
         $verify = new \Think\Verify(); 
@@ -42,6 +43,11 @@ class LoginController extends Controller {
         		$data['code'] = false;
         		$this->ajaxReturn($data);exit();   
         	}
+			if($res['is_de'] ==1){
+				$data['msg'] ='手机号已被管理员停用！';
+				$data['code'] = false;
+				$this->ajaxReturn($data);exit();
+			}
         	//验证密码 是否 正确
         	if(password_verify($password, $res['password'])){
         		//

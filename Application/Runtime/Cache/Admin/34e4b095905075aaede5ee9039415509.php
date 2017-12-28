@@ -30,7 +30,7 @@
 		<div class="cl pd-5 bg-1 bk-gray mt-20"> 
 			<span class="l">
 				<a href="javascript:;" onclick="datadel()" class="btn btn-danger radius"><i class="Hui-iconfont">&#xe6e2;</i> 批量删除</a> 
-				<a class="btn btn-primary radius" onclick="product_add_cp('添加产品','product_add_cp')" href="javascript:;"><i class="Hui-iconfont">&#xe600;</i> 添加产品</a>
+				<a class="btn btn-primary radius" onclick="product_add_cp('添加产品','/waimai/Admin/Product/product_add_cp')" href="javascript:;"><i class="Hui-iconfont">&#xe600;</i> 添加产品</a>
 				<a class="btn btn-success radius "   href="javascript:location.replace(location.href);" title="刷新" >刷新</a>
 				
 			</span> 

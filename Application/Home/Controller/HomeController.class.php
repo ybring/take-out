@@ -13,8 +13,8 @@ class HomeController extends Controller {
         $qrcodeplus = new QrCodePlus();
         $qrcodeplus->setText('http://ybring.github.io');
         $qrcodeplus->setSize(400)->setLabel('沙漏外卖')->setMargin(10)->setEncoding('UTF-8')
-            ->setErrorCorrectionLevel(medium)->setLogoPath('./public/upload/2014912.jpg')
-            ->setLogoWidth(100);
+            ->setErrorCorrectionLevel(high)->setLogoPath('./public/shalou.jpg')
+            ->setLogoWidth(150);
         try
         {
             // 设置颜色， 四种或者九种或者十六种

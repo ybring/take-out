@@ -43,7 +43,7 @@
                             <li><a href="<?php echo U('Home/Index/index');?>" class="index">首页</a></li>
                         
         <?php if($user_phone): ?><li class="userName">
-                                <a href="member_index.html" rel="nofollow" draw-user><?php echo ($user_phone); ?><em></em></a>
+                                <a href="<?php echo U('Home/User/index');?>" rel="nofollow" draw-user><?php echo ($user_phone); ?><em></em></a>
                                 <div>
                                     <p><a href="<?php echo U('Home/User/index');?>"  rel="nofollow">账号管理</a></p>
                                     <p><a href="<?php echo U('Home/User/user_addr');?>"  rel="nofollow">地址管理</a></p>

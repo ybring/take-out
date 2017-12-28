@@ -31,7 +31,7 @@ class OrderController extends CommonController {
         $this->assign('or', $or);
         //读出地址
         $this->add=M('deliveryaddress');
-   		$add = $this->add->where(array('users_id'=>$id))->limit(10)->select();
+   		$add = $this->add->where(array('users_id'=>$id))->order('id')->limit(10)->select();
    		$this->assign('list', $add);
     	$this->assign('add', json_encode($add));
         $this->assign('ors', json_encode($or));

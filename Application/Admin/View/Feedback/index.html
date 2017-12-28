@@ -24,7 +24,10 @@
 </head>
 <body>
 <div class="page-container">
-	<div class="cl pd-5 bg-1 bk-gray mt-20"> <span class="l"><a href="javascript:;" onclick="datadel()" class="btn btn-danger radius"><i class="Hui-iconfont">&#xe6e2;</i> 批量删除</a> </span><span class="2"><a style="margin: 0px 10px;" class="btn btn-success radius "   href="javascript:location.replace(location.href);" title="刷新" >刷新</a> </div>
+	<div class="cl pd-5 bg-1 bk-gray mt-20">
+		<span class="l"><a href="javascript:;" onclick="datadel()" class="btn btn-danger radius">
+			<i class="Hui-iconfont">&#xe6e2;</i> 批量删除</a> </span>
+		<span class="2"><a style="margin: 0px 10px;" class="btn btn-success radius "   href="javascript:location.replace(location.href);" title="刷新" >刷新</a> </div>
 	<div class="mt-20">
 		<table class="table table-border table-bordered table-hover table-bg table-sort">
 			<thead>

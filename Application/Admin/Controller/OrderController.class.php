@@ -11,7 +11,7 @@ class OrderController extends BaseController {
        $this->order = D('order');
    }
     public function index() {
-        $data=$this->order->where("or_state <> 3")->relation('address')->select();
+        $data=$this->order->where("or_state < 2")->relation('address')->select();
         //dump($data);exit();
         $this->assign('list',$data);
         $this->display();
@@ -67,15 +67,20 @@ class OrderController extends BaseController {
         }
         $id=I('post.id');
         $order = D('order');
-        $result = $order->relation(true)->delete($id);//select($id);
+        $result = $order->where("id=$id AND or_de=1")->relation(true)->delete();//select($id);
         if(!$result){
             $r['code'] = 0;
-            $r['msg'] = "删除失败!";
+            $r['msg'] = "用户未删除所以删除失败!";
             $this->ajaxReturn($r);
         }
         $r['code'] = 1;
-        $r['msg'] = "删除成功!";
+        $r['msg'] = "删除订单成功!";
         $this->ajaxReturn($r);
     }
-
+    public function ordered() {
+        $data=$this->order->where("or_state=2")->relation('address')->select();
+        //dump($data);exit();
+        $this->assign('list',$data);
+        $this->display();
+    }
 }

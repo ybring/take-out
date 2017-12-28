@@ -81,7 +81,6 @@
     // 发送验证码 的js
       function get_mobile_code(){
         $.post('send_code', {mobile:jQuery.trim($('#mobile').val()),send_code:<?php echo $_SESSION['send_code'];?> }, function(msg) {
-
            // alert(jQuery.trim(unescape(msg)));
             //提交成功 提示框
       if(msg=='提交成功'){

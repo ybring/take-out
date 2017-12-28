@@ -1,4 +1,4 @@
-﻿<!DOCTYPE HTML>
+<?php if (!defined('THINK_PATH')) exit();?>﻿<!DOCTYPE HTML>
 <html>
 <head>
 <meta charset="utf-8">
@@ -7,20 +7,20 @@
 <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" />
 <meta http-equiv="Cache-Control" content="no-siteapp" />
 <!--[if lt IE 9]>
-<script type="text/javascript" src="__PUBLIC__/Backstage/lib/html5shiv.js"></script>
-<script type="text/javascript" src="__PUBLIC__/Backstage/lib/respond.min.js"></script>
+<script type="text/javascript" src="/waimai/Public/Backstage/lib/html5shiv.js"></script>
+<script type="text/javascript" src="/waimai/Public/Backstage/lib/respond.min.js"></script>
 <![endif]-->
-<link rel="stylesheet" type="text/css" href="__PUBLIC__/Backstage/static/h-ui/css/H-ui.min.css" />
-<link rel="stylesheet" type="text/css" href="__PUBLIC__/Backstage/static/h-ui.admin/css/H-ui.admin.css" />
-<link rel="stylesheet" type="text/css" href="__PUBLIC__/Backstage/lib/Hui-iconfont/1.0.8/iconfont.css" />
-<link rel="stylesheet" type="text/css" href="__PUBLIC__/Backstage/static/h-ui.admin/skin/default/skin.css" id="skin" />
-<link rel="stylesheet" type="text/css" href="__PUBLIC__/Backstage/static/h-ui.admin/css/style.css" />
+<link rel="stylesheet" type="text/css" href="/waimai/Public/Backstage/static/h-ui/css/H-ui.min.css" />
+<link rel="stylesheet" type="text/css" href="/waimai/Public/Backstage/static/h-ui.admin/css/H-ui.admin.css" />
+<link rel="stylesheet" type="text/css" href="/waimai/Public/Backstage/lib/Hui-iconfont/1.0.8/iconfont.css" />
+<link rel="stylesheet" type="text/css" href="/waimai/Public/Backstage/static/h-ui.admin/skin/default/skin.css" id="skin" />
+<link rel="stylesheet" type="text/css" href="/waimai/Public/Backstage/static/h-ui.admin/css/style.css" />
 <!--[if IE 6]>
-<script type="text/javascript" src="__PUBLIC__/Backstage/lib/DD_belatedPNG_0.0.8a-min.js" ></script>
+<script type="text/javascript" src="/waimai/Public/Backstage/lib/DD_belatedPNG_0.0.8a-min.js" ></script>
 <script>DD_belatedPNG.fix('*');</script>
 <![endif]-->
 <title>订单管理</title>
-<link rel="stylesheet" href="__PUBLIC__/Backstage/lib/zTree/v3/css/zTreeStyle/zTreeStyle.css" type="text/css">
+<link rel="stylesheet" href="/waimai/Public/Backstage/lib/zTree/v3/css/zTreeStyle/zTreeStyle.css" type="text/css">
 </head>
 <body class="pos-r">
 	<div class="page-container">
@@ -46,36 +46,22 @@
 					</tr>
 				</thead>
 				<tbody>
-				<volist name="list" id='vo'>
-					<tr class="text-c va-m">
-						<td><input id="{$vo.id}" name="del" type="checkbox" value="{$vo.id}"></td>
-						<td>{$vo.id}</td>
-						<td class="text-1" >{$vo.address.customer_phone} 姓名:{$vo.address.customer_name}<br> {$vo.address.delivery_address} </td>
-						<td class="text-2">{$vo.order_date}<br>送餐时间:{$vo.time_of_delivery} {$vo.remarks} </td>
-						<td><span class="price">{$vo.total}</span> 元</td>
-						<td class="text-2"><a class="ml-5" onClick="order_show('订单 {$vo.id} 详情','__URL__/order_show',{$vo.id})" href="javascript:;" title="订单详情">订单详情</a></td>
+				<?php if(is_array($list)): $i = 0; $__LIST__ = $list;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vo): $mod = ($i % 2 );++$i;?><tr class="text-c va-m">
+						<td><input id="<?php echo ($vo["id"]); ?>" name="del" type="checkbox" value="<?php echo ($vo["id"]); ?>"></td>
+						<td><?php echo ($vo["id"]); ?></td>
+						<td class="text-1" ><?php echo ($vo["address"]["customer_phone"]); ?> 姓名:<?php echo ($vo["address"]["customer_name"]); ?><br> <?php echo ($vo["address"]["delivery_address"]); ?> </td>
+						<td class="text-2"><?php echo ($vo["order_date"]); ?><br>送餐时间:<?php echo ($vo["time_of_delivery"]); ?> <?php echo ($vo["remarks"]); ?> </td>
+						<td><span class="price"><?php echo ($vo["total"]); ?></span> 元</td>
+						<td class="text-2"><a class="ml-5" onClick="order_show('订单 <?php echo ($vo["id"]); ?> 详情','/waimai/Admin/Order/order_show',<?php echo ($vo["id"]); ?>)" href="javascript:;" title="订单详情">订单详情</a></td>
 						<td class="td-status">
-							<if condition="$vo['or_state'] eq 1">
-									<span class="label label-success radius">已点击送餐</span>
-								<elseif condition="$vo['or_state'] eq 0"/>
-									<span class="label label-defaunt radius">快点送餐吧！</span>
-								<else/>
-									<span class="label label-success radius">已签收</span>
-							</if>
+							<?php if($vo['or_de'] == 1): ?><span id="$vo['or_de']" class="label label-error radius">用户已删除</span>
+								<?php else: ?>
+								<span class="label label-success radius">已签收</span><?php endif; ?>
 						</td>
 						<td class="td-manage">
-							<if condition="$vo['or_state'] eq 1">
-									<a style="text-decoration:none" onClick="order_stop(this,{$vo.id})" href="javascript:;" title="取消送餐"><i class="Hui-iconfont">&#xe6de;</i></a>
-								<elseif condition="$vo['or_state'] eq 0"/>
-									<a style="text-decoration:none" onClick="order_start(this,{$vo.id})" href="javascript:;" title="点击送餐"><i class="Hui-iconfont">&#xe603;</i></a>
-								<else/>
 									<span class="label label-success radius">已签收</span>
-							</if>
-
-
-							<a style="text-decoration:none" class="ml-5" onClick="order_del(this,{$vo.id})" href="javascript:;" title="删除"><i class="Hui-iconfont">&#xe6e2;</i></a></td>
-					</tr>
-					</volist>
+							<a style="text-decoration:none" class="ml-5" onClick="order_del(this,<?php echo ($vo["id"]); ?>)" href="javascript:;" title="删除"><i class="Hui-iconfont">&#xe6e2;</i></a></td>
+					</tr><?php endforeach; endif; else: echo "" ;endif; ?>
 				</tbody>
 			</table>
 		</div>
@@ -83,16 +69,16 @@
 
 
 <!--_footer 作为公共模版分离出去-->
-<script type="text/javascript" src="__PUBLIC__/Backstage/lib/jquery/1.9.1/jquery.min.js"></script>
-<script type="text/javascript" src="__PUBLIC__/Backstage/lib/layer/2.4/layer.js"></script>
-<script type="text/javascript" src="__PUBLIC__/Backstage/static/h-ui/js/H-ui.min.js"></script>
-<script type="text/javascript" src="__PUBLIC__/Backstage/static/h-ui.admin/js/H-ui.admin.js"></script> <!--/_footer 作为公共模版分离出去-->
+<script type="text/javascript" src="/waimai/Public/Backstage/lib/jquery/1.9.1/jquery.min.js"></script>
+<script type="text/javascript" src="/waimai/Public/Backstage/lib/layer/2.4/layer.js"></script>
+<script type="text/javascript" src="/waimai/Public/Backstage/static/h-ui/js/H-ui.min.js"></script>
+<script type="text/javascript" src="/waimai/Public/Backstage/static/h-ui.admin/js/H-ui.admin.js"></script> <!--/_footer 作为公共模版分离出去-->
 
 <!--请在下方写此页面业务相关的脚本-->
-<script type="text/javascript" src="__PUBLIC__/Backstage/lib/zTree/v3/js/jquery.ztree.all-3.5.min.js"></script>
-<script type="text/javascript" src="__PUBLIC__/Backstage/lib/My97DatePicker/4.8/WdatePicker.js"></script>
-<script type="text/javascript" src="__PUBLIC__/Backstage/lib/datatables/1.10.0/jquery.dataTables.min.js"></script>
-<script type="text/javascript" src="__PUBLIC__/Backstage/lib/laypage/1.2/laypage.js"></script>
+<script type="text/javascript" src="/waimai/Public/Backstage/lib/zTree/v3/js/jquery.ztree.all-3.5.min.js"></script>
+<script type="text/javascript" src="/waimai/Public/Backstage/lib/My97DatePicker/4.8/WdatePicker.js"></script>
+<script type="text/javascript" src="/waimai/Public/Backstage/lib/datatables/1.10.0/jquery.dataTables.min.js"></script>
+<script type="text/javascript" src="/waimai/Public/Backstage/lib/laypage/1.2/laypage.js"></script>
 <script type="text/javascript">
 var setting = {
 	view: {
@@ -154,7 +140,7 @@ function order_stop(obj,id){
 	layer.confirm('确认要取消送餐吗？',function(index){
 		layer.load(2, {time: 1000});
 		layer.close(index);
-		$.post('__URL__/order_stop',{_id:id},function(data){
+		$.post('/waimai/Admin/Order/order_stop',{_id:id},function(data){
 			if(data.code == 1){
 				$(obj).parents("tr").find(".td-manage").prepend('<a style="text-decoration:none" onClick="order_start(this,'+id+')" href="javascript:;" title="点击送餐"><i class="Hui-iconfont">&#xe603;</i></a>');
 				$(obj).parents("tr").find(".td-status").html('<span class="label label-defaunt radius">快点送餐吧！</span>');
@@ -174,7 +160,7 @@ function order_start(obj,id){
 	layer.confirm('确定已经送餐了吗？',function(index){
 		layer.load(2, {time: 1000});
 		layer.close(index);
-		$.post('__URL__/order_start',{_id:id},function(data){
+		$.post('/waimai/Admin/Order/order_start',{_id:id},function(data){
 			if(data.code == 1){
 				$(obj).parents("tr").find(".td-manage").prepend('<a style="text-decoration:none" onClick="order_stop(this,'+id+')" href="javascript:;" title="取消送餐"><i class="Hui-iconfont">&#xe6de;</i></a>');
 				$(obj).parents("tr").find(".td-status").html('<span class="label label-success radius">已点击送餐</span>');
@@ -205,7 +191,7 @@ function order_del(obj,id){
 		layer.close(index);
 		$.ajax({
 			type: 'POST',
-			url: "{:U('/Admin/Order/de_or')}",
+			url: "<?php echo U('/Admin/Order/de_or');?>",
 			data:{'id':id},
 			dataType: 'json',
 			success: function(r){
@@ -215,6 +201,7 @@ function order_del(obj,id){
 				}else{
 					layer.msg(r.msg,{icon:1,time:1000});
 				}
+
 			},
 			error:function(r) {
 				console.log(r.msg);
@@ -229,7 +216,7 @@ function datadel(){
 		$('input[name=del]:checked').each(function(){
 			var _id = $(this).val();
 			var that = $(this);
-			$.post("{:U('/Admin/Order/de_or')}", {id:_id}, function(r){
+			$.post("<?php echo U('/Admin/Order/de_or');?>", {id:_id}, function(r){
 				if(r.code ==1){
 					that.parent().parent().remove();
 					layer.msg(r.msg,{icon:1,time:1000});

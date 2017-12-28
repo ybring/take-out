@@ -203,8 +203,12 @@ function order_del(obj,id){
 			data:{'id':id},
 			dataType: 'json',
 			success: function(r){
-				$(obj).parents("tr").remove();
-				layer.msg(r.msg,{icon:1,time:1000});
+				if(r.code == 1){
+					$(obj).parents("tr").remove();
+					layer.msg(r.msg,{icon:1,time:1000});
+				}else{
+					layer.msg(r.msg,{icon:1,time:1000});
+				}
 			},
 			error:function(r) {
 				console.log(r.msg);

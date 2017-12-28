@@ -112,8 +112,9 @@ class RegisterController extends Controller {
 			//exit('注册成功。');	
 			$phone=$_POST['mobile'];
 			$password=$_POST['password'];
+			$newtime = date('Y-m-d H:i:s',time());
 			$password=password_hash($password,PASSWORD_DEFAULT);
-			$user=array('phone'=>$phone,'password'=>$password);
+			$user=array('phone'=>$phone,'password'=>$password,'add_time'=>$newtime);
 			$users =M('users');
 			$users->add($user);
 			$data['msg'] ='注册成功！';$data['code'] =1;
