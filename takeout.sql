@@ -1,5 +1,5 @@
 ﻿# Host: localhost  (Version: 5.5.53)
-# Date: 2017-11-30 15:45:31
+# Date: 2017-12-28 20:37:49
 # Generator: MySQL-Front 5.3  (Build 4.234)
 
 /*!40101 SET NAMES utf8 */;
@@ -23,7 +23,7 @@ CREATE TABLE `admin` (
 # Data for table "admin"
 #
 
-REPLACE INTO `admin` VALUES (1,'admin','$2y$10$cpSBgOi4Ns9caOi8TKlTBuS3ko6jh0aLF.C7TU7K6E5Aljn9bVyme','2017-11-19 13:42:32','2017-11-30 15:44:16','0.0.0.0',30);
+REPLACE INTO `admin` VALUES (1,'admin','$2y$10$cpSBgOi4Ns9caOi8TKlTBuS3ko6jh0aLF.C7TU7K6E5Aljn9bVyme','2017-12-28 14:51:47','2017-12-28 19:56:24','0.0.0.0',44);
 
 #
 # Structure for table "deliveryaddress"
@@ -36,13 +36,13 @@ CREATE TABLE `deliveryaddress` (
   `delivery_address` varchar(255) DEFAULT NULL COMMENT '送餐地址',
   `users_id` int(11) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=69 DEFAULT CHARSET=utf8 COMMENT='送餐地址信息';
+) ENGINE=MyISAM AUTO_INCREMENT=98 DEFAULT CHARSET=utf8 COMMENT='送餐地址信息';
 
 #
 # Data for table "deliveryaddress"
 #
 
-REPLACE INTO `deliveryaddress` VALUES (67,'zheng','15277165464','南宁市民族大学',4),(68,'sun','15277165464','广西南宁市西乡塘区广西机电职业技术学院',4);
+REPLACE INTO `deliveryaddress` VALUES (95,'饿','15274645647','的',4),(96,'ybr','15277165464','广西机电职业技术学院6006',4),(97,'dd','15277165464','ewqr',4);
 
 #
 # Structure for table "feedback"
@@ -54,13 +54,12 @@ CREATE TABLE `feedback` (
   `opinion` varchar(255) DEFAULT NULL COMMENT '反馈意见',
   `time` datetime DEFAULT NULL COMMENT '提交时间',
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=6 DEFAULT CHARSET=utf8 COMMENT='意见反馈';
+) ENGINE=MyISAM AUTO_INCREMENT=5177 DEFAULT CHARSET=utf8 COMMENT='意见反馈';
 
 #
 # Data for table "feedback"
 #
 
-REPLACE INTO `feedback` VALUES (1,'9','=',NULL),(2,'蛐蛐','订单',NULL),(3,'1','2','2017-11-16 11:36:57'),(4,'1','2','2017-11-16 11:37:07'),(5,'15277165464','111','2017-11-30 14:35:04');
 
 #
 # Structure for table "order"
@@ -69,19 +68,22 @@ REPLACE INTO `feedback` VALUES (1,'9','=',NULL),(2,'蛐蛐','订单',NULL),(3,'1
 CREATE TABLE `order` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `total` decimal(10,2) DEFAULT NULL COMMENT '合计-总价格',
-  `address_id` int(11) DEFAULT NULL COMMENT '地址Id',
+  `address_id` int(11) DEFAULT '0' COMMENT '地址Id',
   `users_id` int(11) DEFAULT NULL COMMENT '用户Id',
   `time_of_delivery` varchar(10) DEFAULT NULL COMMENT '送餐时间',
   `order_date` datetime DEFAULT NULL COMMENT '下单日期',
   `remarks` varchar(255) DEFAULT NULL COMMENT '备注信息',
   `ip` varchar(255) DEFAULT NULL,
+  `or_state` int(11) DEFAULT '0' COMMENT '订单状态',
+  `or_de` int(11) DEFAULT '0',
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=6 DEFAULT CHARSET=utf8 COMMENT='订单';
+) ENGINE=MyISAM AUTO_INCREMENT=35 DEFAULT CHARSET=utf8 COMMENT='订单';
 
 #
 # Data for table "order"
 #
 
+REPLACE INTO `order` VALUES (28,6886.00,96,4,'10:30','2017-12-21 17:07:43','addasdasdasdasd','0.0.0.0',0,0),(31,2555.00,95,4,'即时送出','2017-12-22 16:49:15','','0.0.0.0',1,0),(32,3889.00,95,4,'即时送出','2017-12-22 16:49:30','','0.0.0.0',2,0),(33,3673.00,96,4,'即时送出','2017-12-25 18:01:19','','0.0.0.0',0,0),(34,16665.00,95,4,'12:00','2017-12-25 18:01:49','','0.0.0.0',1,0);
 
 #
 # Structure for table "order_detail"
@@ -97,12 +99,13 @@ CREATE TABLE `order_detail` (
   `users_id` int(11) DEFAULT NULL COMMENT '用户ID',
   `order_id` int(11) DEFAULT NULL COMMENT '订单id',
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=25 DEFAULT CHARSET=utf8 COMMENT='订单详情表';
+) ENGINE=MyISAM AUTO_INCREMENT=78 DEFAULT CHARSET=utf8 COMMENT='订单详情表';
 
 #
 # Data for table "order_detail"
 #
 
+REPLACE INTO `order_detail` VALUES (68,155,'麻辣香虾',1,3333.00,3333.00,4,30),(69,154,'发财鸡',2,888.00,1776.00,4,30),(70,151,'三文鱼',1,998.00,998.00,4,30),(71,152,'麻辣披萨',1,559.00,559.00,4,31),(72,151,'三文鱼',2,998.00,1996.00,4,31),(73,167,'麻辣香虾',1,3333.00,3333.00,4,32),(74,153,'辣条抄豆角',1,556.00,556.00,4,32),(75,152,'麻辣披萨',3,559.00,1677.00,4,33),(76,151,'三文鱼',2,998.00,1996.00,4,33),(77,167,'麻辣香虾',5,3333.00,16665.00,4,34);
 
 #
 # Structure for table "product"
@@ -118,7 +121,7 @@ CREATE TABLE `product` (
   `up_down` int(11) DEFAULT '1' COMMENT '是否上架',
   `sold` int(11) DEFAULT '0' COMMENT '已销售',
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=200 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=234 DEFAULT CHARSET=utf8;
 
 #
 # Data for table "product"
@@ -136,7 +139,7 @@ CREATE TABLE `type` (
   `parent_id` int(11) DEFAULT NULL,
   PRIMARY KEY (`type_id`),
   UNIQUE KEY `type_name` (`type_name`)
-) ENGINE=MyISAM AUTO_INCREMENT=76 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=79 DEFAULT CHARSET=utf8;
 
 #
 # Data for table "type"
@@ -155,11 +158,14 @@ CREATE TABLE `users` (
   `lasttime` datetime DEFAULT NULL COMMENT '上次登录时间',
   `ip` varchar(255) DEFAULT NULL COMMENT '上次登录ip',
   `username` varchar(50) DEFAULT NULL COMMENT '用户名',
-  PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=5 DEFAULT CHARSET=utf8 COMMENT='用户管理';
+  `is_de` int(11) DEFAULT '0' COMMENT '是否停用或者理解为删除',
+  `add_time` datetime DEFAULT NULL COMMENT '加入时间',
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `phone` (`phone`)
+) ENGINE=MyISAM AUTO_INCREMENT=40 DEFAULT CHARSET=utf8 COMMENT='用户管理';
 
 #
 # Data for table "users"
 #
 
-REPLACE INTO `users` VALUES (2,'13507892836','$2y$10$jJnHzW44M8lpFftBLf40qe1ZQjoFfpjNumg.lX2GX6mtYWzUaWGaa','2017-11-17 18:06:43','0.0.0.0',NULL),(4,'15277165464','$2y$10$h7EaVRWbvD/ckVUi/xr1aOQqZ0RtsvLPlZpacCZQM5mKAYtu/mN2a','2017-11-30 11:38:35','0.0.0.0',NULL);
+REPLACE INTO `users` VALUES (4,'15277165464','$2y$10$97I188NbxrmbrsrwQIWmT.Su4.snD20/LBDFXIVWpSU1THBC/zwhq','2017-12-28 20:18:37','0.0.0.0',NULL,0,'2017-12-28 17:13:39'),(18,'15277165461','$2y$10$RBHNHvJ5xz075x1kkCjhPuFrHtvM7OJd29JuotBimOkoEJ3VWZ3FO','2017-12-28 17:56:36',NULL,NULL,0,'2017-12-28 17:56:36'),(19,'15277165462','$2y$10$mALWaWcnRZjB/We4wlSesexxv4OF3HuMtYdFI2pFy7oToK4MojVAS','2017-12-28 17:56:45',NULL,NULL,1,'2017-12-28 17:56:45');
