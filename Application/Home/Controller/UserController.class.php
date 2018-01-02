@@ -88,6 +88,15 @@ class UserController extends CommonController {
         $orid = I('post.id');
         if(password_verify($pwd,$info['password'])){
             M('order') ->where(array("id"=>$orid))->save(array('or_state'=>2));
+            $res=M('order_detail')->where(array("order_id"=>$orid))->select();
+            $this->product = M('product');
+            foreach($res as $re){
+                $nums =$this->product->find($re['product_id']);
+                $s=$re['nums']+0;
+                $ss=$nums['sold']+0;
+                $ss=$ss+$s;
+                    $this->product->where(array("id"=>$re['product_id']))->save(array('sold'=>$ss));
+            }
             $r['code']=1;
             $this->ajaxReturn($r);
         }

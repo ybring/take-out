@@ -60,8 +60,7 @@
                 document.getElementById('login').href += "?redirect_url=" + window.location.href;
             </script><?php endif; ?>
                             <li class=""><a href="<?php echo U('Home/User/user_order');?>" class="order-center"  rel="nofollow">我的订单</a></li>
-                            <li class=""><a href="<?php echo U('Home/User/user_collect');?>"  rel="nofollow">我的收藏</a></li>
-                            
+
                         </ul>
                     
                 </div>
@@ -69,7 +68,7 @@
             <div id="main-box">
                 <!--二维码-->
                 <div class="qrCode-frame" ng-hide="qrCodeStatus">
-                    <img width="160px" height="160px" src="<?php echo U('Home/index');?>" alt="扫描二维码"/>
+                    <img width="160px" height="160px" src="<?php echo U('/Home/Home/index');?>" alt="扫描二维码"/>
                     <em ng-click="qrCodeStatus=true">X</em>
                 </div>
         <div ng-controller="colorAction">
@@ -92,9 +91,7 @@
                     <li >
                         <a href="<?php echo U('Home/User/user_order');?>" rel="nofollow">我的订单</a>
                     </li>
-                    <li >
-                        <a href="<?php echo U('Home/User/user_collect');?>" rel="nofollow">我的收藏</a>
-                    </li>
+
                     <li >
                         <a href="<?php echo U('Home/User/user_addr');?>"  rel="nofollow">地址管理</a>
                     </li>
@@ -114,12 +111,8 @@
                 <span>**********</span>
                 <i class="icon edit-icon" ng-click="showChangePassword()"></i>
             </li>
-            <li>
-                <label>订单信息：</label>
-                <span>总计0单</span>
-                <span>成功0单</span>
-            </li>
-            <li><label>氪 星 币：</label><span ng-bind="0|number"></span>个&nbsp;&nbsp;<a href="/account/gift/center/" title="兑换礼品" class="c_f60">兑换礼品</a></li>
+
+
         </ul>
      </section>
 

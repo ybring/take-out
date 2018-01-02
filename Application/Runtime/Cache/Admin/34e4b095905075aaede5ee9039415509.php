@@ -42,6 +42,7 @@
 						<th width="40"><input name="" type="checkbox" value=""></th>
 						<th width="40">ID</th>
 						<th width="60">缩略图</th>
+						<th width="60">产品类别</th>
 						<th width="100">产品名称</th>
 						
 						<th width="100">单价</th>
@@ -53,6 +54,7 @@
 				<?php if(is_array($list)): $i = 0; $__LIST__ = $list;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vo): $mod = ($i % 2 );++$i;?><tr class="text-c va-m">
 						<td><input id="<?php echo ($vo["id"]); ?>" name="del" type="checkbox" value="<?php echo ($vo["id"]); ?>"></td>
 						<td><?php echo ($vo["id"]); ?></td>
+						<td><?php echo ($vo["type"]["type_name"]); ?></td>
 						<td><img width="60" class="product-thumb" src="/waimai/Public/Uploads/<?php echo ($vo["thumb"]); ?>"></a></td>
 						<td class="text-2"><?php echo ($vo["name"]); ?></td>
 					
@@ -124,7 +126,7 @@ $('.table-sort').dataTable({
 	"aaSorting": [[ 1, "desc" ]],//默认第几个排序
 	"bStateSave": true,//状态保存
 	"aoColumnDefs": [
-	  {"orderable":false,"aTargets":[0,6]}// 制定列不参与排序
+	  {"orderable":false,"aTargets":[0,7]}// 制定列不参与排序
 	]
 });
 /*产品-添加*/

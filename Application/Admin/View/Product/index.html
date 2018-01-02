@@ -42,6 +42,7 @@
 						<th width="40"><input name="" type="checkbox" value=""></th>
 						<th width="40">ID</th>
 						<th width="60">缩略图</th>
+						<th width="60">产品类别</th>
 						<th width="100">产品名称</th>
 						
 						<th width="100">单价</th>
@@ -54,6 +55,7 @@
 					<tr class="text-c va-m">
 						<td><input id="{$vo.id}" name="del" type="checkbox" value="{$vo.id}"></td>
 						<td>{$vo.id}</td>
+						<td>{$vo.type.type_name}</td>
 						<td><img width="60" class="product-thumb" src="__PUBLIC__/Uploads/{$vo.thumb}"></a></td>
 						<td class="text-2">{$vo.name}</td>
 					
@@ -130,7 +132,7 @@ $('.table-sort').dataTable({
 	"aaSorting": [[ 1, "desc" ]],//默认第几个排序
 	"bStateSave": true,//状态保存
 	"aoColumnDefs": [
-	  {"orderable":false,"aTargets":[0,6]}// 制定列不参与排序
+	  {"orderable":false,"aTargets":[0,7]}// 制定列不参与排序
 	]
 });
 /*产品-添加*/
@@ -177,10 +179,10 @@ function product_shenhe(obj,id){
 function product_stop(obj,id){
 	layer.confirm('确认要下架吗？',function(index){
 		layer.close(index);
-		$.post('product_stop',{_id:id},function(data){
+		$.post('__CONTROLLER__/product_stop',{_id:id},function(data){
 
 			if(data.code == 1){
-				$(obj).parents("tr").find(".td-manage").prepend('<a style="text-decoration:none" onClick="product_start(this,{$vo.id})" href="javascript:;" title="发布"><i class="Hui-iconfont">&#xe603;</i></a>');
+				$(obj).parents("tr").find(".td-manage").prepend('<a style="text-decoration:none" onClick="product_start(this,'+id+')" href="javascript:;" title="发布"><i class="Hui-iconfont">&#xe603;</i></a>');
 				$(obj).parents("tr").find(".td-status").html('<span class="label label-defaunt radius">已下架</span>');
 				$(obj).remove();
 				layer.msg(data.msg,{icon: 6,time:1000});
@@ -197,9 +199,9 @@ function product_stop(obj,id){
 function product_start(obj,id){
 	layer.confirm('确认要发布吗？',function(index){
 		layer.close(index);
-		$.post('product_start',{_id:id},function(data){
+		$.post('__CONTROLLER__/product_start',{_id:id},function(data){
 			if(data.code == 1){
-				$(obj).parents("tr").find(".td-manage").prepend('<a style="text-decoration:none" onClick="product_stop(this,{$vo.id})" href="javascript:;" title="下架"><i class="Hui-iconfont">&#xe6de;</i></a>');
+				$(obj).parents("tr").find(".td-manage").prepend('<a style="text-decoration:none" onClick="product_stop(this,'+id+')" href="javascript:;" title="下架"><i class="Hui-iconfont">&#xe6de;</i></a>');
 				$(obj).parents("tr").find(".td-status").html('<span class="label label-success radius">已发布</span>');
 				$(obj).remove();
 				layer.msg(data.msg,{icon: 6,time:1000});

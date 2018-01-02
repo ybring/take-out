@@ -61,8 +61,7 @@
                 document.getElementById('login').href += "?redirect_url=" + window.location.href;
             </script><?php endif; ?>
                             <li class=""><a href="<?php echo U('Home/User/user_order');?>" class="order-center"  rel="nofollow">我的订单</a></li>
-                            <li class=""><a href="<?php echo U('Home/User/user_collect');?>"  rel="nofollow">我的收藏</a></li>
-                            
+
                         </ul>
                     
                 </div>
@@ -70,7 +69,7 @@
             <div id="main-box">
                 <!--二维码-->
                 <div class="qrCode-frame" ng-hide="qrCodeStatus">
-                    <img width="160px" height="160px" src="<?php echo U('Home/index');?>" alt="扫描二维码"/>
+                    <img width="160px" height="160px" src="<?php echo U('/Home/Home/index');?>" alt="扫描二维码"/>
                     <em ng-click="qrCodeStatus=true">X</em>
                 </div>
         <div ng-controller="colorAction">
@@ -92,9 +91,7 @@
                     <li class="active">
                         <a href="<?php echo U('Home/User/user_order');?>" rel="nofollow">我的订单</a>
                     </li>
-                    <li >
-                        <a href="<?php echo U('Home/User/user_collect');?>" rel="nofollow">我的收藏</a>
-                    </li>
+
                     <li >
                         <a href="<?php echo U('Home/User/user_addr');?>"  rel="nofollow">地址管理</a>
                     </li>

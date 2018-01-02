@@ -102,7 +102,7 @@
 			<dd>
 				<ul>
 					<li><a data-href="<?php echo U('/Admin/Order/index');?>" data-title="送餐管理" href="javascript:void(0)">送餐管理</a></li>
-					<li><a data-href="<?php echo U('/Admin/Order/Ordered');?>" data-title="订单完成" href="javascript:void(0)">订单完成</a></li>
+					<li><a data-href="<?php echo U('/Admin/Order/ordered');?>" data-title="订单完成" href="javascript:void(0)">订单完成</a></li>
 				</ul>
 			</dd>
 		</dl>
